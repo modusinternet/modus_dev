@@ -55,16 +55,8 @@
 			var navActiveArray = ["link-sub-1-2","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
 		</script>
 		<style>
-			#loading_svg{
-				width:50%;height:50%;margin:auto;position:absolute;top:0;left:0;bottom:0;right:0;opacity: 1;
-				-webkit-transition: opacity 1s ease-out;
-				-moz-transition: opacity 1s ease-out;
-				-o-transition: opacity 1s ease-out;
-				-ms-transition: opacity 1s ease-out;
-				transition: opacity 1s ease-out;
-			}
+			#loading_svg{width:50%;height:50%;margin:auto;position:absolute;top:0;left:0;bottom:0;right:0;}
 			#loading_svg rect{fill:#FF6700;}
-			#loading_svg.fadeOut{opacity: 0;}
 			#wrapper{
 				opacity: 0;
 				-webkit-transition: opacity 1s ease-in;
@@ -76,7 +68,7 @@
 			#wrapper.fadeIn{opacity: 1;}
 		</style>
 	</head>
-	<body>
+	<body onload="fadeIn();">
 		{CCMS_TPL:header-body-loading.html}
 		<div id="wrapper">
 			<header>
@@ -171,10 +163,10 @@
 			// Fade in web page.
 			//$("#no-fouc").delay(200).animate({"opacity": "1"}, 500);
 			function fadeIn() {
-				document.getElementById("loading_svg").className += "fadeOut";
+				document.getElementById("loading_svg").style.display = "none";
 				document.getElementById("wrapper").className += "fadeIn";
 			}
-			setTimeout(fadeIn, 3000);
+			//setTimeout(fadeIn, 3000);
 
 
 
