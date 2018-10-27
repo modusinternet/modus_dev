@@ -66,7 +66,7 @@
 			#wrapper.fadeIn{opacity: 1;}
 		</style>
 	</head>
-	<body onload="fadeIn();">
+	<body>
 		{CCMS_TPL:header-body-loading.html}
 		<div id="wrapper">
 			<header>
@@ -249,7 +249,7 @@
 					/* Show loadig screen until JQuery is loaded. */
 					document.getElementById("loading_svg").style.display = "none";
 					document.getElementById("wrapper").className += "fadeIn";
-					
+
 					/* If the media device is 768px or less, in width, then standard navigation controls are removed and a more functional, left or right side, navigation for use on a cell phone or iPad's is enabled.  The following code is triggered when clicking on the "hamburger" button which updates the CSS on the NAV tag allowing it to open and close the mobile navigation controls. */
 					var contador = 1;
 					$("header > div > button").click(function() {
