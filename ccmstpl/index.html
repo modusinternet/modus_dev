@@ -46,14 +46,12 @@
 				]
 			}]
 		</script>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 		<script>
 			var navActiveSubArray = ["link-sub-1"];
 			var navActiveArray = ["link-sub-1-2","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
 		</script>
+
 		<style>
 			#loading_svg{width:50%;height:50%;margin:auto;position:absolute;top:0;left:0;bottom:0;right:0;}
 			#loading_svg rect{fill:#FF6700;}
@@ -231,19 +229,9 @@
 
 
 		<script>
-
-			/*
 			var cb = function() {
 				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/bootstrap-3.3.7.min.css";
-				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-
-				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/metisMenu-2.4.0.min.css";
-				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-
-				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/custodiancms.css";
+				l.href = "/ccmstpl/_css/style.css";
 				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
 				var l = document.createElement('link'); l.rel = 'stylesheet';
@@ -254,81 +242,57 @@
 			var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
 			if (raf) raf(cb);
 			else window.addEventListener('load', cb);
-			*/
 
+			function loadJSResources() {
+				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 
+					/* Show loadig screen until JQuery is loaded. */
+					document.getElementById("loading_svg").style.display = "none";
+					document.getElementById("wrapper").className += "fadeIn";
+					
+					/* If the media device is 768px or less, in width, then standard navigation controls are removed and a more functional, left or right side, navigation for use on a cell phone or iPad's is enabled.  The following code is triggered when clicking on the "hamburger" button which updates the CSS on the NAV tag allowing it to open and close the mobile navigation controls. */
+					var contador = 1;
+					$("header > div > button").click(function() {
+						if(contador == 1) {
+							contador = 0;
+							$("nav").removeClass("nav-hide");
+							$("nav").addClass("nav-show");
+						} else {
+							contador = 1;
+							$("nav").removeClass("nav-show");
+							$("nav").addClass("nav-hide");
+						};
+					});
 
+					/* Makes any tag with the class of "dropdown" on it slide open or close when clicked. */
+					$(".submenu").click(function() {
+						if($(this).children(".dropdown").css("display") == "block") {
+							$(this).children(".dropdown").slideToggle();
+						} else {
+							$(".dropdown").hide("fast");
+							$(this).children(".dropdown").slideToggle();
+						}
+					});
 
-			// Fade in web page.
-			//$("#no-fouc").delay(200).animate({"opacity": "1"}, 500);
-			function fadeIn() {
-				document.getElementById("loading_svg").style.display = "none";
-				document.getElementById("wrapper").className += "fadeIn";
+					/* Used to set the background color of specific navigation links to help highlight current page location.  Set array content in SCRIPT tags between the HEAD tags on each page individually. */
+					navActiveSubArray.forEach(function(s) {$("#"+s).addClass("active-sub");});
+					navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
+
+					/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
+					$(window).scroll(function() {
+						var scroll = $(window).scrollTop();
+						if(scroll >= 50) {
+							$("header").addClass("header-scroll");
+							$("header img").addClass("header-div-a-img-scroll");
+							$("header div button").addClass("header-div-button-scroll");
+						} else {
+							$("header").removeClass("header-scroll");
+							$("header img").removeClass("header-div-a-img-scroll");
+							$("header div button").removeClass("header-div-button-scroll");
+						}
+					});
+				});
 			}
-			//setTimeout(fadeIn, 3000);
-
-
-
-
-
-
-
-		</script>
-
-
-
-
-
-
-
-
-
-
-
-		<script>
-			$(document).ready(function() {
-				/* If the media device is 768px or less, in width, then standard navigation controls are removed and a more functional, left or right side, navigation for use on a cell phone or iPad's is enabled.  The following code is triggered when clicking on the "hamburger" button which updates the CSS on the NAV tag allowing it to open and close the mobile navigation controls. */
-				var contador = 1;
-				$("header > div > button").click(function() {
-					if(contador == 1) {
-						contador = 0;
-						$("nav").removeClass("nav-hide");
-						$("nav").addClass("nav-show");
-					} else {
-						contador = 1;
-						$("nav").removeClass("nav-show");
-						$("nav").addClass("nav-hide");
-					};
-				});
-
-				/* Makes any tag with the class of "dropdown" on it slide open or close when clicked. */
-				$(".submenu").click(function() {
-					if($(this).children(".dropdown").css("display") == "block") {
-						$(this).children(".dropdown").slideToggle();
-					} else {
-						$(".dropdown").hide("fast");
-						$(this).children(".dropdown").slideToggle();
-					}
-				});
-
-				/* Used to set the background color of specific navigation links to help highlight current page location.  Set array content in SCRIPT tags between the HEAD tags on each page individually. */
-				navActiveSubArray.forEach(function(s) {$("#"+s).addClass("active-sub");});
-				navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
-			});
-
-			/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
-			$(window).scroll(function() {
-				var scroll = $(window).scrollTop();
-				if(scroll >= 50) {
-					$("header").addClass("header-scroll");
-					$("header img").addClass("header-div-a-img-scroll");
-					$("header div button").addClass("header-div-button-scroll");
-				} else {
-					$("header").removeClass("header-scroll");
-					$("header img").removeClass("header-div-a-img-scroll");
-					$("header div button").removeClass("header-div-button-scroll");
-				}
-			});
 
 			/* The ccms_pound_cookie_update() function does two things.
 			1) It samples the current URI and looks for the # (Pound) symbol.  This symbol is used as a target anchor in URI's like this:
@@ -338,10 +302,7 @@
 			2) It clears language cookies related to the site already found in the user's browser so that a new one can be written in place when changing your language.  It does this by updating the existing cookie to an expired date in the past first. */
 			function ccms_pound_cookie_update(lng) {
 				var res = location.href.split(/#/)[1];
-				if(res) {
-					document.getElementById("lng-"+lng).href="/"+lng+"/#"+res;
-				}
-
+				if(res) {document.getElementById("lng-"+lng).href="/"+lng+"/#"+res;}
 				document.cookie = "ccms_lng={CCMS_LIB:_default.php;FUNC:ccms_lng}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 				/* insert a new cookie and get it in the cache, just incase we're dealing with the home page. */
 				var d = new Date();
@@ -350,6 +311,12 @@
 				document.cookie = "ccms_lng=" + lng + "; expires=" + expires + "; path=/";
 				return;
 			}
+
+			if(window.addEventListener)
+				window.addEventListener("load", loadJSResources, false);
+			else if(window.attachEvent)
+				window.attachEvent("onload", loadJSResources);
+			else window.onload = loadJSResources;
 		</script>
 	</body>
 </html>
