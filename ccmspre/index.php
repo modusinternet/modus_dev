@@ -778,7 +778,7 @@ function CCMS_Main() {
 								header("Content-Type: text/html; charset=UTF-8");
 								// Expires in
 								//header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
-								header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + $CFG["CACHE_EXPIRE"]));
+								header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + ($CFG["CACHE_EXPIRE"] * 60)));
 
 								$url = "/" . $CLEAN["ccms_lng"] . "/" . $ccms_dir . $file;
 								$url_md5 = md5($url);
