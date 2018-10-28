@@ -1,4 +1,7 @@
-<?php header("Content-Type: text/css; charset=UTF-8"); ?>/* open-sans-300 - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
+<?php
+  header("Content-Type: text/css; charset=UTF-8");
+  require_once $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["LIBDIR"] . "/modusinternet.php";
+?>/* open-sans-300 - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
