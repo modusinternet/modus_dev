@@ -1,6 +1,6 @@
 <?php
   header("Content-Type: text/css; charset=UTF-8");
-  require_once $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["LIBDIR"] . "modusinternet.php";
+  //require_once $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["LIBDIR"] . "/modusinternet.php";
 ?>/* open-sans-300 - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
 @font-face {
   font-family: 'Open Sans';
@@ -48,8 +48,7 @@
   --header-z-index: 1;
   --nav-background: #ccc;
   --nav-text-color: #fff;
-  /* --nav-a-text-align: {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}; */
-  --nav-a-text-align: lng_dir_right_go_left_left_go_right();
+  --nav-a-text-align: {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right};
   --nav-submenu-button-color: #fff;
   --nav-hover-background: #999;
   --nav-hover-dropdown-background: #999;
