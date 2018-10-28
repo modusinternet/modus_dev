@@ -65,7 +65,7 @@
 
 body {
   color: #666;
-  font: 100 1.8em/1.8em 'Open Sans',sans-serif;
+  font: 100 1.6em/1.4em 'Open Sans',sans-serif;
 	/* padding: 20px; */
 	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
