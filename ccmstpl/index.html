@@ -144,19 +144,14 @@
 			if (raf) raf(cb);
 			else window.addEventListener('load', cb);
 
-
-
 			function loadFirst(e,t){var a=document.createElement("script");a.async = true;a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			function loadJSResources() {
-
-				/* Show loadig screen until JQuery is loaded. */
-				document.getElementById("loading_svg").style.display = "none";
-				document.getElementById("wrapper").className += "fadeIn";
-				
 				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 
-
+					/* Show loadig screen until JQuery is loaded. */
+					document.getElementById("loading_svg").style.display = "none";
+					document.getElementById("wrapper").className += "fadeIn";
 
 					/* If the media device is 768px or less, in width, then standard navigation controls are removed and a more functional, left or right side, navigation for use on a cell phone or iPad's is enabled.  The following code is triggered when clicking on the "hamburger" button which updates the CSS on the NAV tag allowing it to open and close the mobile navigation controls. */
 					var contador = 1;
