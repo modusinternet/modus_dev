@@ -1,7 +1,8 @@
 <?php
   header("Content-Type: text/css; charset=UTF-8");
-  // Expires in 1 hour
-  header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
+  // Expires in
+  //header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
+  header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + $CFG["CACHE_EXPIRE"]));
 ?>/* open-sans-300 - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
 @font-face {
   font-family: 'Open Sans';
