@@ -45,7 +45,8 @@
   --header-z-index: 1;
   --nav-background: #ccc;
   --nav-text-color: #fff;
-  --nav-a-text-align: {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right};
+  /* --nav-a-text-align: {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}; */
+  --nav-a-text-align: <?=lng_dir_right_go_left_left_go_right();?>;
   --nav-submenu-button-color: #fff;
   --nav-hover-background: #999;
   --nav-hover-dropdown-background: #999;
