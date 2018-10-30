@@ -3,45 +3,7 @@
   // Expires in
   //header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60)));
   header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + ($CFG["CACHE_EXPIRE"] * 60)));
-?>/* open-sans-300 - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'),
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* open-sans-regular - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans Regular'), local('OpenSans-Regular'),
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* open-sans-italic - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Open Sans Italic'), local('OpenSans-Italic'),
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* open-sans-300italic - latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 300;
-  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'),
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/ccmstpl/_css/fonts/open-sans-v15-latin_cyrillic-ext_vietnamese_cyrillic_latin-ext_greek-ext_greek-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+?>
 
 :root {
   --header-background: none;
