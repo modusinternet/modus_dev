@@ -165,6 +165,7 @@
 
 
 
+					/*
 					$(".submenu").mouseover(function() {
 						if($(this).children(".dropdown").css("display") == "block") {
 							$(this).children(".dropdown").slideToggle();
@@ -172,6 +173,15 @@
 							$(".dropdown").hide("fast");
 							$(this).children(".dropdown").slideToggle();
 						}
+					});
+					*/
+
+					$('.submenu').on('mouseover',function(e) {
+						$(this).children(".dropdown").css("display") == "block";
+					});
+
+					$('.submenu').on('mouseout',function(e) {
+						$(this).children(".dropdown").css("display") == "none";
 					});
 
 
