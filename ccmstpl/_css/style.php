@@ -130,9 +130,8 @@ nav .submenu {
 }
 
 nav .submenu:hover .dropdown {
-  display:block;
+  display: block;
 }
-
 
 nav .submenu button {
   background: inherit;
@@ -151,6 +150,10 @@ nav .submenu .dropdown {
   background: inherit !important;
   display: none;
   padding: 0 35px;
+  -webkit-transition: all 1.0s ease-in-out;
+  -moz-transition: all 1.0s ease-in-out;
+  -o-transition: all 1.0s ease-in-out;
+  transition: all 1.0s ease-in-out;
 }
 
 .nav-show { {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 0; }
