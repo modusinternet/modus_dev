@@ -142,14 +142,17 @@ nav a, nav .submenu button {
   padding: 10px;
 }
 
-nav .submenu .dropdown {
-  background: inherit !important;
-  display: none;
-  padding: 0 10px;
+.dropdown {
   -webkit-transition: all 1.0s ease-in-out;
   -moz-transition: all 1.0s ease-in-out;
   -o-transition: all 1.0s ease-in-out;
   transition: all 1.0s ease-in-out;
+}
+
+nav .submenu .dropdown {
+  background: inherit !important;
+  display: none;
+  padding: 0 10px;
 }
 
 nav .submenu:hover .dropdown {
