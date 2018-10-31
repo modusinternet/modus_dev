@@ -120,6 +120,9 @@ nav a {
 nav a:hover, nav .submenu:hover { background: var(--nav-hover-background); }
 nav > .submenu > .dropdown:hover { background: var(--nav-hover-dropdown-background); }
 nav > .submenu > .dropdown a:hover { background: var(--nav-hover-dropdown-a-background); }
+nav .submenu:hover .dropdown {
+  display:block;
+}
 
 nav .submenu {
   cursor: pointer;
