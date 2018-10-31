@@ -161,6 +161,26 @@
 						}
 					});
 
+
+
+
+
+					$(".submenu").mouseover(function() {
+						if($(this).children(".dropdown").css("display") == "block") {
+							$(this).children(".dropdown").slideToggle();
+						} else {
+							$(".dropdown").hide("fast");
+							$(this).children(".dropdown").slideToggle();
+						}
+					});
+
+
+
+
+
+
+
+
 					/* Used to set the background color of specific navigation links to help highlight current page location.  Set array content in SCRIPT tags between the HEAD tags on each page individually. */
 					navActiveSubArray.forEach(function(s) {$("#"+s).addClass("active-sub");});
 					navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
