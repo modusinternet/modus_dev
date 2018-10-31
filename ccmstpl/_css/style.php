@@ -120,9 +120,6 @@ nav a {
 nav a:hover, nav .submenu:hover { background: var(--nav-hover-background); }
 nav > .submenu > .dropdown:hover { background: var(--nav-hover-dropdown-background); }
 nav > .submenu > .dropdown a:hover { background: var(--nav-hover-dropdown-a-background); }
-nav .submenu:hover .dropdown {
-  display:block;
-}
 
 nav .submenu {
   cursor: pointer;
@@ -131,6 +128,11 @@ nav .submenu {
   -o-transition: all 1.0s ease-in-out;
   transition: all 1.0s ease-in-out;
 }
+
+nav .submenu:hover .dropdown {
+  display:block;
+}
+
 
 nav .submenu button {
   background: inherit;
