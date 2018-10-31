@@ -228,10 +228,6 @@ nav .submenu:hover .dropdown {
     box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,0.2);
     display: none;
     position: absolute;
-    -webkit-transition: all 1.0s ease-in-out;
-    -moz-transition: all 1.0s ease-in-out;
-    -o-transition: all 1.0s ease-in-out;
-    transition: all 1.0s ease-in-out;
   }
 
   nav .dropdown-position-reverse { {CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 0; }
