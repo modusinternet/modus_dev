@@ -139,13 +139,13 @@ nav .submenu button {
 
 nav a, nav .submenu button {
   color: var(--nav-text-color);
-  padding: 14px 10px;
+  padding: 10px;
 }
 
 nav .submenu .dropdown {
   background: inherit !important;
   display: none;
-  padding: 0 35px;
+  padding: 0 10px;
   -webkit-transition: all 1.0s ease-in-out;
   -moz-transition: all 1.0s ease-in-out;
   -o-transition: all 1.0s ease-in-out;
