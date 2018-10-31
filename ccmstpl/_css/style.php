@@ -129,10 +129,6 @@ nav .submenu {
   transition: all 1.0s ease-in-out;
 }
 
-nav .submenu:hover .dropdown {
-  display: block;
-}
-
 nav .submenu button {
   background: inherit;
   border: none;
@@ -154,6 +150,10 @@ nav .submenu .dropdown {
   -moz-transition: all 1.0s ease-in-out;
   -o-transition: all 1.0s ease-in-out;
   transition: all 1.0s ease-in-out;
+}
+
+nav .submenu:hover .dropdown {
+  display: block;
 }
 
 .nav-show { {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 0; }
