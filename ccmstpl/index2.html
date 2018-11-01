@@ -1,480 +1,210 @@
-
-{CCMS_DB_PRELOAD:all,index}<!DOCTYPE html>
-
-<html class="nav-no-js" dir="{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}" lang="{CCMS_LIB:_default.php;FUNC:ccms_lng}" prefix="og:http://ogp.me/ns#">
+<!DOCTYPE html>
+<html lang="en" class="nav-no-js">
 
 <head>
-	<!-- Repeated content and can be placed once in your header head template. -->
-	{CCMS_TPL:header-head.html}
 
-	<!-- Should be representative of the page in reference. -->
-	<title dir="{CCMS_DB_DIR:index,title}">{CCMS_DB:index,title}</title>
-	<meta property="og:title" dir="{CCMS_DB_DIR:index,title}" content="{CCMS_DB:index,title}" />
-	<meta name="twitter:title" dir="{CCMS_DB_DIR:index,title}" content="{CCMS_DB:index,title}" />
-	<meta name="description" dir="{CCMS_DB_DIR:index,description}" content="{CCMS_DB:index,description}" />
-	<meta property="og:description" dir="{CCMS_DB_DIR:index,description}" content="{CCMS_DB:index,description}" />
-	<meta name="twitter:description" dir="{CCMS_DB_DIR:index,description}" content="{CCMS_DB:index,description}" />
-	<meta property="og:image" content="/_img/main-image-or-logo.jpg" />
-	<meta property="og:image:secure_url" content="/_img/main-image-or-logo.jpg" />
-	<meta property="og:image:width" content="123" />
-	<meta property="og:image:height" content="123" />
-	<!-- Must be at least 60px by 60px.	Images greater than 120px by 120px will be resized and cropped in a square aspect ratio. -->
-	<meta name="twitter:image" content="/_img/main-image-or-logo.jpg" />
-	<meta property="og:url" content="https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
 
-	<script type="application/ld+json">
-		[{
-			"@context":"https://schema.org",
-			"@type":"WebSite",
-			"name":"mywebsite",
-			"url":"https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}",
-			"alternateName":"mywebsite description"
-		},{
-			"@context":"https://schema.org",
-			"@type":"Organization",
-			"name":"mywebsite name, LLC",
-			"url":"https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}",
-			"logo": {
-				"@type":"ImageObject",
-				"url":"/_img/main-image-or-logo.jpg"
-			},
-			"sameAs": [
-				"https://twitter.com/mywebsite",
-				"https://instagram.com/mywebsite",
-				"https://plus.google.com/+mywebsite",
-				"https://www.facebook.com/mywebsite",
-				"https://www.pinterest.com/mywebsite/",
-				"https://www.youtube.com/user/mywebsite"
-			]
-		}]
-	</script>
+    <title>Responsive Navigation</title>
 
-	<style>
-		/* normalize */
-		html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+		<style>
+			/* normalize */
+			html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 
+			/* default */
+			@viewport{width:device-width}@-ms-viewport{width:device-width}*{box-sizing:border-box}html{font-size:62.5%}body{font-size:1.4rem;line-height:2.4rem}
 
 
-		/* loading_svg */
-		/*
-		#loading_svg{width:50%;height:50%;margin:auto;position:absolute;top:0;left:0;bottom:0;right:0}#loading_svg rect{fill:#FF6700}#wrapper{opacity:0;-webkit-transition:opacity 2s ease-in;-moz-transition:opacity 2s ease-in;-o-transition:opacity 2s ease-in;-ms-transition:opacity 2s ease-in;transition:opacity 2s ease-in}#wrapper.fadeIn{opacity:1}
-		*/
+			/* nav-core */
+			.nav-lock-scroll{overflow:hidden}.nav{display:none;position:fixed;top:0;bottom:0;left:0;right:0;z-index:900;overflow-x:hidden;overflow-y:auto}.nav ul{display:block;position:relative;zoom:1;list-style-type:none;margin:0;padding:0}.nav a,.nav a:active,.nav a:hover,.nav a:visited{display:block;position:relative}@media only screen and (min-width:960px){.nav{display:block;position:relative;bottom:auto;overflow:visible}.nav li{position:relative;white-space:nowrap}.nav>ul>li{display:inline-block}.nav ul{display:block}.nav ul ul{display:none;position:absolute;top:100%;left:0;z-index:901}.nav ul ul ul{top:5px;left:95%;z-index:902}.nav ul ul ul ul{z-index:903}.nav ul ul ul ul ul{z-index:904}.nav ul ul li.nav-left>ul{left:auto;right:95%}.nav-no-js .nav li:hover>ul{display:block}}@media only screen and (max-width:959px){.nav-no-js .nav-button:hover+.nav,.nav-no-js .nav-button:hover+.nav+.nav-close,.nav-no-js .nav:hover,.nav-no-js .nav:hover+.nav-close{display:block}}
 
 
+			/* nav-layout */
+			@font-face{font-family:icon-font;src:url(../fonts/icon-font.eot);src:url(../fonts/icon-font.eot?#iefix) format('eot'),url(../fonts/icon-font.woff) format('woff'),url(../fonts/icon-font.ttf) format('truetype'),url(../fonts/icon-font.svg#icon-font) format('svg')}.icon-desktop:before,.icon-menu-close:before,.icon-menu:before,.icon-mobile:before,.icon-submenu-down:before,.icon-submenu-right:before,.icon-world:before,.nav .nav-submenu>a:after,.nav-button:before,.nav-close:before,.nav>ul>.nav-submenu>a:after,header h1:before{font-family:icon-font;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-style:normal;font-variant:normal;font-weight:400;text-decoration:none;text-transform:none;vertical-align:top}.icon-desktop:before{content:"\E001"}.icon-menu-close:before{content:"\E002"}.icon-menu:before{content:"\E003"}.icon-mobile:before{content:"\E004"}.icon-submenu-down:before{content:"\E005"}.icon-submenu-right:before{content:"\E006"}.icon-world:before{content:"\E007"}body{padding-top:4.4rem}header{display:block;position:fixed;top:0;left:0;right:0;z-index:901;padding-left:10px;line-height:4.4rem;background:#26201C;color:#A69A94}header h1{margin:0;font-size:1.7rem;line-height:4.4rem}header h1:before{content:"\E004";margin-right:8px}.nav-button,.nav-close{position:fixed;top:0;width:2.4rem;height:4.4rem;overflow:hidden;z-index:902;cursor:pointer;text-decoration:none;line-height:4.4rem;background:#26201C;color:#A69A94}.nav-button:before,.nav-close:before{display:block;text-align:center}.nav-button{display:block;right:1rem;font-size:1.7rem}.nav-button:before{content:"\E003"}.nav-close{display:none;right:4rem;font-size:1.9rem}.nav-close:before{content:"\E002"}.nav{padding-top:4.4rem;line-height:4.4rem;background:#26201C;color:#A69A94}.nav ul{border-radius:0 0 6px 6px;background:#26201C}.nav ul ul{background:#2f2722}.nav ul ul ul{background:#382f29}.nav ul ul ul ul{background:#40362f}.nav ul ul ul ul ul{background:#493e36}.nav li{border-top:1px solid #59544F;cursor:pointer}.nav li.nav-active>a,.nav li:hover>a{color:#923600;background:#2E2722}.nav .nav-submenu>ul{margin-left:10px}.nav .nav-submenu>a{padding-right:30px!important}.nav a,.nav a:active,.nav a:hover,.nav a:visited{border-radius:6px;padding:0 15px 1px;color:#8C827D;text-decoration:none}.nav .nav-submenu>a:after{position:absolute;display:block;right:10px;top:1px;content:"\E005"}@media only screen and (min-width:960px){body{padding:0!important}header{position:relative}header h1:before{content:"\E001"}.nav-button{display:none}.nav{padding:0!important}.nav>ul>li{border-top:none}.nav li>ul{box-shadow:0 0 5px 0 rgba(0,0,0,.75)}.nav ul ul ul{border-radius:0 6px 6px}.nav ul ul ul li:first-child{border-top:none}.nav .nav-left>ul{border-radius:6px 0 6px 6px}.nav .nav-submenu li{min-width:110px}.nav .nav-submenu>ul{margin:0}.nav>ul>.nav-submenu>a:after{content:"\E005"}.nav .nav-submenu>a:after{content:"\E006"}}
+		</style>
 
-
-		/* nav-layout */
-		@font-face {
-			font-family: icon-font;
-			src: url(../fonts/icon-font.eot);
-			src: url(../fonts/icon-font.eot?#iefix) format('eot'), url(../fonts/icon-font.woff) format('woff'), url(../fonts/icon-font.ttf) format('truetype'), url(../fonts/icon-font.svg#icon-font) format('svg')
-		}
-
-		.icon-desktop:before,
-		.icon-menu-close:before,
-		.icon-menu:before,
-		.icon-mobile:before,
-		.icon-submenu-down:before,
-		.icon-submenu-right:before,
-		.icon-world:before,
-		.nav .nav-submenu>a:after,
-		.nav-button:before,
-		.nav-close:before,
-		.nav>ul>.nav-submenu>a:after,
-		header h1:before {
-			font-family: icon-font;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			font-style: normal;
-			font-variant: normal;
-			font-weight: 400;
-			text-decoration: none;
-			text-transform: none;
-			vertical-align: top
-		}
-
-		.icon-desktop:before {
-			content: "\E001"
-		}
-
-		.icon-menu-close:before {
-			content: "\E002"
-		}
-
-		.icon-menu:before {
-			content: "\E003"
-		}
-
-		.icon-mobile:before {
-			content: "\E004"
-		}
-
-		.icon-submenu-down:before {
-			content: "\E005"
-		}
-
-		.icon-submenu-right:before {
-			content: "\E006"
-		}
-
-		.icon-world:before {
-			content: "\E007"
-		}
-
-		body {
-			padding-top: 4.4rem
-		}
-
-		header {
-			display: block;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			z-index: 901;
-			padding-left: 10px;
-			line-height: 4.4rem;
-			background: #26201C;
-			color: #A69A94
-		}
-
-		header h1 {
-			margin: 0;
-			font-size: 1.7rem;
-			line-height: 4.4rem
-		}
-
-		header h1:before {
-			content: "\E004";
-			margin-right: 8px
-		}
-
-		.nav-button,
-		.nav-close {
-			position: fixed;
-			top: 0;
-			width: 2.4rem;
-			height: 4.4rem;
-			overflow: hidden;
-			z-index: 902;
-			cursor: pointer;
-			text-decoration: none;
-			line-height: 4.4rem;
-			background: #26201C;
-			color: #A69A94
-		}
-
-		.nav-button:before,
-		.nav-close:before {
-			display: block;
-			text-align: center
-		}
-
-		.nav-button {
-			display: block;
-			right: 1rem;
-			font-size: 1.7rem
-		}
-
-		.nav-button:before {
-			content: "\E003"
-		}
-
-		.nav-close {
-			display: none;
-			right: 4rem;
-			font-size: 1.9rem
-		}
-
-		.nav-close:before {
-			content: "\E002"
-		}
-
-		.nav {
-			padding-top: 4.4rem;
-			line-height: 4.4rem;
-			background: #26201C;
-			color: #A69A94
-		}
-
-		.nav ul {
-			border-radius: 0 0 6px 6px;
-			background: #26201C
-		}
-
-		.nav ul ul {
-			background: #2f2722
-		}
-
-		.nav ul ul ul {
-			background: #382f29
-		}
-
-		.nav ul ul ul ul {
-			background: #40362f
-		}
-
-		.nav ul ul ul ul ul {
-			background: #493e36
-		}
-
-		.nav li {
-			border-top: 1px solid #59544F;
-			cursor: pointer
-		}
-
-		.nav li.nav-active>a,
-		.nav li:hover>a {
-			color: #923600;
-			background: #2E2722
-		}
-
-		.nav .nav-submenu>ul {
-			margin-left: 10px
-		}
-
-		.nav .nav-submenu>a {
-			padding-right: 30px !important
-		}
-
-		.nav a,
-		.nav a:active,
-		.nav a:hover,
-		.nav a:visited {
-			border-radius: 6px;
-			padding: 0 15px 1px;
-			color: #8C827D;
-			text-decoration: none
-		}
-
-		.nav .nav-submenu>a:after {
-			position: absolute;
-			display: block;
-			right: 10px;
-			top: 1px;
-			content: "\E005"
-		}
-
-		@media only screen and (min-width:960px) {
-			body {
-				padding: 0 !important
-			}
-
-			header {
-				position: relative
-			}
-
-			header h1:before {
-				content: "\E001"
-			}
-
-			.nav-button {
-				display: none
-			}
-
-			.nav {
-				padding: 0 !important
-			}
-
-			.nav>ul>li {
-				border-top: none
-			}
-
-			.nav li>ul {
-				box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75)
-			}
-
-			.nav ul ul ul {
-				border-radius: 0 6px 6px
-			}
-
-			.nav ul ul ul li:first-child {
-				border-top: none
-			}
-
-			.nav .nav-left>ul {
-				border-radius: 6px 0 6px 6px
-			}
-
-			.nav .nav-submenu li {
-				min-width: 110px
-			}
-
-			.nav .nav-submenu>ul {
-				margin: 0
-			}
-
-			.nav>ul>.nav-submenu>a:after {
-				content: "\E005"
-			}
-
-			.nav .nav-submenu>a:after {
-				content: "\E006"
-			}
-		}
-	</style>
 </head>
 
 <body>
-	<!-- {  CCMS_TPL:header-body-loading.html} -->
-	<!-- <div id="wrapper"> -->
-	<header>
-		<h1>Responsive Navigation</h1>
-	</header>
-	<a href="#" class="nav-button">Menu</a>
-	<nav class="nav">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li class="nav-submenu"><a href="#">Services</a>
-				<ul>
-					<li><a href="#">Some Service</a></li>
-					<li><a href="#">Another Service</a></li>
-					<li><a href="#">Good Service</a></li>
-					<li><a href="#">Room Service</a></li>
-				</ul>
-			</li>
-			<li class="nav-submenu"><a href="#">Products</a>
-				<ul>
-					<li><a href="#">Food</a></li>
-					<li class="nav-submenu"><a href="#">Drinks</a>
-						<ul>
-							<li><a href="#">Water</a></li>
-							<li class="nav-submenu"><a href="#">Cola</a>
-								<ul>
-									<li class="nav-submenu nav-left"><a href="#">Coca Cola</a>
-										<ul>
-											<li><a href="#">This one goes left!</a></li>
-											<li><a href="#">Too much sugar...</a></li>
-											<li><a href="#">Yummy</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Pepsi</a></li>
-									<li><a href="#">River</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Lemonade</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Candy</a></li>
-					<li><a href="#">Ice Cream</a></li>
-				</ul>
-			</li>
-			<li class="nav-submenu"><a href="#">Albums</a>
-				<ul>
-					<li><a href="#">Christmas</a></li>
-					<li><a href="#">New Year</a></li>
-					<li><a href="#">Easter</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</nav>
 
-	<a href="#" class="nav-close">Close Menu</a>
+<header>
+    <h1>Responsive Navigation</h1>
+</header>
 
-	<div style="padding: 10px;">
-		<h1>Hello World <i class="icon-world"></i></h1>
-		<p>Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet. Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id, imperdiet facilisis turpis.
-			Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam, ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor gravida. Pellentesque habitant morbi tristique
-			senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla.
-			Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
-		<p>Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet. Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id, imperdiet facilisis turpis.
-			Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam, ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor gravida. Pellentesque habitant morbi tristique
-			senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla.
-			Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
-		</div>
-	<!-- </div> -->
+<a href="#" class="nav-button">Menu</a>
 
+<nav class="nav">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="nav-submenu"><a href="#">Services</a>
+            <ul>
+                <li><a href="#">Some Service</a></li>
+                <li><a href="#">Another Service</a></li>
+                <li><a href="#">Good Service</a></li>
+                <li><a href="#">Room Service</a></li>
+            </ul>
+        </li>
+        <li class="nav-submenu"><a href="#">Products</a>
+            <ul>
+                <li><a href="#">Food</a></li>
+                <li class="nav-submenu"><a href="#">Drinks</a>
+                    <ul>
+                        <li><a href="#">Water</a></li>
+                        <li class="nav-submenu"><a href="#">Cola</a>
+                            <ul>
+                                <li class="nav-submenu nav-left"><a href="#">Coca Cola</a>
+                                    <ul>
+                                        <li><a href="#">This one goes left!</a></li>
+                                        <li><a href="#">Too much sugar...</a></li>
+                                        <li><a href="#">Yummy</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Pepsi</a></li>
+                                <li><a href="#">River</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Lemonade</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Candy</a></li>
+                <li><a href="#">Ice Cream</a></li>
+            </ul>
+        </li>
+        <li class="nav-submenu"><a href="#">Albums</a>
+            <ul>
+                <li><a href="#">Christmas</a></li>
+                <li><a href="#">New Year</a></li>
+                <li><a href="#">Easter</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
-	<script src="/ccmsusr/_js/jquery-2.2.4.min.js"></script>
+<a href="#" class="nav-close">Close Menu</a>
 
-	<script>
-		! function(e, n) {
-			var i = {
-				init: function(n, i) {
-					var u = this;
-					u.options = e.extend({}, e.fn.nav.options, n), u.$body = e("body"), u.$nav = e(i), u.$menuButton = e(u.options.navButton), u.$subMenu = e(u.options.subMenu), u.subMenu = u.options.subMenu, u.mobileMode = u.isCurrentlyMobile(u), u.mouseOver =
-						u.options.mouseOver, u.disableSubMenuLink = u.options.disableSubMenuLink, u.slideSpeed = u.options.slideSpeed, e("html").removeClass("nav-no-js"), u.collapseSubMenus(u), u.bindEvents(u)
-				},
-				bindEvents: function(i) {
-					i.$menuButton.on("click", function(e) {
-						i.toggleNav(i), e.preventDefault()
-					}), i.$nav.on("click", i.subMenu + " > a", function(n) {
-						var u = e(this);
-						i.isSubMenuLinkDisabled(i, u) && (i.toggleSubMenu(i, u.parent()), n.preventDefault())
-					}), 1 == i.mouseOver && (i.$nav.on("mouseenter", i.subMenu, function() {
-						0 == i.mobileMode && i.openSubMenu(i, e(this))
-					}), i.$nav.on("mouseleave", i.subMenu, function() {
-						0 == i.mobileMode && i.closeSubMenu(i, e(this))
-					})), e(n).on("resize", function() {
-						i.resetNav(i)
-					})
-				},
-				isSubMenuLinkDisabled: function(e, n) {
-					return "always" == e.disableSubMenuLink || "#" == n.attr("href") || "mobile" == e.disableSubMenuLink && 1 == e.mobileMode || "desktop" == e.disableSubMenuLink && 0 == e.mobileMode
-				},
-				toggleNav: function(n) {
-					n.$nav.stop().clearQueue().slideToggle(n.slideSpeed, function() {
-						var i = e(this);
-						i.is(":hidden") ? (n.collapseSubMenus(n), e(this).attr("style", "display: none;")) : e(this).attr("style", "display: block;")
-					}), n.$body.toggleClass("nav-lock-scroll")
-				},
-				toggleSubMenu: function(e, n) {
-					n.hasClass("nav-active") ? e.closeSubMenu(e, n) : e.openSubMenu(e, n)
-				},
-				openSubMenu: function(n, i) {
-					i.addClass("nav-active").children("ul").stop().clearQueue().slideDown(n.slideSpeed, function() {
-						e(this).attr("style", "display: block;")
-					}), i.siblings(n.subMenu).removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-						e(this).clearQueue()
-					}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-						e(this).clearQueue()
-					})
-				},
-				closeSubMenu: function(n, i) {
-					i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
-						e(this).attr("style", "display: none;")
-					}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-						e(this).clearQueue()
-					})
-				},
-				resetNav: function(e) {
-					var n = e.isCurrentlyMobile(e);
-					e.mobileMode !== n && (e.$nav.removeAttr("style").find("ul").removeAttr("style"), e.$body.removeClass("nav-lock-scroll"), e.collapseSubMenus(e), e.mobileMode = n)
-				},
-				collapseSubMenus: function(e) {
-					e.$subMenu.removeClass("nav-active").children("ul").hide()
-				},
-				isCurrentlyMobile: function(e) {
-					return e.$menuButton.is(":visible")
-				}
-			};
-			e.fn.nav = function(e) {
-				return this.each(function() {
-					var n = Object.create(i);
-					n.init(e, this)
-				})
-			}, e.fn.nav.options = {
-				navButton: ".nav-button",
-				subMenu: ".nav-submenu",
-				mouseOver: !0,
-				disableSubMenuLink: "always",
-				slideSpeed: 300
-			}
-		}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {
-			function n() {}
-			return n.prototype = e, new n
-		});
-		$('.nav').nav();
+<div style="padding: 10px;">
 
-		/* Show loadig screen until JQuery is loaded. */
-		/*
-		document.getElementById("loading_svg").style.display = "none";
-		document.getElementById("wrapper").className += "fadeIn";
-		*/
-	</script>
+    <h1>Hello World <i class="icon-world"></i></h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor accumsan enim, id finibus sapien imperdiet
+        a. Ut laoreet imperdiet diam quis tincidunt. Fusce risus est, suscipit ut turpis id, vehicula sodales libero.
+        Nulla a elementum risus. Morbi fringilla, ligula ac pretium bibendum, felis erat consequat nunc, in blandit
+        velit quam eu eros. Nam convallis in sem eu mollis. Mauris venenatis magna vulputate odio aliquet, sit amet
+        dapibus tortor luctus. In mauris massa, aliquet nec nisl ut, feugiat tincidunt dolor. Mauris tristique felis eu
+        tempus vestibulum. Nulla fringilla molestie consequat. Pellentesque eget porta urna.
+    </p>
+
+    <p>
+        Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet.
+        Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id,
+        imperdiet facilisis turpis. Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam,
+        ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor
+        gravida. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc
+        ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac
+        mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla. Vestibulum blandit arcu et neque
+        pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.
+    </p>
+
+    <p>
+        Sed suscipit orci neque, luctus auctor metus dictum eget. Aliquam ante odio, posuere a nunc ut, eleifend
+        efficitur diam. Aliquam erat est, dignissim vel accumsan in, fringilla hendrerit nulla. Nam sit amet sagittis
+        sapien. Mauris tempor libero varius, volutpat mi vitae, accumsan lorem. Morbi non est porta ligula dapibus
+        fringilla. Mauris mauris est, mattis vitae purus at, posuere luctus nibh. Suspendisse lobortis justo elit, vel
+        feugiat lorem pulvinar ut. Sed molestie, magna sed luctus tempor, est felis porttitor massa, in convallis lectus
+        enim sit amet lacus. Sed quis magna vel est eleifend sollicitudin. Ut a eros lobortis, luctus nunc id, sagittis
+        purus. Nunc mattis lectus quam, sit amet pellentesque ligula vehicula eu. Interdum et malesuada fames ac ante
+        ipsum primis in faucibus. Nunc hendrerit elit a auctor mollis. Cras ac tempor metus. Fusce enim nisl, ornare in
+        odio sit amet, facilisis ornare velit.
+    </p>
+
+</div>
+
+<script src="/ccmsusr/_js/jquery-2.2.4.min.js"></script>
+<script>
+! function(e, n) {
+	var i = {
+		init: function(n, i) {
+			var u = this;
+			u.options = e.extend({}, e.fn.nav.options, n), u.$body = e("body"), u.$nav = e(i), u.$menuButton = e(u.options.navButton), u.$subMenu = e(u.options.subMenu), u.subMenu = u.options.subMenu, u.mobileMode = u.isCurrentlyMobile(u), u.mouseOver =
+				u.options.mouseOver, u.disableSubMenuLink = u.options.disableSubMenuLink, u.slideSpeed = u.options.slideSpeed, e("html").removeClass("nav-no-js"), u.collapseSubMenus(u), u.bindEvents(u)
+		},
+		bindEvents: function(i) {
+			i.$menuButton.on("click", function(e) {
+				i.toggleNav(i), e.preventDefault()
+			}), i.$nav.on("click", i.subMenu + " > a", function(n) {
+				var u = e(this);
+				i.isSubMenuLinkDisabled(i, u) && (i.toggleSubMenu(i, u.parent()), n.preventDefault())
+			}), 1 == i.mouseOver && (i.$nav.on("mouseenter", i.subMenu, function() {
+				0 == i.mobileMode && i.openSubMenu(i, e(this))
+			}), i.$nav.on("mouseleave", i.subMenu, function() {
+				0 == i.mobileMode && i.closeSubMenu(i, e(this))
+			})), e(n).on("resize", function() {
+				i.resetNav(i)
+			})
+		},
+		isSubMenuLinkDisabled: function(e, n) {
+			return "always" == e.disableSubMenuLink || "#" == n.attr("href") || "mobile" == e.disableSubMenuLink && 1 == e.mobileMode || "desktop" == e.disableSubMenuLink && 0 == e.mobileMode
+		},
+		toggleNav: function(n) {
+			n.$nav.stop().clearQueue().slideToggle(n.slideSpeed, function() {
+				var i = e(this);
+				i.is(":hidden") ? (n.collapseSubMenus(n), e(this).attr("style", "display: none;")) : e(this).attr("style", "display: block;")
+			}), n.$body.toggleClass("nav-lock-scroll")
+		},
+		toggleSubMenu: function(e, n) {
+			n.hasClass("nav-active") ? e.closeSubMenu(e, n) : e.openSubMenu(e, n)
+		},
+		openSubMenu: function(n, i) {
+			i.addClass("nav-active").children("ul").stop().clearQueue().slideDown(n.slideSpeed, function() {
+				e(this).attr("style", "display: block;")
+			}), i.siblings(n.subMenu).removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+				e(this).clearQueue()
+			}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+				e(this).clearQueue()
+			})
+		},
+		closeSubMenu: function(n, i) {
+			i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
+				e(this).attr("style", "display: none;")
+			}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+				e(this).clearQueue()
+			})
+		},
+		resetNav: function(e) {
+			var n = e.isCurrentlyMobile(e);
+			e.mobileMode !== n && (e.$nav.removeAttr("style").find("ul").removeAttr("style"), e.$body.removeClass("nav-lock-scroll"), e.collapseSubMenus(e), e.mobileMode = n)
+		},
+		collapseSubMenus: function(e) {
+			e.$subMenu.removeClass("nav-active").children("ul").hide()
+		},
+		isCurrentlyMobile: function(e) {
+			return e.$menuButton.is(":visible")
+		}
+	};
+	e.fn.nav = function(e) {
+		return this.each(function() {
+			var n = Object.create(i);
+			n.init(e, this)
+		})
+	}, e.fn.nav.options = {
+		navButton: ".nav-button",
+		subMenu: ".nav-submenu",
+		mouseOver: !0,
+		disableSubMenuLink: "always",
+		slideSpeed: 300
+	}
+}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {
+	function n() {}
+	return n.prototype = e, new n
+});
+$('.nav').nav();
+</script>
 </body>
-
 </html>
