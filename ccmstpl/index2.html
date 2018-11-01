@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" class="nav-no-js">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+
+	<title>Responsive Navigation</title>
+
+	<!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/ie8-core.min.css">
+    <link rel="stylesheet" href="css/ie8-layout.min.css">
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+		
+	<style>
+		/* normalize.min.css */
+		html {
+			font-family: sans-serif;
+			-ms-text-size-adjust: 100%;
+			-webkit-text-size-adjust: 100%
+		}
+
+		body {
+			margin: 0
+		}
+
+		article,
+		aside,
+		details,
+		figcaption,
+		figure,
+		footer,
+		header,
+		hgroup,
+		main,
+		menu,
+		nav,
+		section,
+		summary {
+			display: block
+		}
+
+		audio,
+		canvas,
+		progress,
+		video {
+			display: inline-block;
+			vertical-align: baseline
+		}
+
+		audio:not([controls]) {
+			display: none;
+			height: 0
+		}
+
+		[hidden],
+		template {
+			display: none
+		}
+
+		a {
+			background-color: transparent
+		}
+
+		a:active,
+		a:hover {
+			outline: 0
+		}
+
+		abbr[title] {
+			border-bottom: 1px dotted
+		}
+
+		b,
+		strong {
+			font-weight: 700
+		}
+
+		dfn {
+			font-style: italic
+		}
+
+		h1 {
+			font-size: 2em;
+			margin: .67em 0
+		}
+
+		mark {
+			background: #ff0;
+			color: #000
+		}
+
+		small {
+			font-size: 80%
+		}
+
+		sub,
+		sup {
+			font-size: 75%;
+			line-height: 0;
+			position: relative;
+			vertical-align: baseline
+		}
+
+		sup {
+			top: -.5em
+		}
+
+		sub {
+			bottom: -.25em
+		}
+
+		img {
+			border: 0
+		}
+
+		svg:not(:root) {
+			overflow: hidden
+		}
+
+		figure {
+			margin: 1em 40px
+		}
+
+		hr {
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+			height: 0
+		}
+
+		pre {
+			overflow: auto
+		}
+
+		code,
+		kbd,
+		pre,
+		samp {
+			font-family: monospace, monospace;
+			font-size: 1em
+		}
+
+		button,
+		input,
+		optgroup,
+		select,
+		textarea {
+			color: inherit;
+			font: inherit;
+			margin: 0
+		}
+
+		button {
+			overflow: visible
+		}
+
+		button,
+		select {
+			text-transform: none
+		}
+
+		button,
+		html input[type=button],
+		input[type=reset],
+		input[type=submit] {
+			-webkit-appearance: button;
+			cursor: pointer
+		}
+
+		button[disabled],
+		html input[disabled] {
+			cursor: default
+		}
+
+		button::-moz-focus-inner,
+		input::-moz-focus-inner {
+			border: 0;
+			padding: 0
+		}
+
+		input {
+			line-height: normal
+		}
+
+		input[type=checkbox],
+		input[type=radio] {
+			box-sizing: border-box;
+			padding: 0
+		}
+
+		input[type=number]::-webkit-inner-spin-button,
+		input[type=number]::-webkit-outer-spin-button {
+			height: auto
+		}
+
+		input[type=search] {
+			-webkit-appearance: textfield;
+			-moz-box-sizing: content-box;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box
+		}
+
+		input[type=search]::-webkit-search-cancel-button,
+		input[type=search]::-webkit-search-decoration {
+			-webkit-appearance: none
+		}
+
+		fieldset {
+			border: 1px solid silver;
+			margin: 0 2px;
+			padding: .35em .625em .75em
+		}
+
+		legend {
+			border: 0;
+			padding: 0
+		}
+
+		textarea {
+			overflow: auto
+		}
+
+		optgroup {
+			font-weight: 700
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0
+		}
+
+		td,
+		th {
+			padding: 0
+		}
+
+		/* defaults.min.css */
+		@viewport {
+			width: device-width
+		}
+
+		@-ms-viewport {
+			width: device-width
+		}
+
+		* {
+			box-sizing: border-box
+		}
+
+		html {
+			font-size: 62.5%
+		}
+
+		body {
+			font-size: 1.4rem;
+			line-height: 2.4rem
+		}
+
+		/* nav-core.min.css */
+		.nav-lock-scroll {
+			overflow: hidden
+		}
+
+		.nav {
+			display: none;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 900;
+			overflow-x: hidden;
+			overflow-y: auto
+		}
+
+		.nav ul {
+			display: block;
+			position: relative;
+			zoom: 1;
+			list-style-type: none;
+			margin: 0;
+			padding: 0
+		}
+
+		.nav a,
+		.nav a:active,
+		.nav a:hover,
+		.nav a:visited {
+			display: block;
+			position: relative
+		}
+
+		@media only screen and (min-width:960px) {
+			.nav {
+				display: block;
+				position: relative;
+				bottom: auto;
+				overflow: visible
+			}
+
+			.nav li {
+				position: relative;
+				white-space: nowrap
+			}
+
+			.nav>ul>li {
+				display: inline-block
+			}
+
+			.nav ul {
+				display: block
+			}
+
+			.nav ul ul {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				z-index: 901
+			}
+
+			.nav ul ul ul {
+				top: 5px;
+				left: 95%;
+				z-index: 902
+			}
+
+			.nav ul ul ul ul {
+				z-index: 903
+			}
+
+			.nav ul ul ul ul ul {
+				z-index: 904
+			}
+
+			.nav ul ul li.nav-left>ul {
+				left: auto;
+				right: 95%
+			}
+
+			.nav-no-js .nav li:hover>ul {
+				display: block
+			}
+		}
+
+		@media only screen and (max-width:959px) {
+
+			.nav-no-js .nav-button:hover+.nav,
+			.nav-no-js .nav-button:hover+.nav+.nav-close,
+			.nav-no-js .nav:hover,
+			.nav-no-js .nav:hover+.nav-close {
+				display: block
+			}
+		}
+
+		/* nav-layout.min.css */
+		@font-face {
+			font-family: icon-font;
+			src: url(../fonts/icon-font.eot);
+			src: url(../fonts/icon-font.eot?#iefix) format('eot'), url(../fonts/icon-font.woff) format('woff'), url(../fonts/icon-font.ttf) format('truetype'), url(../fonts/icon-font.svg#icon-font) format('svg')
+		}
+
+		.icon-desktop:before,
+		.icon-menu-close:before,
+		.icon-menu:before,
+		.icon-mobile:before,
+		.icon-submenu-down:before,
+		.icon-submenu-right:before,
+		.icon-world:before,
+		.nav .nav-submenu>a:after,
+		.nav-button:before,
+		.nav-close:before,
+		.nav>ul>.nav-submenu>a:after,
+		header h1:before {
+			font-family: icon-font;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: 400;
+			text-decoration: none;
+			text-transform: none;
+			vertical-align: top
+		}
+
+		.icon-desktop:before {
+			content: "\E001"
+		}
+
+		.icon-menu-close:before {
+			content: "\E002"
+		}
+
+		.icon-menu:before {
+			content: "\E003"
+		}
+
+		.icon-mobile:before {
+			content: "\E004"
+		}
+
+		.icon-submenu-down:before {
+			content: "\E005"
+		}
+
+		.icon-submenu-right:before {
+			content: "\E006"
+		}
+
+		.icon-world:before {
+			content: "\E007"
+		}
+
+		body {
+			padding-top: 4.4rem
+		}
+
+		header {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 901;
+			padding-left: 10px;
+			line-height: 4.4rem;
+			background: #26201C;
+			color: #A69A94
+		}
+
+		header h1 {
+			margin: 0;
+			font-size: 1.7rem;
+			line-height: 4.4rem
+		}
+
+		header h1:before {
+			content: "\E004";
+			margin-right: 8px
+		}
+
+		.nav-button,
+		.nav-close {
+			position: fixed;
+			top: 0;
+			width: 2.4rem;
+			height: 4.4rem;
+			overflow: hidden;
+			z-index: 902;
+			cursor: pointer;
+			text-decoration: none;
+			line-height: 4.4rem;
+			background: #26201C;
+			color: #A69A94
+		}
+
+		.nav-button:before,
+		.nav-close:before {
+			display: block;
+			text-align: center
+		}
+
+		.nav-button {
+			display: block;
+			right: 1rem;
+			font-size: 1.7rem
+		}
+
+		.nav-button:before {
+			content: "\E003"
+		}
+
+		.nav-close {
+			display: none;
+			right: 4rem;
+			font-size: 1.9rem
+		}
+
+		.nav-close:before {
+			content: "\E002"
+		}
+
+		.nav {
+			padding-top: 4.4rem;
+			line-height: 4.4rem;
+			background: #26201C;
+			color: #A69A94
+		}
+
+		.nav ul {
+			border-radius: 0 0 6px 6px;
+			background: #26201C
+		}
+
+		.nav ul ul {
+			background: #2f2722
+		}
+
+		.nav ul ul ul {
+			background: #382f29
+		}
+
+		.nav ul ul ul ul {
+			background: #40362f
+		}
+
+		.nav ul ul ul ul ul {
+			background: #493e36
+		}
+
+		.nav li {
+			border-top: 1px solid #59544F;
+			cursor: pointer
+		}
+
+		.nav li.nav-active>a,
+		.nav li:hover>a {
+			color: #923600;
+			background: #2E2722
+		}
+
+		.nav .nav-submenu>ul {
+			margin-left: 10px
+		}
+
+		.nav .nav-submenu>a {
+			padding-right: 30px !important
+		}
+
+		.nav a,
+		.nav a:active,
+		.nav a:hover,
+		.nav a:visited {
+			border-radius: 6px;
+			padding: 0 15px 1px;
+			color: #8C827D;
+			text-decoration: none
+		}
+
+		.nav .nav-submenu>a:after {
+			position: absolute;
+			display: block;
+			right: 10px;
+			top: 1px;
+			content: "\E005"
+		}
+
+		@media only screen and (min-width:960px) {
+			body {
+				padding: 0 !important
+			}
+
+			header {
+				position: relative
+			}
+
+			header h1:before {
+				content: "\E001"
+			}
+
+			.nav-button {
+				display: none
+			}
+
+			.nav {
+				padding: 0 !important
+			}
+
+			.nav>ul>li {
+				border-top: none
+			}
+
+			.nav li>ul {
+				box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75)
+			}
+
+			.nav ul ul ul {
+				border-radius: 0 6px 6px
+			}
+
+			.nav ul ul ul li:first-child {
+				border-top: none
+			}
+
+			.nav .nav-left>ul {
+				border-radius: 6px 0 6px 6px
+			}
+
+			.nav .nav-submenu li {
+				min-width: 110px
+			}
+
+			.nav .nav-submenu>ul {
+				margin: 0
+			}
+
+			.nav>ul>.nav-submenu>a:after {
+				content: "\E005"
+			}
+
+			.nav .nav-submenu>a:after {
+				content: "\E006"
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Responsive Navigation</h1>
+	</header>
+	<a href="#" class="nav-button">Menu</a>
+	<nav class="nav">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li class="nav-submenu"><a href="#">Services</a>
+				<ul>
+					<li><a href="#">Some Service</a></li>
+					<li><a href="#">Another Service</a></li>
+					<li><a href="#">Good Service</a></li>
+					<li><a href="#">Room Service</a></li>
+				</ul>
+			</li>
+			<li class="nav-submenu"><a href="#">Products</a>
+				<ul>
+					<li><a href="#">Food</a></li>
+					<li class="nav-submenu"><a href="#">Drinks</a>
+						<ul>
+							<li><a href="#">Water</a></li>
+							<li class="nav-submenu"><a href="#">Cola</a>
+								<ul>
+									<li class="nav-submenu nav-left"><a href="#">Coca Cola</a>
+										<ul>
+											<li><a href="#">This one goes left!</a></li>
+											<li><a href="#">Too much sugar...</a></li>
+											<li><a href="#">Yummy</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Pepsi</a></li>
+									<li><a href="#">River</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Lemonade</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Candy</a></li>
+					<li><a href="#">Ice Cream</a></li>
+				</ul>
+			</li>
+			<li class="nav-submenu"><a href="#">Albums</a>
+				<ul>
+					<li><a href="#">Christmas</a></li>
+					<li><a href="#">New Year</a></li>
+					<li><a href="#">Easter</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+	<a href="#" class="nav-close">Close Menu</a>
+
+	<div style="padding: 10px;">
+		<h1>Hello World <i class="icon-world"></i></h1>
+		<p>Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet. Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id, imperdiet facilisis turpis.
+			Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam, ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor gravida. Pellentesque habitant morbi tristique
+			senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla.
+			Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
+		<p>Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet. Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id, imperdiet facilisis turpis.
+			Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam, ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor gravida. Pellentesque habitant morbi tristique
+			senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla.
+			Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
+	</div>
+	<script>
+
+
+
+
+	</script>
+</body>
+
+</html>
