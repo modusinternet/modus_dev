@@ -676,100 +676,88 @@
 			senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla.
 			Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>
+		! function(e, n) {
+			var i = {
+				init: function(n, i) {
+					var u = this;
+					u.options = e.extend({}, e.fn.nav.options, n), u.$body = e("body"), u.$nav = e(i), u.$menuButton = e(u.options.navButton), u.$subMenu = e(u.options.subMenu), u.subMenu = u.options.subMenu, u.mobileMode = u.isCurrentlyMobile(u), u.mouseOver =
+						u.options.mouseOver, u.disableSubMenuLink = u.options.disableSubMenuLink, u.slideSpeed = u.options.slideSpeed, e("html").removeClass("nav-no-js"), u.collapseSubMenus(u), u.bindEvents(u)
+				},
+				bindEvents: function(i) {
+					i.$menuButton.on("click", function(e) {
+						i.toggleNav(i), e.preventDefault()
+					}), i.$nav.on("click", i.subMenu + " > a", function(n) {
+						var u = e(this);
+						i.isSubMenuLinkDisabled(i, u) && (i.toggleSubMenu(i, u.parent()), n.preventDefault())
+					}), 1 == i.mouseOver && (i.$nav.on("mouseenter", i.subMenu, function() {
+						0 == i.mobileMode && i.openSubMenu(i, e(this))
+					}), i.$nav.on("mouseleave", i.subMenu, function() {
+						0 == i.mobileMode && i.closeSubMenu(i, e(this))
+					})), e(n).on("resize", function() {
+						i.resetNav(i)
+					})
+				},
+				isSubMenuLinkDisabled: function(e, n) {
+					return "always" == e.disableSubMenuLink || "#" == n.attr("href") || "mobile" == e.disableSubMenuLink && 1 == e.mobileMode || "desktop" == e.disableSubMenuLink && 0 == e.mobileMode
+				},
+				toggleNav: function(n) {
+					n.$nav.stop().clearQueue().slideToggle(n.slideSpeed, function() {
+						var i = e(this);
+						i.is(":hidden") ? (n.collapseSubMenus(n), e(this).attr("style", "display: none;")) : e(this).attr("style", "display: block;")
+					}), n.$body.toggleClass("nav-lock-scroll")
+				},
+				toggleSubMenu: function(e, n) {
+					n.hasClass("nav-active") ? e.closeSubMenu(e, n) : e.openSubMenu(e, n)
+				},
+				openSubMenu: function(n, i) {
+					i.addClass("nav-active").children("ul").stop().clearQueue().slideDown(n.slideSpeed, function() {
+						e(this).attr("style", "display: block;")
+					}), i.siblings(n.subMenu).removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+						e(this).clearQueue()
+					}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+						e(this).clearQueue()
+					})
+				},
+				closeSubMenu: function(n, i) {
+					i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
+						e(this).attr("style", "display: none;")
+					}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+						e(this).clearQueue()
+					})
+				},
+				resetNav: function(e) {
+					var n = e.isCurrentlyMobile(e);
+					e.mobileMode !== n && (e.$nav.removeAttr("style").find("ul").removeAttr("style"), e.$body.removeClass("nav-lock-scroll"), e.collapseSubMenus(e), e.mobileMode = n)
+				},
+				collapseSubMenus: function(e) {
+					e.$subMenu.removeClass("nav-active").children("ul").hide()
+				},
+				isCurrentlyMobile: function(e) {
+					return e.$menuButton.is(":visible")
+				}
+			};
+			e.fn.nav = function(e) {
+				return this.each(function() {
+					var n = Object.create(i);
+					n.init(e, this)
+				})
+			}, e.fn.nav.options = {
+				navButton: ".nav-button",
+				subMenu: ".nav-submenu",
+				mouseOver: !0,
+				disableSubMenuLink: "always",
+				slideSpeed: 300
+			}
+		}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {
+			function n() {}
+			return n.prototype = e, new n
+		});
 
 
 
-
-	/**
-	 * Module: rem - v1.3.2
-	 * Description: A polyfill to parse CSS links and rewrite pixel equivalents into head for non supporting browsers
-	 * Date Built: 2014-07-02
-	 * Copyright (c) 2014  | Chuck Carpenter <chuck.carpenter@me.com>,Lucas Serven <lserven@gmail.com>;
-	 **/
-	! function(a) {
-	  "use strict";
-	  var b = function() {
-	      var a = document.createElement("div");
-	      return a.style.cssText = "font-size: 1rem;", /rem/.test(a.style.fontSize)
-	    },
-	    c = function() {
-	      for (var a = document.getElementsByTagName("link"), b = [], c = 0; c < a.length; c++) "stylesheet" === a[c].rel.toLowerCase() && null === a[c].getAttribute("data-norem") && b.push(a[c].href);
-	      return b
-	    },
-	    d = function() {
-	      for (var a = 0; a < m.length; a++) j(m[a], e)
-	    },
-	    e = function(a, b) {
-	      if (q.push(a.responseText), r.push(b), r.length === m.length) {
-	        for (var c = 0; c < r.length; c++) f(q[c], r[c]);
-	        (m = n.slice(0)).length > 0 ? (r = [], q = [], n = [], d()) : g()
-	      }
-	    },
-	    f = function(a, b) {
-	      for (var c, d = k(a).replace(/\/\*[\s\S]*?\*\//g, ""), e = /[\w\d\s\-\/\\\[\]:,.'"*()<>+~%#^$_=|@]+\{[\w\d\s\-\/\\%#:!;,.'"*()]+\d*\.?\d+rem[\w\d\s\-\/\\%#:!;,.'"*()]*\}/g, f = d.match(e), g = /\d*\.?\d+rem/g, h = d.match(g), i = /(.*\/)/, j = i.exec(b)[0], l = /@import (?:url\()?['"]?([^'\)"]*)['"]?\)?[^;]*/gm; null !== (c = l.exec(a));) n.push(j + c[1]);
-	      null !== f && 0 !== f.length && (o = o.concat(f), p = p.concat(h))
-	    },
-	    g = function() {
-	      for (var a = /[\w\d\s\-\/\\%#:,.'"*()]+\d*\.?\d+rem[\w\d\s\-\/\\%#:!,.'"*()]*[;}]/g, b = 0; b < o.length; b++) {
-	        l += o[b].substr(0, o[b].indexOf("{") + 1);
-	        for (var c = o[b].match(a), d = 0; d < c.length; d++) l += c[d], d === c.length - 1 && "}" !== l[l.length - 1] && (l += "\n}")
-	      }
-	      h()
-	    },
-	    h = function() {
-	      for (var a = 0; a < p.length; a++) s[a] = Math.round(parseFloat(p[a].substr(0, p[a].length - 3) * t)) + "px";
-	      i()
-	    },
-	    i = function() {
-	      for (var a = 0; a < s.length; a++) s[a] && (l = l.replace(p[a], s[a]));
-	      var b = document.createElement("style");
-	      b.setAttribute("type", "text/css"), b.id = "remReplace", document.getElementsByTagName("head")[0].appendChild(b), b.styleSheet ? b.styleSheet.cssText = l : b.appendChild(document.createTextNode(l))
-	    },
-	    j = function(b, c) {
-	      try {
-	        var d = a.ActiveXObject ? new ActiveXObject("Microsoft.XMLHTTP") || new ActiveXObject("Msxml2.XMLHTTP") : new XMLHttpRequest;
-	        d.open("GET", b, !0), d.onreadystatechange = function() {
-	          4 === d.readyState && c(d, b)
-	        }, d.send(null)
-	      } catch (e) {
-	        if (a.XDomainRequest) {
-	          var f = new XDomainRequest;
-	          f.open("get", b), f.onload = function() {
-	            c(f, b)
-	          }, f.onerror = function() {
-	            return !1
-	          }, f.send()
-	        }
-	      }
-	    },
-	    k = function(b) {
-	      return a.matchMedia || a.msMatchMedia || (b = b.replace(/@media[\s\S]*?\}\s*\}/g, "")), b
-	    };
-	  if (!b()) {
-	    var l = "",
-	      m = c(),
-	      n = [],
-	      o = [],
-	      p = [],
-	      q = [],
-	      r = [],
-	      s = [],
-	      t = "";
-	    t = function() {
-	      var a, b = document,
-	        c = b.documentElement,
-	        d = b.body || b.createElement("body"),
-	        e = !b.body,
-	        f = b.createElement("div"),
-	        g = d.style.fontSize;
-	      return e && c.appendChild(d), f.style.cssText = "width:1em; position:absolute; visibility:hidden; padding: 0;", d.style.fontSize = "1em", d.appendChild(f), a = f.offsetWidth, e ? c.removeChild(d) : (d.removeChild(f), d.style.fontSize = g), a
-	    }(), d()
-	  }
-	}(window);
-
-	
-
+		$('.nav').nav();
 	</script>
 </body>
 
