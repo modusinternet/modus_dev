@@ -48,7 +48,27 @@
 
 		<style>
 			/* default */
+			/*
 			@viewport{width:device-width}@-ms-viewport{width:device-width}*{box-sizing:border-box}html{font-size:62.5%}body{font-size:1.4rem;line-height:2.4rem}
+			*/
+			:root {
+				@viewport{width:device-width;}
+				@-ms-viewport{width:device-width;}
+				*, ::after, ::before {
+				  margin: 0;
+				  padding: 0;
+				  -webkit-box-sizing: border-box;
+				  -moz-box-sizing: border-box;
+				  box-sizing: border-box;
+				}
+				html{font-size:62.5%}
+				body {
+					color: #666;
+				  font: 100 1.6rem/1.4rem 'Open Sans',sans-serif;
+					-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+					-webkit-text-size-adjust: 100%;
+				}
+			}
 
 
 			/* nav-core */
