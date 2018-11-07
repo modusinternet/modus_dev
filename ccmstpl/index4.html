@@ -172,7 +172,48 @@
 		  position: fixed;
 		  right: 0;
 		  top: 0;
-		  z-index: 1;
+		  z-index: 1
+		}
+
+
+
+
+
+		.cssgrid .header { grid-area: head }
+		.cssgrid .sidebar { grid-area: sidebar }
+		.cssgrid .content { grid-area: content }
+		.cssgrid .sidebar2 { grid-area: sidebar2 }
+		.cssgrid .footer { grid-area: footer }
+
+		.cssgrid {
+		  color: #444;
+		  background-color: #fff
+		}
+
+		.cssgrid {
+		  display: grid;
+		  grid-gap: 1em;
+		  grid-template-areas:
+		    "head"
+		    "sidebar"
+		    "content"
+		    "sidebar2"
+		    "footer"
+		}
+
+		.cssgrid .box {
+		  background-color: #444;
+		  color: #fff;
+		  border-radius: 5px;
+		  padding: 10px;
+		  overflow: hidden
+		}
+
+		.cssgrid .header, .cssgrid .footer { background-color: #999 }
+
+		.cssgrid .sidebar2 {
+		  background-color: #ccc;
+		  color: #444
 		}
 
 
