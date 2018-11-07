@@ -144,7 +144,7 @@
 
 		#loading_svg rect { fill: #FF6700 }
 
-		.wrapper {
+		#wrapper {
 			/*opacity: 0;*/
 			opacity: 1;
 			-webkit-transition: opacity 2s ease-in;
@@ -154,7 +154,7 @@
 			transition:opacity 2s ease-in
 		}
 
-		.wrapper.fadeIn { opacity: 1 }
+		#wrapper.fadeIn { opacity: 1 }
 
 		header {
 		  left: 0;
@@ -550,8 +550,8 @@
 	</head>
 
 	<body>
-		<!-- {  CCMS_TPL:header-body-loading.html} -->
-		<div class="wrapper">
+		{CCMS_TPL:header-body-loading.html}
+		<div id="wrapper">
 			<main>
 				<div>
 					<h2>Responsive Topnav with Dropdown</h2>
@@ -714,8 +714,28 @@
 
 
 
-<script src="/ccmsusr/_js/jquery-2.2.4.min.js"></script>
+<!-- script src="/ccmsusr/_js/jquery-2.2.4.min.js"></script -->
 <script>
+function loadFirst(e,t){var a=document.createElement("script");a.defer = true;a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
+
+function loadJSResources() {
+	/*
+	var l = document.createElement('link'); l.rel = 'stylesheet';
+	l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style";
+	var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+
+	var l = document.createElement('link'); l.rel = 'stylesheet';
+	l.href = "/ccmsusr/_css/font-awesome-4.7.0.min.css";
+	var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+	*/
+
+	loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
+		/* Show loadig screen until JQuery is loaded. */
+		document.getElementById("loading_svg").style.display = "none";
+		document.getElementById("wrapper").className += "fadeIn";
+
+
+
 ! function(e, n) {
 	var i = {
 		init: function(n, i) {
@@ -803,6 +823,20 @@
 	return n.prototype = e, new n
 });
 $('.nav').nav();
+
+
+
+
+
+});
+}
+if (window.addEventListener) {
+	window.addEventListener("load", loadJSResources, false);
+} else if (window.attachEvent) {
+	window.attachEvent("onload", loadJSResources);
+} else {
+	window.onload = loadJSResources;
+}
 </script>
 
 </body>
