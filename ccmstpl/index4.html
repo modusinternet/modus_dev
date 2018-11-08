@@ -132,6 +132,8 @@
 		}
 
 		#loading_svg {
+			display: block;
+			opacity: 1;
 			width: 50%;
 			height: 50%;
 			margin: auto;
@@ -140,32 +142,34 @@
 			left: 0;
 			bottom: 0;
 			right: 0;
-
-			display: block;
-			opacity: 1;
 			-webkit-transition: opacity 2s;
 			-moz-transition: opacity 2s;
 			-o-transition: opacity 2s;
 			-ms-transition: opacity 2s;
-			transition:opacity 2s;
-
-			z-index: 9999
+			transition: opacity 2s
 		}
 
 		#loading_svg rect { fill: #FF6700 }
 
+		#loading_svg.fadeOut {
+			opacity: 0;
+			display: none
+		}
+
 		#wrapper {
 			display: none;
 			opacity: 0;
-
 			-webkit-transition: opacity 2s;
 			-moz-transition: opacity 2s;
 			-o-transition: opacity 2s;
 			-ms-transition: opacity 2s;
-			transition:opacity 2s
+			transition: opacity 2s
 		}
 
-		#wrapper.fadeIn { /* opacity: 1 */ display: block; }
+		#wrapper.fadeIn {
+			opacity: 1;
+			display: block
+		}
 
 		header {
 		  left: 0;
@@ -802,11 +806,12 @@ function loadJSResources() {
 
 	loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 		/* Show loadig screen until JQuery is loaded. */
-		document.getElementById("loading_svg").style.opacity = "0";
-		document.getElementById("loading_svg").style.display = "none";
-		//document.getElementById("wrapper").className += "fadeIn";
-		document.getElementById("wrapper").style.display = "block";
-		document.getElementById("wrapper").style.opacity = "1";
+		document.getElementById("loading_svg").className += "fadeOut";
+		document.getElementById("wrapper").className += "fadeIn";
+		//document.getElementById("loading_svg").style.opacity = "0";
+		//document.getElementById("loading_svg").style.display = "none";
+		//document.getElementById("wrapper").style.display = "block";
+		//document.getElementById("wrapper").style.opacity = "1";
 
 
 
