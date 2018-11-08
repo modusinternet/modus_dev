@@ -806,8 +806,13 @@ function loadJSResources() {
 
 	loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 		/* Show loadig screen until JQuery is loaded. */
-		document.getElementById("loading_svg").className += "fadeOut";
-		//document.getElementById("wrapper").className += "fadeIn";
+		document.getElementById("loading_svg").style.opacity = "0";
+		//document.getElementById("loading_svg").className += "fadeOut";
+		document.getElementById("wrapper").className += "fadeIn";
+		//document.getElementById("loading_svg").style.opacity = "0";
+		//document.getElementById("loading_svg").style.display = "none";
+		//document.getElementById("wrapper").style.display = "block";
+		//document.getElementById("wrapper").style.opacity = "1";
 
 
 
