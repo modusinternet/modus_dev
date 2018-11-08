@@ -114,7 +114,11 @@
 		@viewport { width: device-width }
 		@-ms-viewport { width: device-width }
 
-		:root {}
+		:root {
+			--header-div-a-img-height: 64px;
+		  --header-div-a-img-height-scroll: 48px;
+		  --header-z-index: 1;
+		}
 
 		* {
 			margin: 0;
@@ -132,7 +136,6 @@
 		}
 
 		#loading_svg {
-			/*display: block;*/
 			opacity: 1;
 			width: 50%;
 			height: 50%;
@@ -151,13 +154,7 @@
 
 		#loading_svg rect { fill: #FF6700 }
 
-		#loading_svg.fadeOut {
-			/*display: none;*/
-			opacity: 0
-		}
-
 		#wrapper {
-			/*display: none;*/
 			opacity: 0;
 			-webkit-transition: opacity 2s;
 			-moz-transition: opacity 2s;
@@ -166,18 +163,44 @@
 			transition: opacity 2s
 		}
 
-		#wrapper.fadeIn {
-			opacity: 1;
-			/*display: block*/
-		}
+		#wrapper.fadeIn { opacity: 1 }
 
 		header {
+			background: none;
 		  left: 0;
 			position: fixed;
 		  right: 0;
 		  top: 0;
-		  z-index: 1
+		  z-index: var(--header-z-index);
+			-webkit-transition: all 1.0s ease-in-out;
+		  -moz-transition: all 1.0s ease-in-out;
+		  -o-transition: all 1.0s ease-in-out;
+		  transition: all 1.0s ease-in-out
 		}
+
+		.header-scroll { height: 60px }
+
+		header > div > a > img {
+		  height: var(--header-div-a-img-height);
+		  margin: 10px;
+		  -webkit-filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
+		  -moz-filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
+		  -ms-filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
+		  -o-filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
+		  filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
+		  -webkit-transition: all 1.0s ease-in-out;
+		  -moz-transition: all 1.0s ease-in-out;
+		  -o-transition: all 1.0s ease-in-out;
+		  transition: all 1.0s ease-in-out;
+		}
+
+		.header-div-a-img-scroll { height: var(--header-div-a-img-height-scroll); }
+
+
+
+
+
+
 
 		main { padding: 10px }
 
@@ -807,12 +830,21 @@ function loadJSResources() {
 	loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 		/* Show loadig screen until JQuery is loaded. */
 		document.getElementById("loading_svg").style.opacity = "0";
-		//document.getElementById("loading_svg").className += "fadeOut";
 		document.getElementById("wrapper").className += "fadeIn";
-		//document.getElementById("loading_svg").style.opacity = "0";
-		//document.getElementById("loading_svg").style.display = "none";
-		//document.getElementById("wrapper").style.display = "block";
-		//document.getElementById("wrapper").style.opacity = "1";
+
+		/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
+		$(window).scroll(function() {
+			var scroll = $(window).scrollTop();
+			if(scroll >= 50) {
+				$("header").addClass("header-scroll");
+				$("header img").addClass("header-div-a-img-scroll");
+				$("header div button").addClass("header-div-button-scroll");
+			} else {
+				$("header").removeClass("header-scroll");
+				$("header img").removeClass("header-div-a-img-scroll");
+				$("header div button").removeClass("header-div-button-scroll");
+			}
+		});
 
 
 
