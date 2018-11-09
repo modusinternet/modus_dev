@@ -421,220 +421,134 @@
 	        	<li><a href="#">Contact</a></li>
 			    </ul>
 				</nav>
-
-
-
 			</header>
-
 		</div>
 
+		<script>
+			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
+			function loadJSResources() {
+				/*
+				var l = document.createElement('link'); l.rel = 'stylesheet';
+				l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style";
+				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
+				var l = document.createElement('link'); l.rel = 'stylesheet';
+				l.href = "/ccmsusr/_css/font-awesome-4.7.0.min.css";
+				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+				*/
 
+				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
 
+					/* Show loading screen until JQuery is loaded. */
+					document.getElementById("loading_svg").style.opacity = "0";
+					document.getElementById("wrapper").className += "fadeIn";
 
-		<!--
-	<div style="padding: 10px;">
-	    <h1>Hello World</h1>
-	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor accumsan enim, id finibus sapien imperdiet a. Ut laoreet imperdiet diam quis tincidunt. Fusce risus est, suscipit ut turpis id, vehicula sodales libero. Nulla a elementum risus. Morbi fringilla, ligula ac pretium bibendum, felis erat consequat nunc, in blandit velit quam eu eros. Nam convallis in sem eu mollis. Mauris venenatis magna vulputate odio aliquet, sit amet dapibus tortor luctus. In mauris massa, aliquet nec nisl ut, feugiat tincidunt dolor. Mauris tristique felis eu tempus vestibulum. Nulla fringilla molestie consequat. Pellentesque eget porta urna.</p>
-			<p>Sed volutpat viverra diam pellentesque dictum. Nulla mollis est non est accumsan, vel viverra dolor aliquet. Fusce posuere mi vel elit vulputate, nec malesuada libero porta. Aliquam nisi arcu, congue luctus massa id, imperdiet facilisis turpis. Suspendisse consequat, est sit amet venenatis consectetur, massa enim lobortis quam, ut viverra tortor neque non justo. Curabitur porttitor eget ante eget euismod. Duis lacinia quam in tempor gravida. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc ullamcorper accumsan nunc, feugiat gravida ex finibus in. Aenean mi felis, lacinia eget feugiat vel, maximus ac mauris. Suspendisse elementum ut neque id varius. Etiam vitae ex nulla. Vestibulum blandit arcu et neque pharetra, vel pulvinar lacus commodo. Donec eu sodales dolor, in placerat lorem.</p>
-			<p>Sed suscipit orci neque, luctus auctor metus dictum eget. Aliquam ante odio, posuere a nunc ut, eleifend efficitur diam. Aliquam erat est, dignissim vel accumsan in, fringilla hendrerit nulla. Nam sit amet sagittis sapien. Mauris tempor libero varius, volutpat mi vitae, accumsan lorem. Morbi non est porta ligula dapibus fringilla. Mauris mauris est, mattis vitae purus at, posuere luctus nibh. Suspendisse lobortis justo elit, vel feugiat lorem pulvinar ut. Sed molestie, magna sed luctus tempor, est felis porttitor massa, in convallis lectus enim sit amet lacus. Sed quis magna vel est eleifend sollicitudin. Ut a eros lobortis, luctus nunc id, sagittis purus. Nunc mattis lectus quam, sit amet pellentesque ligula vehicula eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc hendrerit elit a auctor mollis. Cras ac tempor metus. Fusce enim nisl, ornare in odio sit amet, facilisis ornare velit.</p>
-	</div>
-<header>
-    <h1>Responsive Navigation</h1>
-</header>
-<a href="#" class="nav-button">Menu</a>
-<nav class="nav">
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li class="nav-submenu"><a href="#">Services</a>
-            <ul>
-                <li><a href="#">Some Service</a></li>
-                <li><a href="#">Another Service</a></li>
-                <li><a href="#">Good Service</a></li>
-                <li><a href="#">Room Service</a></li>
-            </ul>
-        </li>
-        <li class="nav-submenu"><a href="#">Products</a>
-            <ul>
-                <li><a href="#">Food</a></li>
-                <li class="nav-submenu"><a href="#">Drinks</a>
-                    <ul>
-                        <li><a href="#">Water</a></li>
-                        <li class="nav-submenu"><a href="#">Cola</a>
-                            <ul>
-                                <li class="nav-submenu nav-left"><a href="#">Coca Cola</a>
-                                    <ul>
-                                        <li><a href="#">This one goes left!</a></li>
-                                        <li><a href="#">Too much sugar...</a></li>
-                                        <li><a href="#">Yummy</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Pepsi</a></li>
-                                <li><a href="#">River</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Lemonade</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Candy</a></li>
-                <li><a href="#">Ice Cream</a></li>
-            </ul>
-        </li>
-        <li class="nav-submenu"><a href="#">Albums</a>
-            <ul>
-                <li><a href="#">Christmas</a></li>
-                <li><a href="#">New Year</a></li>
-                <li><a href="#">Easter</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
+					/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
+					$(window).scroll(function() {
+						var scroll = $(window).scrollTop();
+						if(scroll >= 50) {
+							$("header").addClass("header-scroll");
+							$("header img").addClass("header-div-a-img-scroll");
+							$("header div button").addClass("header-div-button-scroll");
+						} else {
+							$("header").removeClass("header-scroll");
+							$("header img").removeClass("header-div-a-img-scroll");
+							$("header div button").removeClass("header-div-button-scroll");
+						}
+					});
 
-<a href="#" class="nav-close">Close Menu</a>
--->
-
-
-
-
-<!-- script src="/ccmsusr/_js/jquery-2.2.4.min.js"></script -->
-<script>
-function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
-
-function loadJSResources() {
-	/*
-	var l = document.createElement('link'); l.rel = 'stylesheet';
-	l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style";
-	var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-
-	var l = document.createElement('link'); l.rel = 'stylesheet';
-	l.href = "/ccmsusr/_css/font-awesome-4.7.0.min.css";
-	var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-	*/
-
-	loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
-		/* Show loadig screen until JQuery is loaded. */
-		document.getElementById("loading_svg").style.opacity = "0";
-		document.getElementById("wrapper").className += "fadeIn";
-
-		/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
-		$(window).scroll(function() {
-			var scroll = $(window).scrollTop();
-			if(scroll >= 50) {
-				$("header").addClass("header-scroll");
-				$("header img").addClass("header-div-a-img-scroll");
-				$("header div button").addClass("header-div-button-scroll");
-			} else {
-				$("header").removeClass("header-scroll");
-				$("header img").removeClass("header-div-a-img-scroll");
-				$("header div button").removeClass("header-div-button-scroll");
+					! function(e, n) {
+						var i = {
+							init: function(n, i) {
+								var u = this;
+								u.options = e.extend({}, e.fn.nav.options, n),
+								u.$body = e("body"),
+								u.$nav = e(i),
+								u.$menuButton = e(u.options.navButton),
+								u.$subMenu = e(u.options.subMenu),
+								u.subMenu = u.options.subMenu,
+								u.mobileMode = u.isCurrentlyMobile(u),
+								u.mouseOver = u.options.mouseOver,
+								u.disableSubMenuLink = u.options.disableSubMenuLink,
+								u.slideSpeed = u.options.slideSpeed,
+								e("html").removeClass("nav-no-js"),
+								u.collapseSubMenus(u), u.bindEvents(u)
+							},
+							bindEvents: function(i) {
+								i.$menuButton.on("click", function(e) {
+									i.toggleNav(i), e.preventDefault()
+								}), i.$nav.on("click", i.subMenu + " > a", function(n) {
+									var u = e(this);
+									i.isSubMenuLinkDisabled(i, u) && (i.toggleSubMenu(i, u.parent()), n.preventDefault())
+								}), 1 == i.mouseOver && (i.$nav.on("mouseenter", i.subMenu, function() {
+									0 == i.mobileMode && i.openSubMenu(i, e(this))
+								}), i.$nav.on("mouseleave", i.subMenu, function() {
+									0 == i.mobileMode && i.closeSubMenu(i, e(this))
+								})), e(n).on("resize", function() {
+									i.resetNav(i)
+								})
+							},
+							isSubMenuLinkDisabled: function(e, n) {
+								return "always" == e.disableSubMenuLink || "#" == n.attr("href") || "mobile" == e.disableSubMenuLink && 1 == e.mobileMode || "desktop" == e.disableSubMenuLink && 0 == e.mobileMode
+							},
+							toggleNav: function(n) {
+								n.$nav.stop().clearQueue().slideToggle(n.slideSpeed, function() {
+									var i = e(this);
+									i.is(":hidden") ? (n.collapseSubMenus(n), e(this).attr("style", "display: none;")) : e(this).attr("style", "display: block;")
+								}), n.$body.toggleClass("nav-lock-scroll")
+							},
+							toggleSubMenu: function(e, n) {
+								n.hasClass("nav-active") ? e.closeSubMenu(e, n) : e.openSubMenu(e, n)
+							},
+							openSubMenu: function(n, i) {
+								i.addClass("nav-active").children("ul").stop().clearQueue().slideDown(n.slideSpeed, function() {
+									e(this).attr("style", "display: block;")
+								}), i.siblings(n.subMenu).removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+									e(this).clearQueue()
+								}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+									e(this).clearQueue()
+								})
+							},
+							closeSubMenu: function(n, i) {
+								i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
+										e(this).attr("style", "display: none;")
+								}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
+									e(this).clearQueue()
+								})
+							},
+							resetNav: function(e) {
+								var n = e.isCurrentlyMobile(e);
+								e.mobileMode !== n && (e.$nav.removeAttr("style").find("ul").removeAttr("style"), e.$body.removeClass("nav-lock-scroll"), e.collapseSubMenus(e), e.mobileMode = n)
+							},
+							collapseSubMenus: function(e) {
+								e.$subMenu.removeClass("nav-active").children("ul").hide()
+							},
+							isCurrentlyMobile: function(e) {
+								return e.$menuButton.is(":visible")
+							}
+						};
+						e.fn.nav = function(e) {
+							return this.each(function() {
+								var n = Object.create(i);
+								n.init(e, this)
+							})
+						}, e.fn.nav.options = {
+							navButton: ".nav-button",
+							subMenu: ".nav-submenu",
+							mouseOver: !0,
+							disableSubMenuLink: "always",
+							slideSpeed: 300
+						}
+					}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {	function n() {}	return n.prototype = e, new n	});
+					$('.nav').nav();
+				});
 			}
-		});
 
+			if (window.addEventListener) {window.addEventListener("load", loadJSResources, false)}
+			else if (window.attachEvent) {window.attachEvent("onload", loadJSResources)}
+			else {window.onload = loadJSResources}
+		</script>
 
-
-
-! function(e, n) {
-	var i = {
-		init: function(n, i) {
-			var u = this;
-			u.options = e.extend({}, e.fn.nav.options, n),
-			u.$body = e("body"),
-			u.$nav = e(i),
-			u.$menuButton = e(u.options.navButton),
-			u.$subMenu = e(u.options.subMenu),
-			u.subMenu = u.options.subMenu,
-			u.mobileMode = u.isCurrentlyMobile(u),
-			u.mouseOver = u.options.mouseOver,
-			u.disableSubMenuLink = u.options.disableSubMenuLink,
-			u.slideSpeed = u.options.slideSpeed,
-			e("html").removeClass("nav-no-js"),
-			u.collapseSubMenus(u), u.bindEvents(u)
-		},
-		bindEvents: function(i) {
-			i.$menuButton.on("click", function(e) {
-				i.toggleNav(i), e.preventDefault()
-			}), i.$nav.on("click", i.subMenu + " > a", function(n) {
-				var u = e(this);
-				i.isSubMenuLinkDisabled(i, u) && (i.toggleSubMenu(i, u.parent()), n.preventDefault())
-			}), 1 == i.mouseOver && (i.$nav.on("mouseenter", i.subMenu, function() {
-				0 == i.mobileMode && i.openSubMenu(i, e(this))
-			}), i.$nav.on("mouseleave", i.subMenu, function() {
-				0 == i.mobileMode && i.closeSubMenu(i, e(this))
-			})), e(n).on("resize", function() {
-				i.resetNav(i)
-			})
-		},
-		isSubMenuLinkDisabled: function(e, n) {
-			return "always" == e.disableSubMenuLink || "#" == n.attr("href") || "mobile" == e.disableSubMenuLink && 1 == e.mobileMode || "desktop" == e.disableSubMenuLink && 0 == e.mobileMode
-		},
-		toggleNav: function(n) {
-			n.$nav.stop().clearQueue().slideToggle(n.slideSpeed, function() {
-				var i = e(this);
-				i.is(":hidden") ? (n.collapseSubMenus(n), e(this).attr("style", "display: none;")) : e(this).attr("style", "display: block;")
-			}), n.$body.toggleClass("nav-lock-scroll")
-		},
-		toggleSubMenu: function(e, n) {
-			n.hasClass("nav-active") ? e.closeSubMenu(e, n) : e.openSubMenu(e, n)
-		},
-		openSubMenu: function(n, i) {
-			i.addClass("nav-active").children("ul").stop().clearQueue().slideDown(n.slideSpeed, function() {
-				e(this).attr("style", "display: block;")
-			}), i.siblings(n.subMenu).removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-				e(this).clearQueue()
-			}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-				e(this).clearQueue()
-			})
-		},
-		closeSubMenu: function(n, i) {
-			i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
-					e(this).attr("style", "display: none;")
-			}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
-				e(this).clearQueue()
-			})
-		},
-		resetNav: function(e) {
-			var n = e.isCurrentlyMobile(e);
-			e.mobileMode !== n && (e.$nav.removeAttr("style").find("ul").removeAttr("style"), e.$body.removeClass("nav-lock-scroll"), e.collapseSubMenus(e), e.mobileMode = n)
-		},
-		collapseSubMenus: function(e) {
-			e.$subMenu.removeClass("nav-active").children("ul").hide()
-		},
-		isCurrentlyMobile: function(e) {
-			return e.$menuButton.is(":visible")
-		}
-	};
-	e.fn.nav = function(e) {
-		return this.each(function() {
-			var n = Object.create(i);
-			n.init(e, this)
-		})
-	}, e.fn.nav.options = {
-		navButton: ".nav-button",
-		subMenu: ".nav-submenu",
-		mouseOver: !0,
-		disableSubMenuLink: "always",
-		slideSpeed: 300
-	}
-}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {
-	function n() {}
-	return n.prototype = e, new n
-});
-$('.nav').nav();
-
-
-
-
-
-		});
-	}
-
-	if (window.addEventListener) {window.addEventListener("load", loadJSResources, false)}
-	else if (window.attachEvent) {window.attachEvent("onload", loadJSResources)}
-	else {window.onload = loadJSResources}
-</script>
-
-</body>
+	</body>
 </html>
