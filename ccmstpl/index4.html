@@ -181,7 +181,7 @@
 
 		.header-scroll { height: 60px }
 
-		header > div > a > img {
+		header img {
 		  height: var(--header-div-a-img-height);
 		  margin: 10px;
 		  -webkit-filter: drop-shadow({CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,.5));
@@ -230,26 +230,21 @@
 		  background: var(--nav-background);
 			box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,0.2);
 		  display: none;
-			width: 80%;
+			width: 80%
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0
+		}
+
+		nav a, nav a:active, nav a:hover, nav a:visited {
+			display: block;
+			position: relative
 		}
 
 
-/*
-		.nav {
-
-			overflow-x: hidden;
-			overflow-y: auto
-		}
-
-		nav {
-		  {CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: -100%;
-		  overflow-y: auto;
-		  -webkit-transition: all 1.0s ease-in-out;
-		  -moz-transition: all 1.0s ease-in-out;
-		  -o-transition: all 1.0s ease-in-out;
-		  transition: all 1.0s ease-in-out;
-		}
-*/
 
 
 
