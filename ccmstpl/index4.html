@@ -118,8 +118,6 @@
 			--header-div-a-img-height: 64px;
 		  --header-div-a-img-height-scroll: 48px;
 		  --header-z-index: 1;
-			--nav-background: #ccc;
-			--nav-text-color: #A69A94;
 		}
 
 		* {
@@ -228,11 +226,11 @@
 		}
 
 		nav {
-		  background: var(--nav-background);
+		  background: #999;
 			box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,0.2);
 		  display: none;
 			line-height: 3.5rem;
-			color: var(--nav-text-color);
+			color: #a69a94;
 			width: 80%
 		}
 
@@ -242,7 +240,64 @@
 			padding: 0
 		}
 
-		nav li.nav-active>a, .nav li:hover>a {
+
+
+		nav ul ul {
+			background: #2f2722
+		}
+
+		nav ul ul ul {
+			background: #382f29
+		}
+
+		nav ul ul ul ul {
+			background: #40362f
+		}
+
+		nav ul ul ul ul ul {
+			background: #493e36
+		}
+
+		nav li {
+			border-top: 1px solid #59544F;
+			cursor: pointer
+		}
+
+		nav li.nav-active>a, nav li:hover>a {
+			/* color: #923600; */
+			color: #fff;
+			background: #2E2722
+		}
+
+		nav .nav-submenu>ul {
+			margin-left: 10px
+		}
+
+		nav .nav-submenu>a {
+			padding-right: 30px !important
+		}
+
+		nav a, nav a:active, nav a:hover, nav a:visited {
+			/* border-radius: 6px; */
+			/* padding: 0 15px 1px; */
+			padding: 0 15px;
+			color: #8C827D;
+			text-decoration: none
+		}
+
+		nav .nav-submenu>a:after {
+			position: absolute;
+			display: block;
+			right: 10px;
+			top: 1px;
+			/* down-pointing triangle/arrow */
+			content: "\25bc"
+		}
+
+
+
+
+		nav li.nav-active>a, nav li:hover>a {
 					color: #fff;
 				  background: #2E2722
 				}
