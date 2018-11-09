@@ -199,6 +199,7 @@
 		.icon-menu-close:before, .icon-menu:before, .icon-mobile:before, .icon-submenu-down:before, .icon-submenu-right:before, nav .nav-submenu>a:after, .nav-button:before, .nav-close:before, nav>ul>.nav-submenu>a:after, header h1:before {
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
+			font-size: 1rem;
 			/*
 			font-style: normal;
 			font-variant: normal;
@@ -226,7 +227,7 @@
 		}
 
 		nav {
-		  background: #999;
+		  background: #808080;
 			bottom: 0;
 			box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}px 12px 12px rgba(0,0,0,0.2);
 			display: none;
@@ -246,19 +247,19 @@
 		}
 
 		nav ul ul {
-			background: #2f2722
+			background: #999999
 		}
 
 		nav ul ul ul {
-			background: #382f29
+			background: #b3b3b3
 		}
 
 		nav ul ul ul ul {
-			background: #40362f
+			background: #cccccc
 		}
 
 		nav ul ul ul ul ul {
-			background: #493e36
+			background: #e6e6e6
 		}
 
 		nav li {
@@ -271,7 +272,7 @@
 		}
 
 		nav .nav-submenu>ul {
-			margin-left: 10px
+			margin-left: 20px
 		}
 
 		nav .nav-submenu>a {
@@ -288,12 +289,13 @@
 		}
 
 		nav .nav-submenu>a:after {
-			position: absolute;
+			/* down-pointing triangle/arrow */
+			content: "\25bc";
 			display: block;
+			position: absolute;
 			right: 10px;
 			top: 1px;
-			/* down-pointing triangle/arrow */
-			content: "\25bc"
+
 		}
 
 
