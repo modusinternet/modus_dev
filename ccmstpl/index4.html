@@ -110,7 +110,6 @@
 			unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 		}
 
-		/* default */
 		@viewport { width: device-width }
 		@-ms-viewport { width: device-width }
 
@@ -200,14 +199,6 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-size: 1rem;
-			/*
-			font-style: normal;
-			font-variant: normal;
-			font-size: initial;
-			text-decoration: none;
-			text-transform: none;
-			vertical-align: top
-			*/
 		}
 
 		.nav-button {
@@ -222,8 +213,7 @@
 		}
 
 		.nav-button:before {
-			/* Hamburger Icon */
-			content: "\2630"
+			content: "\2630" /* Hamburger Icon */
 		}
 
 		nav {
@@ -237,7 +227,11 @@
 			overflow-y: auto;
 			position: fixed;
 			top: 80px;
-			width: 85%
+			width: 85%;
+			-webkit-transition: all 1.0s ease-in-out;
+		  -moz-transition: all 1.0s ease-in-out;
+		  -o-transition: all 1.0s ease-in-out;
+		  transition: all 1.0s ease-in-out;
 		}
 
 		nav ul {
@@ -268,7 +262,7 @@
 		}
 
 		nav li.nav-active>a, nav li:hover>a {
-			font-weight: bold;
+			font-weight: bold
 		}
 
 		nav .nav-submenu>ul {
@@ -280,7 +274,6 @@
 		}
 
 		nav a, nav a:active, nav a:hover, nav a:visited {
-			/* border-radius: 6px; */
 			color: #fff;
 		  display: block;
 			padding: 0 10px;
@@ -289,13 +282,11 @@
 		}
 
 		nav .nav-submenu>a:after {
-			/* down-pointing triangle/arrow */
-			content: "\25bc";
+			content: "\25bc"; /* down-pointing triangle/arrow */
 			display: block;
 			position: absolute;
 			right: 10px;
-			top: 1px;
-
+			top: 1px
 		}
 
 
