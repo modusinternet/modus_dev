@@ -299,6 +299,50 @@
 
 
 
+			/* 400px or larger. */
+			@media only screen and (min-width: 400px) {
+
+
+
+
+
+
+				.cssgrid {
+			    grid-template-columns: 20% auto;
+			    grid-template-areas:
+			      "header header"
+			      "sidebar content"
+			      "sidebar2 sidebar2"
+			      "footer footer";
+			  }
+			}
+
+
+
+
+			/* 769px or larger. */
+			@media only screen and (min-width: 769px) {
+
+
+
+
+
+
+
+			  .cssgrid {
+			    grid-gap: 20px;
+			    grid-template-columns: 120px auto 120px;
+			    grid-template-areas:
+			      "header header header"
+			      "sidebar content sidebar2"
+			      "footer footer footer";
+			  }
+			}
+
+
+
+
+
 
 			/* latin */
 			@font-face {
