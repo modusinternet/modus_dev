@@ -18,9 +18,9 @@ function navLngList() {
 	if($qry->execute()) {
 		while($row = $qry->fetch()) {
 			if($row["ptrLng"]) {
-				echo "<a class=\"dropdown-item\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a>";
+				echo "<li><a class=\"dropdown-item\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a></li>";
 			} else {
-				echo "<a class=\"dropdown-item\" href=\"/" . $row["lng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a>";
+				echo "<li><a class=\"dropdown-item\" href=\"/" . $row["lng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a></li>";
 			}
 		}
 	}
@@ -53,4 +53,3 @@ function shadow_direction_x() {
 		echo "-6";
 	}
 }
-
