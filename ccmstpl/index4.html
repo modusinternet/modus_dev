@@ -323,69 +323,89 @@
 			/* 769px or larger. */
 			@media only screen and (min-width: 769px) {
 
-
-
-
-
-
-
 				.nav-button {
 					display: none
 				}
 
 				nav {
 					display: block;
-			    
-position: absolute;
-bottom: auto;
-overflow: visible;
-top: 0;
-right: 0;
-left: unset;
-width: unset;
-
-
+					position: absolute;
+					bottom: auto;
+					overflow: visible;
+					top: 0;
+					right: 0;
+					left: unset;
+					width: unset;
 				}
 
 				nav>ul>li {
-					border-top: none
+					border-top: none;
 				}
 
 				nav li>ul {
-					box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75)
+					box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75);
 				}
 
+				nav ul ul {
+			    display: none;
+			    position: absolute;
+			    top: 100%;
+			    left: 0;
+			    z-index: 901;
+			  }
+
 				nav ul ul ul {
-					border-radius: 0 6px 6px
+					border-radius: 0 6px 6px;
+					top: 5px;
+			    left: 95%;
+			    z-index: 902;
 				}
 
 				nav ul ul ul li:first-child {
-					border-top: none
+					border-top: none;
 				}
 
+				nav ul ul ul ul {
+			    z-index: 903;
+			  }
+
+				nav ul ul ul ul ul {
+			    z-index: 904;
+			  }
+
 				nav .nav-left>ul {
-					border-radius: 6px 0 6px 6px
+					border-radius: 6px 0 6px 6px;
 				}
 
 				nav .nav-submenu li {
-					min-width: 110px
+					min-width: 110px;
 				}
 
 				nav .nav-submenu>ul {
-					margin: 0
+					margin: 0;
 				}
 
 				nav>ul>.nav-submenu>a:after {
 					/* down-pointing triangle/arrow */
 					/* content: " \25BE" */
-					content: "\25bc"
+					content: "\25bc";
 				}
 
 				nav .nav-submenu>a:after {
 					/* right-pointing triangle/arrow */
 					/* content: " \25B8" */
-					content: "\25ba"
+					content: "\25ba";
 				}
+
+
+				nav ul ul li.nav-left>ul {
+			    left: auto;
+			    right: 95%
+			  }
+
+			  .nav-no-js .nav li:hover>ul {
+			    display: block
+			  }
 
 
 
