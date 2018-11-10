@@ -207,10 +207,6 @@
 				top: 1px
 			}
 
-
-
-
-
 			main {
 				padding: 10px;
 				position: absolute;
@@ -254,10 +250,6 @@
 			  color: #444
 			}
 
-
-
-
-
 			h1, h2, h3, h4, h5, h6 {
 			  color: #4F9F43;
 			  font-weight: 100;
@@ -270,14 +262,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 			/* 400px or larger. */
 			@media only screen and (min-width: 400px) {
-
-
-
-
-
-
 				.cssgrid {
 			    grid-template-columns: 20% auto;
 			    grid-template-areas:
@@ -291,9 +287,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 			/* 769px or larger. */
 			@media only screen and (min-width: 769px) {
-
 				.nav-button {
 					display: none
 				}
@@ -309,8 +315,15 @@
 					width: unset;
 				}
 
+				nav li {
+					min-width: 110px;
+			    position: relative;
+			    white-space: nowrap;
+			  }
+
 				nav>ul>li {
 					border-top: none;
+					display: inline-block;
 				}
 
 				nav li>ul {
@@ -371,11 +384,11 @@
 
 				nav ul ul li.nav-left>ul {
 			    left: auto;
-			    right: 95%
+			    right: 95%;
 			  }
 
 			  .nav-no-js .nav li:hover>ul {
-			    display: block
+			    display: block;
 			  }
 
 
