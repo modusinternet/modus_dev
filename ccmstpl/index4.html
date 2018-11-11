@@ -344,11 +344,6 @@
 					box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75);
 				}
 
-				nav ul {
-					max-height: 250px;
-					overflow-y: auto;
-				}
-
 				nav ul ul {
 			    display: none;
 			    position: absolute;
@@ -534,7 +529,7 @@
 		        </li>
 						<li><a href="#">About Us</a></li>
 		        <li><a href="#">Contact Us</a></li>
-						<li class="nav-submenu nav-left"><a href="#" class="nav-lang"></a>
+						<li class="nav-submenu nav-left" style="max-height: 250px; overflow-y: auto;"><a href="#" class="nav-lang"></a>
 	            <ul>{CCMS_LIB:modusinternet.php;FUNC:navLngList}</ul>
 		        </li>
 				</nav>
