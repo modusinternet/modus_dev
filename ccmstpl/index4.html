@@ -150,8 +150,26 @@
 			}
 
 			.nav-button:before {
-			/*content: "\2630";  Hamburger Icon */
+			/* Hamburger Icon */
 			content: "\2261";
+		 }
+
+		 .nav-lang {
+			 background: transparent;
+			 border: none;
+			 cursor: pointer;
+			 display: block;
+			 font-size: 2rem;
+			 /*
+			 position: fixed;
+			 right: 15px;
+			 top: 5px;
+			 */
+		 }
+
+		 .nav-lang:before {
+			 /* Tifinagh letter yaz */
+			 content: "\2d63";
 		 }
 
 			nav {
@@ -518,7 +536,7 @@
 		        </li>
 						<li><a href="#">About Us</a></li>
 		        <li><a href="#">Contact Us</a></li>
-						<li class="nav-submenu nav-left"><a href="#">Lang</a>
+						<li class="nav-submenu nav-left"><a href="#" class="nav-lang"></a>
 	            <ul>{CCMS_LIB:modusinternet.php;FUNC:navLngList}</ul>
 		        </li>
 				</nav>
