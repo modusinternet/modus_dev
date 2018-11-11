@@ -55,6 +55,7 @@
 				--header-div-a-img-height: 64px;
 			  --header-div-a-img-height-scroll: 48px;
 			  --header-z-index: 1;
+				--nav-a-color: #fff;
 			}
 
 			* {
@@ -159,8 +160,7 @@
 			 border: none;
 			 cursor: pointer;
 			 display: block;
-			 /*fill: white;*/
-			 color: inherit;
+			 fill: (--nav-a-color);
 		 }
 
 		 /*
@@ -223,7 +223,7 @@
 			nav .nav-submenu>a { padding-right: 30px !important }
 
 			nav a, nav a:active, nav a:hover, nav a:visited {
-				color: #fff;
+				color: (--nav-a-color);
 			  display: block;
 				padding: 0 10px;
 				position: relative;
