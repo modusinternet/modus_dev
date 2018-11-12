@@ -47,9 +47,7 @@ function lng_dir_right_go_left_left_go_right() {
 function shadow_direction_x() {
 	global $CFG;
 	/* Used to help direct the horizontal (x) direction of shadows generated in CSS when changing languages. */
-	if($CFG["CCMS_LNG_DIR"] == "ltr") {
-		echo "6";
-	} else {
-		echo "-6";
+	if(!($CFG["CCMS_LNG_DIR"] == "ltr")){
+		echo "-";
 	}
 }
