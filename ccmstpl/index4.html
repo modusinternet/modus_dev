@@ -688,6 +688,8 @@
 					}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {	function n() {}	return n.prototype = e, new n	});
 					$('nav').nav();
 					window.performance.mark('mark_end_javascript');
+					console.log(window.performance.getEntriesByName('mark_beginning_javascript'));
+					console.log(window.performance.getEntriesByName('mark_end_javascript'));
 				});
 			}
 
