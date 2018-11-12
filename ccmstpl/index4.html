@@ -213,10 +213,6 @@
 
 			nav ul ul ul ul ul { background: #ccc }
 
-			nav>ul {
-				border-bottom: 1px solid #fff;
-			}
-
 			nav>ul>li ul {
 				border-top: 1px solid #fff;
 			}
@@ -367,15 +363,19 @@
 					width: unset;
 				}
 
-				nav li {
-					position: relative;
-			    white-space: nowrap;
-			  }
+				nav>ul {
+					border-bottom: 1px solid #fff;
+				}
 
 				nav>ul>li {
 					border-top: none;
 					display: inline-block;
 				}
+
+				nav li {
+					position: relative;
+			    white-space: nowrap;
+			  }
 
 				nav li>ul {
 					box-shadow: 4px 4px 4px rgba(0,0,0,.2);
