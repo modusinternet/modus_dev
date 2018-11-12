@@ -569,7 +569,6 @@
 		</div>
 
 		<script>
-			window.performance.mark('mark_beginning_javascript');
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			function loadJSResources() {
@@ -687,12 +686,6 @@
 						}
 					}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {	function n() {}	return n.prototype = e, new n	});
 					$('nav').nav();
-
-					window.performance.mark('mark_end_javascript');
-					/*
-					console.log(window.performance.getEntriesByName('mark_beginning_javascript'));
-					console.log(window.performance.getEntriesByName('mark_end_javascript'));
-					*/
 				});
 			}
 
