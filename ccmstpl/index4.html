@@ -227,9 +227,9 @@
 				border-left: 1px solid #fff;
 			}
 
-			nav li.nav-active { background: #a9a9a9; }
+			.active { background: #a9a9a9; }
 
-			nav li:hover { background: #808080; }
+			nav li.nav-active, nav li:hover { background: #808080; }
 
 			nav li.nav-active>a, nav li:hover>a {}
 
@@ -602,7 +602,7 @@
 					document.getElementById("loading_svg").style.opacity = "0";
 					document.getElementById("wrapper").className += "fadeIn";
 
-					navActiveArray.forEach(function(s) {$("#"+s).addClass("nav-active");});
+					navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
 
 					/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
 					$(window).scroll(function() {
