@@ -179,6 +179,23 @@
 				top: 80px;
 			}
 
+			nav a, nav a:active, nav a:hover, nav a:visited {
+				color: var(--nav-a-color);
+				display: block;
+				padding: 0 10px;
+				position: relative;
+				text-decoration: none
+			}
+
+			nav .submenu>a:after {
+				content: " \25bc "; /* down-pointing triangle/arrow */
+				display: block;
+				font-size: 1rem;
+				position: absolute;
+				{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 10px;
+				top: 1px
+			}
+
 
 
 
