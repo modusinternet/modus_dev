@@ -135,6 +135,17 @@
 
 			.header-div-a-img-scroll { height: var(--header-div-a-img-height-scroll) }
 
+			.nav-toggle {
+				background: transparent;
+				border: none;
+				cursor: pointer;
+				display: block;
+				font-size: 2rem;
+				position: fixed;
+				{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 15px;
+				top: 5px;
+			}
+
 
 
 
@@ -256,11 +267,11 @@
 				top: 100px
 			}
 
-			.cssgrid .header { grid-area: head }
-			.cssgrid .sidebar { grid-area: sidebar }
+			.cssgrid .head { grid-area: head }
+			.cssgrid .sidebar1 { grid-area: sidebar1 }
 			.cssgrid .content { grid-area: content }
 			.cssgrid .sidebar2 { grid-area: sidebar2 }
-			.cssgrid .footer { grid-area: footer }
+			.cssgrid .foot { grid-area: foot }
 
 			.cssgrid {
 				color: #444;
@@ -272,10 +283,10 @@
 				grid-gap: 1em;
 				grid-template-areas:
 					"head"
-					"sidebar"
+					"sidebar1"
 					"content"
 					"sidebar2"
-					"footer"
+					"foot"
 			}
 
 			.cssgrid .box {
@@ -286,7 +297,7 @@
 				overflow: hidden
 			}
 
-			.cssgrid .header, .cssgrid .footer { background-color: #808080 }
+			.cssgrid .head, .cssgrid .foot { background-color: #808080 }
 
 			.cssgrid .sidebar2 {
 				background-color: #ccc;
@@ -311,9 +322,9 @@
 					grid-template-columns: 20% auto;
 					grid-template-areas:
 						"head head"
-						"sidebar content"
+						"sidebar1 content"
 						"sidebar2 sidebar2"
-						"footer footer";
+						"foot foot";
 				}
 			}
 
@@ -455,8 +466,8 @@
 					grid-template-columns: 120px auto 120px;
 					grid-template-areas:
 						"head head head"
-						"sidebar content sidebar2"
-						"footer footer footer";
+						"sidebar1 content sidebar2"
+						"foot foot foot";
 					}
 				}
 
@@ -503,14 +514,14 @@
 					<p>Resize the browser window to see how it works.</p>
 				</div>
 				<div class="cssgrid" style="margin-bottom: 1em">
-					<div class="box header">Header</div>
-					<div class="box sidebar">Sidebar</div>
+					<div class="box head">Header</div>
+					<div class="box sidebar1">Sidebar 1</div>
 					<div class="box sidebar2">Sidebar 2</div>
 					<div class="box content">
 						Content<br />
 						More content than we had before so this column is now quite tall.
 					</div>
-					<div class="box footer">Footer</div>
+					<div class="box foot">Footer</div>
 				</div>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper finibus euismod. Aliquam elementum nisl eu egestas convallis. Pellentesque a egestas nisi. Praesent vel aliquam velit. Aliquam ultricies dapibus nisi, nec malesuada quam imperdiet et. Donec laoreet arcu vitae maximus egestas. Nullam consequat metus in libero accumsan commodo. Etiam ultrices, nisi id posuere molestie, tortor dolor viverra augue, nec bibendum leo velit in lectus. Praesent vel molestie ligula.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper finibus euismod. Aliquam elementum nisl eu egestas convallis. Pellentesque a egestas nisi. Praesent vel aliquam velit. Aliquam ultricies dapibus nisi, nec malesuada quam imperdiet et. Donec laoreet arcu vitae maximus egestas. Nullam consequat metus in libero accumsan commodo. Etiam ultrices, nisi id posuere molestie, tortor dolor viverra augue, nec bibendum leo velit in lectus. Praesent vel molestie ligula.</p>
