@@ -35,9 +35,9 @@ function navLngList2() {
 	if($qry->execute()) {
 		while($row = $qry->fetch()) {
 			if($row["ptrLng"]) {
-				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a>/n";
+				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a>\n";
 			} else {
-				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["lng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a>/n";
+				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["lng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a>\n";
 			}
 		}
 	}
