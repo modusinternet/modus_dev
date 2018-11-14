@@ -26,6 +26,23 @@ function navLngList() {
 	}
 }
 
+function navLngList2() {
+	global $CFG, $CLEAN;
+	// this line of code produces the wrong output on GoDaddy servers.
+	//$tpl = htmlspecialchars(preg_replace('/^\/([\pL\pN-]*)\/?(.*)\z/i', '${2}', $_SERVER['REDIRECT_URL']));
+	$tpl = htmlspecialchars(preg_replace('/^\/([\pL\pN-]*)\/?(.*)\z/i', '${2}', $_SERVER['REQUEST_URI']));
+	$qry = $CFG["DBH"]->prepare("SELECT * FROM `ccms_lng_charset` WHERE `status` = 1 ORDER BY lngDesc ASC;");
+	if($qry->execute()) {
+		while($row = $qry->fetch()) {
+			if($row["ptrLng"]) {
+				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a>";
+			} else {
+				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["lng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a>";
+			}
+		}
+	}
+}
+
 function lng_dir_left_go_right_right_go_left() {
 	global $CFG;
 	if($CFG["CCMS_LNG_DIR"] == "ltr") {
