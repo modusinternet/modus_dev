@@ -325,13 +325,16 @@
 				.nav-toggle {display: none;}
 
 				nav {
-					display: block;
 					overflow: visible;
 					position: absolute;
 					top: 0;
 					width: unset;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 0;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: unset;
+				}
+
+				nav div {
+					display: inline-block;
 				}
 
 				nav .dropdown {display: none;}
