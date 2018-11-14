@@ -55,6 +55,7 @@
 				--header-div-a-img-height: 64px;
 				--header-div-a-img-height-scroll: 48px;
 				--header-z-index: 1;
+				--nav-a-color: #fff;
 
 
 			}
@@ -149,6 +150,33 @@
 			.nav-toggle:before {
 				/* Hamburger Icon */
 				content: "\2261";
+			}
+
+			.nav-icon {
+				/* https://www.iconfinder.com/iconsets/linecons-free-vector-icons-pack */
+				border: none;
+				cursor: pointer;
+				display: initial;
+				position: relative;
+				top: 8px;
+			}
+
+			.nav-icon path {
+				fill: var(--nav-a-color);
+			}
+
+			nav {
+				/* background: #808080; */
+				background: #ccc;
+				bottom: 0;
+				box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}4px 4px 4px rgba(0,0,0,0.2);
+				display: none;
+				{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 0;
+				line-height: 3.5rem;
+				overflow-x: hidden;
+				overflow-y: auto;
+				position: fixed;
+				top: 80px;
 			}
 
 
@@ -321,6 +349,11 @@
 
 
 
+
+
+
+
+
 			/* 400px or larger. */
 			@media only screen and (min-width: 400px) {
 				.cssgrid {
@@ -336,11 +369,18 @@
 
 
 
+
+
+
+
+
 			/* 769px or larger. */
 			@media only screen and (min-width: 769px) {
 				.nav-toggle {display: none;}
 
 				nav {
+					bottom: auto;
+					display: block;
 					overflow: visible;
 					position: absolute;
 					top: 0;
