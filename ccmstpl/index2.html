@@ -344,13 +344,6 @@
 
 				nav ul ul ul ul ul {z-index: 904}
 
-				nav>ul {border-bottom: 1px solid #fff}
-
-				nav>ul>li {
-					border-top: none;
-					display: table-cell
-				}
-
 				nav ul li.nav-oppsite>ul {
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
@@ -361,36 +354,39 @@
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
 				}
 
-				nav li {
-					min-width: unset;
-					position: relative
-				}
-
-				nav li>ul {box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}4px 4px 4px rgba(0,0,0,.2)}
-
-
-
-				nav .submenu>ul {margin: 0}
+				nav>ul {border-bottom: 1px solid #fff}
 
 				nav>ul>.submenu>a:after {
 					content: " \25bc ";/* down-pointing triangle/arrow */
 					font-size: 1rem
 				}
 
+				nav>ul>li {
+					border-top: none;
+					display: table-cell
+				}
+
+				nav li {
+					min-width: unset;
+					position: relative
+				}
+
+				nav li:hover>ul {display: block}
+
+				nav li>ul {box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}4px 4px 4px rgba(0,0,0,.2)}
+
+				nav .submenu>ul {margin: 0}
+
 				nav .submenu>a:after {
 					content: " \25ba ";/* right-pointing triangle/arrow */
 					font-size: 1rem
 				}
-
-
 
 				/*
 				.nav-no-js .nav li:hover>ul {
 					display: block;
 				}
 				*/
-
-				nav li:hover>ul {display: block}
 
 				.nav-lang-submenu {
 					max-height: 550px;
