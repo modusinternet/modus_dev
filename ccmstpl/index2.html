@@ -1,6 +1,6 @@
 {CCMS_DB_PRELOAD:all,index}<!DOCTYPE html>
 
-<html class="nav-no-js" dir="{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}" lang="{CCMS_LIB:_default.php;FUNC:ccms_lng}" prefix="og:http://ogp.me/ns#">
+<html dir="{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}" lang="{CCMS_LIB:_default.php;FUNC:ccms_lng}" prefix="og:http://ogp.me/ns#">
 
 	<head>
 		<!-- Repeated content and can be placed once in your header head template. -->
@@ -382,12 +382,6 @@
 					font-size: 1rem
 				}
 
-				/*
-				.nav-no-js .nav li:hover>ul {
-					display: block;
-				}
-				*/
-
 				.nav-lang-submenu {
 					max-height: 550px;
 					overflow-y: scroll;
@@ -582,7 +576,6 @@
 								u.mouseOver = u.options.mouseOver,
 								u.disableSubMenuLink = u.options.disableSubMenuLink,
 								u.slideSpeed = u.options.slideSpeed,
-								e("html").removeClass("nav-no-js"),
 								u.collapseSubMenus(u), u.bindEvents(u)
 							},
 							bindEvents: function(i) {
