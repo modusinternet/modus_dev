@@ -18,26 +18,9 @@ function navLngList() {
 	if($qry->execute()) {
 		while($row = $qry->fetch()) {
 			if($row["ptrLng"]) {
-				echo "<li><a class=\"dropdown-item\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a></li>";
+				echo "<li><a id=\"lng-" . $row["lng"] . "\" class=\"dropdown-item\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a></li>";
 			} else {
-				echo "<li><a class=\"dropdown-item\" href=\"/" . $row["lng"] . "/" . $tpl . "\" id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a></li>";
-			}
-		}
-	}
-}
-
-function navLngList2() {
-	global $CFG, $CLEAN;
-	// this line of code produces the wrong output on GoDaddy servers.
-	//$tpl = htmlspecialchars(preg_replace('/^\/([\pL\pN-]*)\/?(.*)\z/i', '${2}', $_SERVER['REDIRECT_URL']));
-	$tpl = htmlspecialchars(preg_replace('/^\/([\pL\pN-]*)\/?(.*)\z/i', '${2}', $_SERVER['REQUEST_URI']));
-	$qry = $CFG["DBH"]->prepare("SELECT * FROM `ccms_lng_charset` WHERE `status` = 1 ORDER BY lngDesc ASC;");
-	if($qry->execute()) {
-		while($row = $qry->fetch()) {
-			if($row["ptrLng"]) {
-				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["ptrLng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["ptrLng"] . "');\">" . $row["lngDesc"] . "</a>\n";
-			} else {
-				echo "<a id=\"lng-" . $row["lng"] . "\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["lng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a>\n";
+				echo "<li><a id=\"lng-" . $row["lng"] . "\" class=\"dropdown-item\" dir=\"" . $row["dir"] . "\" href=\"/" . $row["lng"] . "/" . $tpl . "\" onclick=\"ccms_pound_cookie_update('" . $row["lng"] . "');\">" . $row["lngDesc"] . "</a></li>";
 			}
 		}
 	}
