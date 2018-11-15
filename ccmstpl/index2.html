@@ -71,7 +71,7 @@
 			body {
 				color: var(--body-color);
 				font: var(--body-font);
-				-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+				-webkit-font-smoothing: antialiased;/* Fix for webkit rendering */
 				-webkit-text-size-adjust: 100%
 			}
 
@@ -184,7 +184,7 @@
 			nav .submenu>a {padding-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important}
 
 			nav .submenu>a:after {
-				content: " \25bc "; /* down-pointing triangle/arrow */
+				content: " \25bc ";/* down-pointing triangle/arrow */
 				display: block;
 				font-size: 1rem;
 				position: absolute;
@@ -216,7 +216,7 @@
 				top: 5px
 			}
 
-			.toggle:before {content: "\2261" /* Hamburger Icon */}
+			.toggle:before {content: "\2261"/* Hamburger Icon */}
 
 
 
@@ -226,11 +226,11 @@
 				top: 100px
 			}
 
-			.cssgrid .header { grid-area: head }
-			.cssgrid .sidebar { grid-area: sidebar }
-			.cssgrid .content { grid-area: content }
-			.cssgrid .sidebar2 { grid-area: sidebar2 }
-			.cssgrid .footer { grid-area: footer }
+			.cssgrid .head {grid-area: head}
+			.cssgrid .sidebar1 {grid-area: sidebar1}
+			.cssgrid .content {grid-area: content}
+			.cssgrid .sidebar2 {grid-area: sidebar2}
+			.cssgrid .foot {grid-area: foot}
 
 			.cssgrid {
 				color: #444;
@@ -242,10 +242,10 @@
 				grid-gap: 1em;
 				grid-template-areas:
 					"head"
-					"sidebar"
+					"sidebar1"
 					"content"
 					"sidebar2"
-					"footer"
+					"foot"
 			}
 
 			.cssgrid .box {
@@ -256,7 +256,7 @@
 				overflow: hidden
 			}
 
-			.cssgrid .header, .cssgrid .footer { background-color: #808080 }
+			.cssgrid .head, .cssgrid .foot {background-color: #808080}
 
 			.cssgrid .sidebar2 {
 				background-color: #ccc;
@@ -267,10 +267,10 @@
 				color: #4F9F43;
 				font-weight: 100;
 				margin-bottom: 1.2em;
-				text-align: center;
+				text-align: center
 			}
 
-			p { margin-bottom: 1em }
+			p {margin-bottom: 1em}
 
 
 
@@ -291,9 +291,9 @@
 					grid-template-columns: 20% auto;
 					grid-template-areas:
 						"head head"
-						"sidebar content"
+						"sidebar1 content"
 						"sidebar2 sidebar2"
-						"footer footer";
+						"foot foot"
 				}
 			}
 
@@ -313,17 +313,6 @@
 
 			/* 769px or larger. */
 			@media only screen and (min-width: 769px) {
-				.toggle {
-					display: none;
-				}
-
-				.nav-lang-submenu {
-					max-height: 550px;
-					overflow-y: scroll;
-					overflow-x: hidden;
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 0 !important;
-				}
-
 				nav {
 					display: block;
 					position: absolute;
@@ -332,25 +321,7 @@
 					top: 0;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 0;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: unset;
-					width: unset;
-				}
-
-				nav>ul {
-					border-bottom: 1px solid #fff;
-				}
-
-				nav>ul>li {
-					border-top: none;
-					display: table-cell;
-				}
-
-				nav li {
-					min-width: unset;
-					position: relative;
-				}
-
-				nav li>ul {
-					box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}4px 4px 4px rgba(0,0,0,.2);
+					width: unset
 				}
 
 				nav ul ul {
@@ -358,51 +329,57 @@
 					position: absolute;
 					top: 100%;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 0;
-					z-index: 901;
+					z-index: 901
 				}
 
 				nav ul ul ul {
 					top: 5px;
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 95%;
-					z-index: 902;
+					z-index: 902
 				}
 
-				nav ul ul ul li:first-child {
+				nav ul ul ul li:first-child {border-top: none}
+
+				nav ul ul ul ul {z-index: 903}
+
+				nav ul ul ul ul ul {z-index: 904}
+
+				nav>ul {border-bottom: 1px solid #fff}
+
+				nav>ul>li {
 					border-top: none;
+					display: table-cell
 				}
 
-				nav ul ul ul ul {
-					z-index: 903;
+				nav li {
+					min-width: unset;
+					position: relative
 				}
 
-				nav ul ul ul ul ul {
-					z-index: 904;
-				}
+				nav li>ul {box-shadow: {CCMS_LIB:modusinternet.php;FUNC:shadow_direction_x}4px 4px 4px rgba(0,0,0,.2)}
 
-				nav .submenu>ul {
-					margin: 0;
-				}
+
+
+				nav .submenu>ul {margin: 0}
 
 				nav>ul>.submenu>a:after {
-					/* down-pointing triangle/arrow */
-					content: " \25bc ";
+					content: " \25bc ";/* down-pointing triangle/arrow */
 					font-size: 1rem
 				}
 
 				nav .submenu>a:after {
-					/* right-pointing triangle/arrow */
-					content: " \25ba ";
+					content: " \25ba ";/* right-pointing triangle/arrow */
 					font-size: 1rem
 				}
 
 				nav ul li.nav-oppsite>ul {
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%;
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
 				}
 
 				nav ul ul li.nav-oppsite>ul {
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%;
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
 				}
 
 				/*
@@ -411,9 +388,16 @@
 				}
 				*/
 
-				nav li:hover>ul {
-					display: block;
+				nav li:hover>ul {display: block}
+
+				.nav-lang-submenu {
+					max-height: 550px;
+					overflow-y: scroll;
+					overflow-x: hidden;
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 0 !important
 				}
+
+				.toggle {display: none}
 
 
 
@@ -425,8 +409,8 @@
 					grid-template-columns: 120px auto 120px;
 					grid-template-areas:
 						"head head head"
-						"sidebar content sidebar2"
-						"footer footer footer";
+						"sidebar1 content sidebar2"
+						"foot foot foot"
 					}
 				}
 
@@ -473,14 +457,14 @@
 					<p>Resize the browser window to see how it works.</p>
 				</div>
 				<div class="cssgrid" style="margin-bottom: 1em">
-					<div class="box header">Header</div>
-					<div class="box sidebar">Sidebar</div>
+					<div class="box head">Header</div>
+					<div class="box sidebar1">Sidebar 1</div>
 					<div class="box sidebar2">Sidebar 2</div>
 					<div class="box content">
 						Content<br />
 						More content than we had before so this column is now quite tall.
 					</div>
-					<div class="box footer">Footer</div>
+					<div class="box foot">Footer</div>
 				</div>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper finibus euismod. Aliquam elementum nisl eu egestas convallis. Pellentesque a egestas nisi. Praesent vel aliquam velit. Aliquam ultricies dapibus nisi, nec malesuada quam imperdiet et. Donec laoreet arcu vitae maximus egestas. Nullam consequat metus in libero accumsan commodo. Etiam ultrices, nisi id posuere molestie, tortor dolor viverra augue, nec bibendum leo velit in lectus. Praesent vel molestie ligula.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper finibus euismod. Aliquam elementum nisl eu egestas convallis. Pellentesque a egestas nisi. Praesent vel aliquam velit. Aliquam ultricies dapibus nisi, nec malesuada quam imperdiet et. Donec laoreet arcu vitae maximus egestas. Nullam consequat metus in libero accumsan commodo. Etiam ultrices, nisi id posuere molestie, tortor dolor viverra augue, nec bibendum leo velit in lectus. Praesent vel molestie ligula.</p>
