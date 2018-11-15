@@ -136,11 +136,6 @@
 
 			.header-div-a-img-scroll {height: var(--header-div-a-img-height-scroll)}
 
-			/*.icon-menu-close:before, .icon-menu:before, .icon-mobile:before, .icon-submenu-down:before, .icon-submenu-right:before, nav .submenu>a:after, .toggle:before, .nav-close:before, nav>ul>.submenu>a:after, header h1:before {
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale
-			}*/
-
 			nav {
 				background: #ccc;
 				bottom: 0;
@@ -160,20 +155,7 @@
 				padding: 0
 			}
 
-			nav li {
-				min-width: 250px;
-				white-space: nowrap
-			}
-
 			nav ul ul {background: #ccc}
-
-			/*
-			nav ul ul ul {background: #ccc}
-
-			nav ul ul ul ul { background: #ccc }
-
-			nav ul ul ul ul ul { background: #ccc }
-			*/
 
 			nav>ul>li ul {border-top: 1px solid #fff}
 
@@ -181,6 +163,11 @@
 				border-right: 1px solid #fff;
 				border-bottom: 1px solid #fff;
 				border-left: 1px solid #fff
+			}
+
+			nav li {
+				min-width: 250px;
+				white-space: nowrap
 			}
 
 			nav li.nav-active, nav li:hover {border-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 3px solid #808080}
@@ -230,7 +217,7 @@
 				top: 5px
 			}
 
-			.toggle:before {content: "\2261";/* Hamburger Icon */}
+			.toggle:before {content: "\2261"; /* Hamburger Icon */}
 
 
 
@@ -419,7 +406,13 @@
 					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%;
 				}
 
+				/*
 				.nav-no-js .nav li:hover>ul {
+					display: block;
+				}
+				*/
+
+				nav li:hover>ul {
 					display: block;
 				}
 
