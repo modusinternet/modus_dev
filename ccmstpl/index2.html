@@ -351,6 +351,16 @@
 					display: table-cell
 				}
 
+				nav ul li.nav-oppsite>ul {
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
+				}
+
+				nav ul ul li.nav-oppsite>ul {
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
+					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
+				}
+
 				nav li {
 					min-width: unset;
 					position: relative
@@ -372,15 +382,7 @@
 					font-size: 1rem
 				}
 
-				nav ul li.nav-oppsite>ul {
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
-				}
 
-				nav ul ul li.nav-oppsite>ul {
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: auto;
-					{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 95%
-				}
 
 				/*
 				.nav-no-js .nav li:hover>ul {
