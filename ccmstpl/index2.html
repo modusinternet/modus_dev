@@ -48,14 +48,13 @@
 		</script>
 
 		<style>
-			@viewport { width: device-width }
-			@-ms-viewport { width: device-width }
-
 			:root {
+				--body-color: #666;
+				--body-font: 100 1.4rem/2rem "Open Sans", sans-serif;
 				--header-div-a-img-height: 64px;
 				--header-div-a-img-height-scroll: 48px;
 				--header-z-index: 1;
-				--nav-a-color: #fff;
+				--nav-a-color: #fff
 			}
 
 			* {
@@ -66,9 +65,12 @@
 				-webkit-box-sizing: border-box
 			}
 
+			@viewport {width: device-width}
+			@-ms-viewport {width: device-width}
+
 			body {
-				color: #666;
-				font: 100 1.4rem/2rem "Open Sans", sans-serif;
+				color: var(--body-color);
+				font: var(--body-font);
 				-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 				-webkit-text-size-adjust: 100%
 			}
@@ -90,7 +92,7 @@
 				transition: opacity 2s
 			}
 
-			#loading_svg rect { fill: #FF6700 }
+			#loading_svg rect {fill: #FF6700}
 
 			#wrapper {
 				opacity: 0;
@@ -101,7 +103,7 @@
 				transition: opacity 2s
 			}
 
-			#wrapper.fadeIn { opacity: 1 }
+			#wrapper.fadeIn {opacity: 1}
 
 			header {
 				background: none;
@@ -116,7 +118,7 @@
 				transition: all 1.0s ease-in-out
 			}
 
-			.header-scroll { height: 60px }
+			.header-scroll {height: 60px}
 
 			header img {
 				height: var(--header-div-a-img-height);
@@ -132,7 +134,7 @@
 				transition: all 1.0s ease-in-out
 			}
 
-			.header-div-a-img-scroll { height: var(--header-div-a-img-height-scroll) }
+			.header-div-a-img-scroll {height: var(--header-div-a-img-height-scroll)}
 
 			/*.icon-menu-close:before, .icon-menu:before, .icon-mobile:before, .icon-submenu-down:before, .icon-submenu-right:before, nav .submenu>a:after, .toggle:before, .nav-close:before, nav>ul>.submenu>a:after, header h1:before {
 				-webkit-font-smoothing: antialiased;
@@ -149,43 +151,43 @@
 				overflow-x: hidden;
 				overflow-y: auto;
 				position: fixed;
-				top: 80px;
+				top: 80px
 			}
 
 			nav ul {
 				list-style-type: none;
 				margin: 0;
-				padding: 0;
+				padding: 0
 			}
 
 			nav li {
 				min-width: 250px;
-				white-space: nowrap;
+				white-space: nowrap
 			}
 
-			nav ul ul { background: #ccc }
+			nav ul ul {background: #ccc}
 
-			nav ul ul ul { background: #ccc }
+			/*
+			nav ul ul ul {background: #ccc}
 
 			nav ul ul ul ul { background: #ccc }
 
 			nav ul ul ul ul ul { background: #ccc }
+			*/
 
-			nav>ul>li ul {
-				border-top: 1px solid #fff;
-			}
+			nav>ul>li ul {border-top: 1px solid #fff}
 
 			nav>ul>li li {
 				border-right: 1px solid #fff;
 				border-bottom: 1px solid #fff;
-				border-left: 1px solid #fff;
+				border-left: 1px solid #fff
 			}
 
 			nav li.nav-active, nav li:hover {border-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 3px solid #808080}
 
-			nav .submenu>ul { margin-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 15px }
+			nav .submenu>ul {margin-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 15px}
 
-			nav .submenu>a { padding-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important }
+			nav .submenu>a {padding-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important}
 
 			nav a, nav a:active, nav a:hover, nav a:visited {
 				color: var(--nav-a-color);
@@ -210,14 +212,12 @@
 				cursor: pointer;
 				display: initial;
 				position: relative;
-				top: 8px;
+				top: 8px
 			}
 
-			.nav-icon path {
-				fill: var(--nav-a-color);
-			}
+			.nav-icon path {fill: var(--nav-a-color)}
 
-			nav .active { background: #a9a9a9; }
+			nav .active {background: #a9a9a9}
 
 			.toggle {
 				background: transparent;
@@ -230,9 +230,7 @@
 				top: 5px
 			}
 
-			.toggle:before {
-				content: "\2261"; /* Hamburger Icon */
-			}
+			.toggle:before {content: "\2261";/* Hamburger Icon */}
 
 
 
