@@ -149,13 +149,12 @@
 				top: 80px
 			}
 
-			nav ul {background: #ccc;
+			nav ul {
+				background: #ccc;
 				list-style-type: none;
 				margin: 0;
 				padding: 0
 			}
-
-			nav ul ul {}
 
 			nav>ul>li ul {border-top: 1px solid #fff}
 
@@ -172,10 +171,6 @@
 
 			nav li.nav-active, nav li:hover {border-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 3px solid #808080}
 
-			nav .submenu>ul {margin-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 15px}
-
-			nav .submenu>a {padding-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important}
-
 			nav a, nav a:active, nav a:hover, nav a:visited {
 				color: var(--nav-a-color);
 				display: block;
@@ -183,6 +178,10 @@
 				position: relative;
 				text-decoration: none
 			}
+
+			nav .submenu>ul {margin-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_right_go_left_left_go_right}: 15px}
+
+			nav .submenu>a {padding-{CCMS_LIB:modusinternet.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important}
 
 			nav .submenu>a:after {
 				content: " \25bc "; /* down-pointing triangle/arrow */
