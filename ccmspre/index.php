@@ -548,13 +548,12 @@ function CCMS_html_min($buffer) {
 			},
 			$buffer
 		);
-		$buffer = preg_replace(['/\>[^\S ]+/s','/[^\S ]+\</s','/[\t\n]+/s','/<!--(.|\s)*?-->/','/\/\*(.|\s)*?\*\//'],['>','<','','',''], $buffer);
-		$search = array("{CHAR_RET}", "{CHAR_TAB}");
-		$replace = array("\n", "\t");
-		$buffer = str_replace($search, $replace, $buffer);
+
+		$buffer = preg_replace(["/<!--(.|\s)*?-->|\/\*(.|\s)*?\*\/|[\r\n\t\f\v]+/","/ {2,}/"],[""," "],$buffer);
+
+		$buffer = preg_replace(["/\{CHAR_RET\}/","/\{CHAR_TAB\}/"],["\n","\t"],$buffer);
 	}
 	return $buffer;
-	//echo $buffer;
 }
 
 function CCMS_TPL_Insert($a) {
