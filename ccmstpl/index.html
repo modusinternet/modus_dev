@@ -46,13 +46,7 @@
 		<style>
 			:root{
 				--header-z-index:1;
-				--nav-a-color:#fff;
-
-
-				--header-div-a-img-height:100px;
-				--header-div-a-img-height-scroll:50px;
-				--header-z-index:1;
-				--nav-a-color:#fff;
+				--nav-a-color:#fff
 			}
 
 			*{
@@ -173,11 +167,11 @@
 			header img {
 				height: var(--header-div-a-img-height);
 				margin: 10px;
-				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
-				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
-				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
-				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
-				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
 				-webkit-transition: all 1.0s ease-in-out;
 				-moz-transition: all 1.0s ease-in-out;
 				-o-transition: all 1.0s ease-in-out;
@@ -186,8 +180,16 @@
 
 			.header-div-a-img-scroll {height: var(--header-div-a-img-height-scroll)}
 
+			.header-div-a-img-scroll-dropshadow {
+				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9));
+				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9));
+				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9));
+				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9));
+				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9))
+			}
+
 			nav {
-				background: #ccc;
+				background:#ccc;
 				bottom: 0;
 				box-shadow: {CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,0.2);
 				display: none;
@@ -200,13 +202,14 @@
 			}
 
 			nav ul {
-				background: rgb(255, 165, 0);
-				list-style-type: none;
-				margin: 0;
-				padding: 0
+				/*background:rgb(255, 165, 0)*/
+				background:#ccc;
+				list-style-type:none;
+				margin:0;
+				padding:0
 			}
 
-			nav>ul>li ul {border-top: 1px solid #fff}
+			nav>ul>li ul {border-top:1px solid #fff}
 
 			nav>ul>li li {
 				border-right: 1px solid #fff;
@@ -221,6 +224,7 @@
 
 			nav li.nav-active, nav li:hover {
 				/*border-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}: 3px solid #808080*/
+				background:#a9a9a9;
 				border-bottom: 3px solid #fff
 			}
 
@@ -246,7 +250,7 @@
 				top: 1px
 			}
 
-			nav .active {background: #a9a9a9}
+			nav .active {background:rgb(255, 165, 0) !important}
 
 			.svg-nav-icon {
 				/* https://www.iconfinder.com/iconsets/linecons-free-vector-icons-pack */
@@ -267,18 +271,26 @@
 				color: rgb(255, 165, 0);
 				cursor: pointer;
 				display: block;
-				font-size: 2rem;
+				font-size: 3rem;
 				position: fixed;
 				{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}: 15px;
 				top: 5px;
-				-webkit-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
-				-moz-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
-				-ms-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
-				-o-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
-				filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5))
+				-webkit-filter: drop-shadow(0px 0px 4px rgba(255,255,255,.9));
+				-moz-filter: drop-shadow(0px 0px 4px rgba(255,255,255,.9));
+				-ms-filter: drop-shadow(0px 0px 4px rgba(255,255,255,.9));
+				-o-filter: drop-shadow(0px 0px 4px rgba(255,255,255,.9));
+				filter: drop-shadow(0px 0px 4px rgba(255,255,255,.9))
 			}
 
 			.toggle:before {content: "\2261"/* Hamburger Icon */}
+
+			.toggle-scroll-dropshadow {
+				-webkit-filter: drop-shadow(0px 0px 4px rgba(0,0,0,.9));
+				-moz-filter: drop-shadow(0px 0px 4px rgba(0,0,0,.9));
+				-ms-filter: drop-shadow(0px 0px 4px rgba(0,0,0,.9));
+				-o-filter: drop-shadow(0px 0px 4px rgba(0,0,0,.9));
+				filter: drop-shadow(0px 0px 4px rgba(0,0,0,.9))
+			}
 
 			.scrollToTopButton {
 				background:rgba(255, 165, 0, .4);
