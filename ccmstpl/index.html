@@ -362,6 +362,11 @@
 				z-index:-2
 			}
 
+			.parallax div{
+				position:relative;
+				bottom:-50px
+			}
+
 			.parallax div h1{
 				color:rgb(255,165,0);
 				margin:0px;
@@ -563,6 +568,8 @@
 
 				.parallax>video {top:-100px}
 
+				.parallax div{bottom:-70px}
+
 				.parallax>h1 {
 					font-size:3.5rem;
 					line-height:3.5rem;
@@ -577,6 +584,8 @@
 
 			/* 768px or larger. */
 			@media only screen and (min-width:768px) {
+				.parallax div{bottom:-140px}
+
 				.cssgrid-events {
 					grid-template-areas:
 						"ev1 ev2"
@@ -720,6 +729,8 @@
 
 			/* 1023px or larger. */
 			@media only screen and (min-width:1023px) {
+				.parallax div{bottom:-230px}
+
 				.cssgrid {
 					grid-gap:1rem;
 					grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
