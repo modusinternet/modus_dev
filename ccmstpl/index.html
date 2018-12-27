@@ -45,6 +45,10 @@
 		</script>
 		<style>
 			:root{
+				--header-z-index:1;
+				--nav-a-color:#fff;
+
+
 				--header-div-a-img-height:100px;
 				--header-div-a-img-height-scroll:50px;
 				--header-z-index:1;
@@ -140,6 +144,179 @@
 			}
 
 			#wrapper.fadeIn{opacity:1}
+
+
+
+
+
+
+
+
+
+
+
+			header {
+				background: none;
+				left: 0;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: var(--header-z-index);
+				-webkit-transition: all 1.0s ease-in-out;
+				-moz-transition: all 1.0s ease-in-out;
+				-o-transition: all 1.0s ease-in-out;
+				transition: all 1.0s ease-in-out
+			}
+
+			.header-scroll {height: 60px}
+
+			header img {
+				height: var(--header-div-a-img-height);
+				margin: 10px;
+				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-webkit-transition: all 1.0s ease-in-out;
+				-moz-transition: all 1.0s ease-in-out;
+				-o-transition: all 1.0s ease-in-out;
+				transition: all 1.0s ease-in-out
+			}
+
+			.header-div-a-img-scroll {height: var(--header-div-a-img-height-scroll)}
+
+			nav {
+				background: #ccc;
+				bottom: 0;
+				box-shadow: {CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,0.2);
+				display: none;
+				{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}: 0;
+				line-height: 3.5rem;
+				overflow-x: hidden;
+				overflow-y: auto;
+				position: fixed;
+				top: 80px
+			}
+
+			nav ul {
+				background: rgb(255, 165, 0);
+				list-style-type: none;
+				margin: 0;
+				padding: 0
+			}
+
+			nav>ul>li ul {border-top: 1px solid #fff}
+
+			nav>ul>li li {
+				border-right: 1px solid #fff;
+				border-bottom: 1px solid #fff;
+				border-left: 1px solid #fff
+			}
+
+			nav li {
+				min-width: 250px;
+				white-space: nowrap
+			}
+
+			nav li.nav-active, nav li:hover {
+				/*border-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}: 3px solid #808080*/
+				border-bottom: 3px solid #fff
+			}
+
+			nav a, nav a:active, nav a:hover, nav a:visited {
+				color: var(--nav-a-color);
+				display: block;
+				padding: 0 10px;
+				position: relative;
+				text-decoration: none
+			}
+
+			nav .submenu>ul {margin-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}: 15px}
+
+			nav .submenu>a {padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}: 30px !important}
+
+			nav .submenu>a:after {
+				/* content: " \25bc ";/* down-pointing triangle/arrow */
+				content: " \2228 ";
+				display: block;
+				font-size: 1rem;
+				position: absolute;
+				{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}: 10px;
+				top: 1px
+			}
+
+			nav .active {background: #a9a9a9}
+
+			.svg-nav-icon {
+				/* https://www.iconfinder.com/iconsets/linecons-free-vector-icons-pack */
+				border:none;
+				cursor:pointer;
+				display:initial;
+				height:32px;
+				position:relative;
+				top:8px;
+				width:32px
+			}
+
+			.svg-nav-icon path {fill: var(--nav-a-color)}
+
+			.toggle {
+				background: transparent;
+				border: none;
+				color: rgb(255, 165, 0);
+				cursor: pointer;
+				display: block;
+				font-size: 2rem;
+				position: fixed;
+				{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}: 15px;
+				top: 5px;
+				-webkit-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+				-moz-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+				-ms-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+				-o-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+				filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5))
+			}
+
+			.toggle:before {content: "\2261"/* Hamburger Icon */}
+
+			.scrollToTopButton {
+				background:rgba(255, 165, 0, .4);
+				border:none;
+				border-radius:7px;
+				bottom:-50px;
+				color:#ffffff;
+				cursor:pointer;
+				font-size:1.2rem;
+				padding:10px 15px;
+				position:fixed;
+				right:5px;
+				/*text-shadow:1px 1px rgba(0,0,0,.2);*/
+				-webkit-transition:all 0.25s;
+				-o-transition:all 0.25s;
+				transition:all 0.25s
+			}
+
+			.scrollToTopButton:before {
+				content:"\2227";/* up-pointing triangle/arrow */
+				position:relative;
+				top:-2px
+			}
+
+			.scrollToTopButton:hover {background:rgb(255, 165, 0)}
+
+			.scrollToTopButton-active {bottom:5px}
+
+
+
+
+
+
+
+
+
+
+
 
 			.hatch_pattern{
 				left:0;
