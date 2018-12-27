@@ -59,7 +59,7 @@
 				-webkit-box-sizing:border-box
 			}
 
-			html{font-size: 62.5%}
+			html{font-size:62.5%}
 
 			body{
 				color:#888888;
@@ -97,6 +97,65 @@
 			}
 
 			#wrapper.fadeIn{opacity:1}
+
+			.hatch_pattern {
+				left: 0;
+				top: 0;
+				position: fixed
+			}
+
+			.hatch_pattern {
+				background-image: url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
+				opacity: .4;
+				width: 100%;
+				height: 100%;
+				z-index: -1
+			}
+
+			.parallax {
+				height: 500px;
+				padding: 120px 20px 10px 0px
+			}
+
+			.parallax>video {
+				min-height: 100%;
+				min-width: 110%;
+				position: fixed;
+				right: 0;
+				transform: translateX(calc((100% - 100vw) / 2));
+				top: 0;
+				z-index: -2
+			}
+
+			.parallax>h1 {
+				color: rgb(255, 165, 0);
+				font: 600 2.4rem/3rem "Kaushan Script", sans-serif;
+				margin: 0px;
+				text-align: right;
+				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
+			}
+
+			.parallax>p {
+				color: #fff;
+				font-size: 1.6rem;
+				line-height: 2.5rem;
+				margin: 0px;
+				text-align: right;
+				-webkit-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-moz-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-ms-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				-o-filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9));
+				filter: drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
+			}
+
+			main {
+				position: absolute;
+				width: 100%
+			}
 
 			main{
 				position:absolute;
@@ -151,18 +210,40 @@
 		<div id="loading_screen"></div>
 		<div id="wrapper">
 			<main>
-				<h1>This is the H1 tag</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<h2>This is the H2 tag</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<h3>This is the H3 tag</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<h4>This is the H4 tag</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<h5>This is the H5 tag</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<h6>This is the H6 tag</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="hatch_pattern"></div>
+
+				<div class="parallax">
+					<video autoplay="" muted="" loop="">
+						<source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.vp9.webm" type="video/mp4">
+						<!--
+							/ccmstpl/_img/rain-min.mp4
+							/ccmstpl/_img/Hacker_code_whiteblack_01_Videvo.mov87866-2.mp4
+							https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.vp9.webm
+							https://www.w3schools.com/howto/rain.mp4
+							https://dtgy1q9vuxi5a.cloudfront.net/1089582.mp4
+							https://ak7.picdn.net/shutterstock/videos/22928617/preview/stock-footage--k-asian-gangster-fighting-in-dark-parking-lot-with-members-of-a-rival-gang-dec-uk.webm
+						-->
+						Your browser does not support HTML5 video.
+					</video>
+					<h1>Jeet Kune Do</h1>
+					<p>
+						"The art of fighting without fighting."<br />
+						Bruce Lee, Enter the Dragon (1973)
+					</p>
+					<h1>at Personal Best Martial Arts</h1>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 			</main>
 		</div>
