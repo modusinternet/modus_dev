@@ -975,7 +975,7 @@
 					/*document.getElementById("loading_screen").style.opacity = "0";*/
 					document.getElementById("loading_screen").style.opacity = "0";
 					/*document.getElementById("wrapper").className += "fadeIn";*/
-					window.setTimeout(document.getElementById("wrapper").className += "fadeIn", 2000);
+					window.setTimeout(function(){ document.getElementById("wrapper").className += "fadeIn"; }, 2000);
 
 					/*
 					window.performance.mark('mark_end_javascript');
