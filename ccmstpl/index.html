@@ -970,13 +970,9 @@
 					}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {	function n() {}	return n.prototype = e, new n	});
 					$('nav').nav();
 
-					/* Disable loading screen, JQuery is loaded. */
-					/*document.getElementById("loading_screen").style.opacity = "0";*/
-					window.setTimeout(function(){ document.getElementById("loading_screen").style.opacity = "0"; }, 2000);
-					/*document.getElementById("wrapper").className += "fadeIn";*/
-					/*window.setTimeout(function(){ document.getElementById("wrapper").className += "fadeIn"; }, 2000);*/
-					window.setTimeout(function(){ document.getElementById("wrapper").style.opacity = "1"; }, 2000);
-
+					/* Disable loading screen. */
+					window.setTimeout(function(){ document.getElementById("loading_screen").style.opacity = "0"; }, 1000);
+					window.setTimeout(function(){ document.getElementById("wrapper").style.opacity = "1"; }, 500);
 
 					/*
 					window.performance.mark('mark_end_javascript');
