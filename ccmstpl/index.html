@@ -972,9 +972,10 @@
 					$('nav').nav();
 
 					/* Disable loading screen, JQuery is loaded. */
-					$("#loading_screen").delay(500).animate({"opacity": "0"}, 500);
 					/*document.getElementById("loading_screen").style.opacity = "0";*/
-					document.getElementById("wrapper").className += "fadeIn";
+					$("#loading_screen").delay(500).animate({"opacity": "0"}, 500);
+					/*document.getElementById("wrapper").className += "fadeIn";*/
+					$("#wrapper").delay(500).addClass("fadeIn");
 
 					/*
 					window.performance.mark('mark_end_javascript');
