@@ -90,7 +90,6 @@ body{
 }
 
 #wrapper{
-	opacity:0;
 	transition:all 2s
 }
 
