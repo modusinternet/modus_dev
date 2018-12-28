@@ -973,9 +973,9 @@
 
 					/* Disable loading screen, JQuery is loaded. */
 					/*document.getElementById("loading_screen").style.opacity = "0";*/
-					$("#loading_screen").delay(5000).css("opacity","0");
+					document.getElementById("loading_screen").style.opacity = "0";
 					/*document.getElementById("wrapper").className += "fadeIn";*/
-					$("#wrapper").delay(5000).addClass("fadeIn");
+					window.setTimeout(document.getElementById("wrapper").className += "fadeIn", 2000);
 
 					/*
 					window.performance.mark('mark_end_javascript');
