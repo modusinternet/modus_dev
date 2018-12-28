@@ -162,18 +162,18 @@ svg>path{fill:rgb(255,165,0)}
 	width:150px
 }
 
-.content-type-1{
+.contentType1{
 	background-color:#fff;
 	padding:40px 10px
 }
 
-.content-type-1>div{
+.contentType1>div{
 	margin:0 auto;
 	max-width:1024px;
 	text-align:center
 }
 
-.content-type-2{
+.contenType2{
 	background-color:#f7f6f4;
 	padding:40px 10px
 }
@@ -260,7 +260,7 @@ cssgrid-footer.c3{grid-area:c3}
 
 .cssgrid-footer form button:hover{background:rgb(255,165,0)}
 
-.footer-bg-city{
+.footerBG{
 	width:100%;
 	padding:200px 0 0;
 	background-image:url(https://d22d9mrn42f6vf.cloudfront.net/ccmstpl/_img/bgfooter.png);
@@ -269,7 +269,7 @@ cssgrid-footer.c3{grid-area:c3}
 	background-repeat:no-repeat
 }
 
-.hatch_pattern{
+.hatchPattern{
 	background-image:url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
 	height:100%;
 	left:0;
