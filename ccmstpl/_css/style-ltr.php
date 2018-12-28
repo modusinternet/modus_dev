@@ -80,7 +80,7 @@ body{
 #wrapper{transition:all 2s}
 
 /*==========
-	BEGINNING of tags found in the MAIN tag
+BEGINNING of tags found in the MAIN tag
 ==========*/
 button{text-shadow:1px 1px rgba(0,0,0,.2)}
 
@@ -328,13 +328,12 @@ cssgrid-footer.c3{grid-area:c3}
 	max-width:unset;
 	width:40px
 }
-
 /*==========
-	END of tags found in the MAIN tag
+END of tags found in the MAIN tag
 ==========*/
 
 /*==========
-	BEGINNING of tags found in the HEADER tag
+BEGINNING of tags found in the HEADER tag
 ==========*/
 header{
 	background:none;
@@ -449,3 +448,38 @@ nav .active{background:rgb(255,165,0) !important}
 .toggle:before{content:"\2261"/* Hamburger Icon */}
 
 .toggle-scroll-dropshadow{filter:drop-shadow(0px 0px 4px rgba(0,0,0,.6))}
+/*==========
+END of tags found in the HEADER tag
+==========*/
+
+/* 400px or larger. */
+@media only screen and (min-width:400px) {
+	/*==========
+	BEGINNING of tags found in the MAIN tag
+	==========*/
+	.parallax{padding:80px 20px 10px 0px}
+
+	.parallax div{bottom:-170px}
+
+	.parallax video{top:-100px}
+	/*==========
+	END of tags found in the MAIN tag
+	==========*/
+}
+
+/* 768px or larger. */
+@media only screen and (min-width:768px) {
+	/*==========
+	BEGINNING of tags found in the MAIN tag
+	==========*/
+	.cssgrid-events{
+		grid-template-areas:
+			"ev1 ev2"
+			"ev3 ev4"
+	}
+
+	.parallax div{bottom:-240px}
+	/*==========
+	END of tags found in the MAIN tag
+	==========*/
+}
