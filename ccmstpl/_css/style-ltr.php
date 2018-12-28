@@ -91,10 +91,8 @@ body{
 
 #wrapper{
 	opacity:0;
-	transition:opacity 2s
+	transition:all 2s
 }
-
-#wrapper.fadeIn{opacity:1}
 
 /*================================
 /*
