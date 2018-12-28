@@ -88,3 +88,85 @@ body{
 	-webkit-font-smoothing:antialiased;
 	-webkit-text-size-adjust:100%
 }
+
+#wrapper{
+	opacity:0;
+	transition:opacity 2s
+}
+
+#wrapper.fadeIn{opacity:1}
+
+/*================================
+/*
+/*	Beginning of content commonly found within the Main tag
+/*
+/*===============================*/
+main{
+	position:absolute;
+	width:100%
+}
+
+main a{
+	color:rgb(255, 165, 0);
+	text-decoration:underline;
+	text-decoration-style:dotted
+}
+
+main a:focus,main a:hover,main a.active{font-weight:400}
+
+.hatch_pattern{
+	left:0;
+	top:0;
+	position:fixed
+}
+
+.hatch_pattern{
+	background-image:url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
+	opacity:.4;
+	width:100%;
+	height:100%;
+	z-index:-1
+}
+
+.parallax{
+	height:500px;
+	padding:120px 20px 10px 0px
+}
+
+.parallax video{
+	min-height:100%;
+	min-width:110%;
+	position:fixed;
+	right:0;
+	transform:translateX(calc((100% - 100vw) / 2));
+	top:0;
+	z-index:-2
+}
+
+.parallax div{
+	position:relative;
+	bottom:-150px
+}
+
+.parallax div p{
+	color:#fff;
+	margin:0px;
+	text-align:right;
+	filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
+}
+
+.content-type-1{
+	background-color:#fff;
+	padding:40px 10px
+}
+
+.content-type-1>div{
+	margin:0 auto;
+	max-width:1024px;
+	text-align:center
+}
+
+.content-type-2{
+	background-color:#f7f6f4;
+	padding:40px 10px
+}
