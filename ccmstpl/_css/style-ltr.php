@@ -155,6 +155,13 @@ svg>path{fill:rgb(255,165,0)}
 
 .bigButton:hover{background:rgb(255,165,0)}
 
+.bottomBorder{
+	display:inline-block;
+	border-bottom:2px solid rgb(255,165,0);
+	margin:30px 0 10px;
+	width:150px
+}
+
 .content-type-1{
 	background-color:#fff;
 	padding:40px 10px
@@ -452,6 +459,7 @@ nav .active{background:rgb(255,165,0) !important}
 END of tags found in the HEADER tag
 ==========*/
 
+
 /* 400px or larger. */
 @media only screen and (min-width:400px) {
 	/*==========
@@ -466,6 +474,7 @@ END of tags found in the HEADER tag
 	END of tags found in the MAIN tag
 	==========*/
 }
+
 
 /* 768px or larger. */
 @media only screen and (min-width:768px) {
@@ -483,17 +492,6 @@ END of tags found in the HEADER tag
 	END of tags found in the MAIN tag
 	==========*/
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* 824px or larger. Pixel Xl Landscape resolution is 411 x 823. */
@@ -606,8 +604,11 @@ END of tags found in the HEADER tag
 	==========*/
 }
 
+
 /* 1023px or larger. */
 @media only screen and (min-width:1023px){
+	.bottomBorder{display:none}
+
 	.cssgrid{
 		grid-gap:1rem;
 		grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -629,8 +630,10 @@ END of tags found in the HEADER tag
 	.parallax div{bottom:-330px}
 }
 
+
 /* 1199px or larger. To help adjust video background position on larger screens. */
 @media only screen and (min-width:1199px){.parallax>video {top:-200px}}
+
 
 /* 1599px or larger. To help adjust video background position on larger screens. */
 @media only screen and (min-width:1599px){.parallax>video {top:-300px}}
