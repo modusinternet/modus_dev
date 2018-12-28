@@ -483,3 +483,154 @@ END of tags found in the HEADER tag
 	END of tags found in the MAIN tag
 	==========*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 824px or larger. Pixel Xl Landscape resolution is 411 x 823. */
+@media only screen and (min-width: 824px) {
+	/*==========
+	BEGINNING of tags found in the MAIN tag
+	==========*/
+	.cssgrid-events{
+		grid-gap:1rem;
+		grid-template-areas:
+			"ev1 ev2"
+			"ev3 ev4"
+	}
+
+	.parallax{padding:80px 40px 10px 0px}
+
+	.parallax video{top:-100px}
+	/*==========
+	END of tags found in the MAIN tag
+	==========*/
+
+	/*==========
+	BEGINNING of tags found in the HEADER tag
+	==========*/
+	nav{
+		background:transparent;
+		display:block;
+		position:absolute;
+		bottom:auto;
+		overflow:visible;
+		top:0;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:0;
+		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:unset;
+		width:unset;
+		transition:all 1s ease-in-out
+	}
+
+	nav ul ul{
+		display:none;
+		position:absolute;
+		top:100%;
+		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0;
+		z-index:901
+	}
+
+	nav ul ul ul{
+		top:5px;
+		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:95%;
+		z-index:902
+	}
+
+	nav ul ul ul li:first-child{border-top:none}
+
+	nav ul ul ul ul{z-index:903}
+
+	nav ul ul ul ul ul{z-index:904}
+
+	nav ul li.nav-oppsite>ul{
+		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:auto;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:95%
+	}
+
+	nav ul ul li.nav-oppsite>ul{
+		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:auto;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:95%
+	}
+
+	nav>ul{background:unset}
+
+	nav>ul>.submenu>a:after{
+		content:" \2228 ";/* down-pointing triangle/arrow */
+		font-size:1rem;
+		transform:rotate(0deg)
+	}
+
+	nav>ul>li{
+		border-top:none;
+		display:table-cell
+	}
+
+	nav li{
+		min-width:unset;
+		position:relative
+	}
+
+	nav li:hover>ul{display:block}
+
+	nav li>ul{box-shadow:{CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.2)}
+
+	nav .submenu>ul{margin:0}
+
+	nav .submenu>a:after{
+		content:" \2228 ";/* right-pointing triangle/arrow */
+		font-size:1rem;
+		transform:rotate(270deg)
+	}
+
+	.nav-scroll{background:rgba(0,0,0,.6)}
+
+	.nl-lng-submenu{
+		max-height:550px;
+		overflow-y:scroll;
+		overflow-x:hidden;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:0 !important
+	}
+
+	.toggle{display:none}
+	/*==========
+	END of tags found in the HEADER tag
+	==========*/
+}
+
+/* 1023px or larger. */
+@media only screen and (min-width:1023px){
+	.cssgrid{
+		grid-gap:1rem;
+		grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+		grid-template-areas:
+			"c1 c2 c3"
+	}
+
+	.cssgrid-footer{
+		grid-gap:1rem;
+		grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+		grid-template-areas:
+			"c1 c2 c3"
+	}
+
+	.cssgrid-footer>div>em{display:none}
+
+	.cssgrid-footer form input{width:250px}
+
+	.parallax div{bottom:-330px}
+}
+
+/* 1199px or larger. To help adjust video background position on larger screens. */
+@media only screen and (min-width:1199px){.parallax>video {top:-200px}}
+
+/* 1599px or larger. To help adjust video background position on larger screens. */
+@media only screen and (min-width:1599px){.parallax>video {top:-300px}}
