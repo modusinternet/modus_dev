@@ -79,11 +79,9 @@ body{
 
 #wrapper{transition:all 2s}
 
-/*================================
-/*
-/*	Beginning of tags commonly found inside the MAIN tag
-/*
-/*===============================*/
+/*==========
+	BEGINNING of tags found in the MAIN tag
+==========*/
 button{text-shadow:1px 1px rgba(0,0,0,.2)}
 
 h1,h2,h3,h4,h5,h6{
@@ -330,3 +328,124 @@ cssgrid-footer.c3{grid-area:c3}
 	max-width:unset;
 	width:40px
 }
+
+/*==========
+	END of tags found in the MAIN tag
+==========*/
+
+/*==========
+	BEGINNING of tags found in the HEADER tag
+==========*/
+header{
+	background:none;
+	left:0;
+	position:fixed;
+	right:0;
+	top:0;
+	z-index:1;
+	transition:all 1.0s ease-in-out
+}
+
+header img{
+	margin:10px;
+	filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+	transition:all 1.0s ease-in-out;
+	width:250px
+}
+
+nav{
+	background:#ccc;
+	bottom:0;
+	box-shadow:{CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,0.2);
+	display:none;
+	{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0;
+	line-height:5rem;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position:fixed;
+	top:80px
+}
+
+nav ul{
+	background:#ccc;
+	list-style-type:none;
+	margin:0;
+	padding:0
+}
+
+nav>ul>li ul{border-top:1px solid #fff}
+
+nav>ul>li li{
+	border-right:1px solid #fff;
+	border-bottom:1px solid #fff;
+	border-left:1px solid #fff
+}
+
+nav li{
+	min-width:250px;
+	white-space:nowrap
+}
+
+nav li.nav-active, nav li:hover{
+	background:#a9a9a9;
+	border-bottom:3px solid #fff
+}
+
+nav a, nav a:active, nav a:hover, nav a:visited{
+	color:#fff;
+	display:block;
+	padding:0 10px;
+	position:relative;
+	text-decoration:none
+}
+
+nav .submenu>ul{margin-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:15px}
+
+nav .submenu>a{padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:30px !important}
+
+nav .submenu>a:after{
+	content:" \2228 ";/* down-pointing triangle/arrow */
+	display:block;
+	font-size:1rem;
+	position:absolute;
+	{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:10px;
+	top:1px
+}
+
+nav .active{background:rgb(255,165,0) !important}
+
+.header-div-a-img-scroll{width:150px}
+
+.header-div-a-img-scroll-dropshadow{filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(0,0,0,.9))}
+
+.header-scroll{height:60px}
+
+.svg-nav-icon{
+	/* https://www.iconfinder.com/iconsets/linecons-free-vector-icons-pack */
+	border:none;
+	cursor:pointer;
+	display:initial;
+	height:32px;
+	position:relative;
+	top:8px;
+	width:32px
+}
+
+.svg-nav-icon path{fill:#fff}
+
+.toggle{
+	background:transparent;
+	border:none;
+	color:rgb(255,165,0);
+	cursor:pointer;
+	display:block;
+	font-size:4rem;
+	position:fixed;
+	{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:15px;
+	top:5px;
+	filter:drop-shadow(0px 0px 4px rgba(255,255,255,.6))
+}
+
+.toggle:before{content:"\2261"/* Hamburger Icon */}
+
+.toggle-scroll-dropshadow{filter:drop-shadow(0px 0px 4px rgba(0,0,0,.6))}
