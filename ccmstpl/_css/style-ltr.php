@@ -173,6 +173,88 @@ svg>path{fill:rgb(255,165,0)}
 	padding:40px 10px
 }
 
+.cssgrid.c1{grid-area:c1}
+.cssgrid.c2{grid-area:c2}
+.cssgrid.c3{grid-area:c3}
+
+.cssgrid{
+	display:grid;
+	grid-gap:1em;
+	grid-template-areas:
+		"c1"
+		"c2"
+		"c3"
+}
+
+.cssgrid .box{
+	background-color:#f7f6f4;
+	border-radius:7px;
+	padding:30px;
+	overflow:hidden
+}
+
+cssgrid-events.ev1{grid-area:ev1}
+cssgrid-events.ev2{grid-area:ev2}
+cssgrid-events.ev3{grid-area:ev3}
+cssgrid-events.ev4{grid-area:ev4}
+
+.cssgrid-events{
+	display:grid;
+	grid-gap:1em;
+	grid-template-areas:
+		"ev1"
+		"ev2"
+		"ev3"
+		"ev4"
+}
+
+.cssgrid-events .box{
+	background-color:#fff;
+	border-radius:7px;
+	padding:30px;
+	overflow:hidden
+}
+
+cssgrid-footer.c1{grid-area:c1}
+cssgrid-footer.c2{grid-area:c2}
+cssgrid-footer.c3{grid-area:c3}
+
+.cssgrid-footer{
+	display:grid;
+	grid-gap:1em;
+	grid-template-areas:
+		"c1"
+		"c2"
+		"c3"
+}
+
+.cssgrid-footer form input{
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius:25px;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+	color:#555;
+	font-size:1.2rem;
+	height:48px;
+	padding:0 16px;
+	width:75%
+}
+
+.cssgrid-footer form button{
+	background:rgba(255,165,0,.5);
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius:25px;
+	border-top-left-radius:0;
+	border-bottom-left-radius:0;
+	color:#ffffff;
+	font-size:1.2rem;
+	height:48px;
+	padding:0 16px;
+	transition:all 0.25s
+}
+
+.cssgrid-footer form button:hover{background:rgb(255,165,0)}
+
 .footer-bg-city{
 	width:100%;
 	padding:200px 0 0;
@@ -242,4 +324,9 @@ svg>path{fill:rgb(255,165,0)}
 	top:-2px
 }
 
-.scrollToTopButton:hover{background:rgb(255, 165, 0)}
+.scrollToTopButton:hover{background:rgb(255,165,0)}
+
+.svg-footer-icon{
+	max-width:unset;
+	width:40px
+}
