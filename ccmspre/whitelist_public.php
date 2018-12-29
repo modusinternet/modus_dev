@@ -50,45 +50,67 @@ define('EXAMPLE_EXPRESSION_2', '/^[\pN]+\z/');
 // \z End of subject or newline at end. (Better then $ because $ does not include /n characters at the end of a line.)
 // / End of the Pattern.
 
+define('NO_BADCHARS', '/^[^\<\>&#]*\z/');
+// ^	Start of line
+// [	Starts the character class.
+// ^	Does not contain any of the following characters.
+// \<	The less than symbol.
+// \>	The greater that symbol.
+// &	The ampersand symbol.
+// #	The hash symbol.
+// ]	Ends the character class.
+// *	Zero or more
+// \z	End of subject or newline at end. (Better then $ because $ does not include /n characters at the end of a line.)
+// /	End of the Pattern.
 
 $whitelist = array(
-    "example_given_name"    => array("type" => "EXAMPLE_EXPRESSION_1",  "minlength" => 1,   "maxlength" => 15),
-    "example_age"           => array("type" => "EXAMPLE_EXPRESSION_2",  "maxlength" => 3),
+	"example_given_name"   => array("type" => "EXAMPLE_EXPRESSION_1",  "minlength" => 1,   "maxlength" => 15),
+	"example_age"          => array("type" => "EXAMPLE_EXPRESSION_2",  "maxlength" => 3),
+
+	/* All Windows Message Box */
+	"msgName"              => array("type" => "NO_BADCHARS",           "minlength" => 2,   "maxlength" => 32),
+	"msgEmail"             => array("type" => "EMAIL",                 "maxlength" => 256),
+	"msgTextarea"          => array("type" => "NO_BADCHARS",           "maxlength" => 1536)
 );
 
 
 function CCMS_Public_Filter($input, $whitelist)
 {
-    global $CLEAN;
-    foreach ($input as $key => $value) {
-        if (array_key_exists($key, $whitelist)) {
-            $buf = null;
-            $value = @trim($value);
-            // utf8_decode() converts unknown ISO-8859-1 chars to '?' for the purpose of counting.
-            $length = strlen(utf8_decode($value));
-            if (isset($whitelist[$key]['minlength']) && ($length < $whitelist[$key]['minlength'])) {
-                $buf = "MINLEN";
-            }
-            if (isset($whitelist[$key]['maxlength']) && ($length > $whitelist[$key]['maxlength'])) {
-                $buf = "MAXLEN";
-            }
-            if ($buf != "MINLEN" && $buf != "MAXLEN") {
-                switch ($whitelist[$key]['type']) {
+	global $CLEAN;
+	foreach ($input as $key => $value) {
+		if (array_key_exists($key, $whitelist)) {
+			$buf = null;
+			$value = @trim($value);
+			// utf8_decode() converts unknown ISO-8859-1 chars to '?' for the purpose of counting.
+			$length = strlen(utf8_decode($value));
+			if (isset($whitelist[$key]['minlength']) && ($length < $whitelist[$key]['minlength'])) {
+				$buf = "MINLEN";
+			}
+			if (isset($whitelist[$key]['maxlength']) && ($length > $whitelist[$key]['maxlength'])) {
+				$buf = "MAXLEN";
+			}
+			if ($buf != "MINLEN" && $buf != "MAXLEN") {
+				switch ($whitelist[$key]['type']) {
+					case "NO_BADCHARS":
+						$buf = (preg_match(NO_BADCHARS, $value)) ? $value : "INVAL";
+						break;
+					case "EMAIL":
+						$buf = (filter_var($value, FILTER_VALIDATE_EMAIL)) ? $value : "INVAL";
+						break;
 
 
-                    case "EXAMPLE_EXPRESSION_1":
-                        $buf = (preg_match(EXAMPLE_EXPRESSION_1, $value)) ? $value : "INVAL";
-                        break;
-                    case "EXAMPLE_EXPRESSION_2":
-                        $buf = (preg_match(EXAMPLE_EXPRESSION_2, $value)) ? $value : "INVAL";
-                        break;
-
-// Add your own case statements here, just copy the patter above, make the neccessary changes, save and upload.
+					case "EXAMPLE_EXPRESSION_1":
+						$buf = (preg_match(EXAMPLE_EXPRESSION_1, $value)) ? $value : "INVAL";
+						break;
+					case "EXAMPLE_EXPRESSION_2":
+						$buf = (preg_match(EXAMPLE_EXPRESSION_2, $value)) ? $value : "INVAL";
+						break;
 
 
-                }
-            }
-            $CLEAN[$key] = $buf;
-        }
-    }
+
+				}
+			}
+			$CLEAN[$key] = $buf;
+		}
+	}
 }
