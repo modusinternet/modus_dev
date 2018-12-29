@@ -469,10 +469,11 @@ BEGINNING of MSG popup
 
 
 #msg-svg-fill {
-	background:var(--button-color-alpha);
+	background:rgba(255,165,0,.5);
 	border:none;
 	border-radius:7px;
 	bottom:70px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.4);
 	color:rgb(255,255,255);
 	cursor:pointer;
 	font-size:1.2rem;
@@ -490,9 +491,9 @@ BEGINNING of MSG popup
 	transition:all .5s ease-in-out
 }
 
-.msg-svg-fill path {fill:var(--msg-svg-fill)}
+.msg-svg-fill path {fill:rgb(255,255,255)}
 
-/*#msg-svg-fill:hover {background:var(--button-color)}*/
+#msg-svg-fill:hover {background:rgb(255,165,0)}
 
 #msg-svg-fill.hide {
 	bottom:0;
