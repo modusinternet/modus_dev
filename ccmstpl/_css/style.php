@@ -315,11 +315,11 @@ cssgrid-footer.c3{grid-area:c3}
 	box-shadow:4px 4px 4px rgba(0,0,0,.4);
 	color:#fff;
 	cursor:pointer;
-	font-size:1.2rem;
-	padding:10px 15px;
+	height:50px;
 	position:fixed;
 	right:5px;
 	transition:all 0.25s
+	width:50px;
 }
 
 .scrollToTopButton-active{bottom:5px}
@@ -479,15 +479,11 @@ BEGINNING of MSG popup
 	font-size:1.2rem;
 	height:50px;
 	opacity:1;
-	padding:10px 15px;
+	padding:0px 6px 3px 8px;
 	position:fixed;
 	right:5px;
-	text-shadow:1px 1px rgba(0,0,0,.2);
 	width:50px;
 	z-index:5;
-	-webkit-transition:all .5s ease-in-out;
-	-moz-transition:all .5s ease-in-out;
-	-o-transition:all .5s ease-in-out;
 	transition:all .5s ease-in-out
 }
 
