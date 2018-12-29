@@ -312,6 +312,7 @@ cssgrid-footer.c3{grid-area:c3}
 	border:none;
 	border-radius:7px;
 	bottom:-50px;
+	box-shadow:4px 4px 4px rgba(0,0,0,.4);
 	color:#fff;
 	cursor:pointer;
 	font-size:1.2rem;
@@ -354,7 +355,7 @@ header{
 
 header img{
 	margin:10px;
-	filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.9));
+	filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.6));
 	transition:all 1.0s ease-in-out;
 	width:250px
 }
@@ -362,7 +363,7 @@ header img{
 nav{
 	background:#ccc;
 	bottom:0;
-	box-shadow:{CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow:{CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.4);
 	display:none;
 	{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0;
 	line-height:5rem;
@@ -460,6 +461,161 @@ END of tags found in the HEADER tag
 ==========*/
 
 
+/*==========
+BEGINNING of MSG popup
+==========*/
+
+
+
+
+#msg-svg-fill {
+	background:var(--button-color-alpha);
+	border:none;
+	border-radius:7px;
+	bottom:70px;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	font-size:1.2rem;
+	height:50px;
+	opacity:1;
+	padding:10px 15px;
+	position:fixed;
+	right:5px;
+	text-shadow:1px 1px rgba(0,0,0,.2);
+	width:50px;
+	z-index:5;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	-o-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out
+}
+
+.msg-svg-fill path {fill:var(--msg-svg-fill)}
+
+/*#msg-svg-fill:hover {background:var(--button-color)}*/
+
+#msg-svg-fill.hide {
+	bottom:0;
+	opacity:0;
+	z-index:-5
+}
+
+#msg {
+	bottom:0;
+	left:0px;
+	opacity:1;
+	position:fixed;
+	radius:8px;
+	width:100%;
+	z-index:5;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	-o-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out
+}
+
+#msg.hide {
+	bottom:0;
+	opacity:0;
+	z-index:-5
+}
+
+#msg>div {
+	background:var(--msg-header-background);
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	color:var(--msg-header-color);
+	padding:5px 10px
+}
+
+#msg>div svg {
+	cursor:pointer;
+	float:right;
+	height:24px;
+	margin-top:5px;
+	width:24px
+}
+
+#msg label {font-weight:500}
+
+#msg>#msgFormMessage {
+	border-radius:unset;
+	padding:unset
+}
+
+#msg .alert-success {
+	background:green;
+	color:white;
+	display:block;
+	padding: 5px 10px !important
+}
+
+#msg form {
+	background-color:#fff;
+	padding:10px
+}
+
+#msg input[type=text], #msg textarea {
+	background-color:#f4f4f4;
+	border:1px solid #e3e3e3;
+	border-radius:8px;
+	font-size:1.8rem;
+	line-height: initial;
+	padding:10px;
+	margin-bottom:10px;
+	width:100%;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	-o-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out
+}
+
+#msg input[type=text]::placeholder, #msg textarea::placeholder {
+	color:rgb(175,171,163)
+}
+
+#msg input[type="text"]:focus, #msg textarea:focus {
+	border-color:#808080;
+	outline:none
+}
+
+#msg textarea {
+	height:100px;
+	resize:none
+}
+
+#msg #msgSubmit {
+	background-color:var(--button-color-alpha);
+	border:none;
+	border-radius:8px;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	display:block;
+	font-size:20px;
+	padding:10px 0;
+	text-align:center;
+	text-decoration:none;
+	width:100%
+}
+
+/*#msg #msgSubmit:hover {background:var(--button-color)}*/
+
+#msg label.error {
+	color:rgb(255,0,0);
+	display:block;
+	font-size:18px;
+	position:relative;
+	top:-10px
+}
+/*==========
+END of MSG popup
+==========*/
+
+
+
+
+
+
 /* 400px or larger. */
 @media only screen and (min-width:400px) {
 	/*==========
@@ -472,6 +628,26 @@ END of tags found in the HEADER tag
 	.parallax video{top:-100px}
 	/*==========
 	END of tags found in the MAIN tag
+	==========*/
+}
+
+
+/* 400px in height and 400px in width or larger. */
+@media screen and (min-height:400px) and (min-width:400px) {
+	/*==========
+	BEGINNING of MSG popup
+	==========*/
+	#msg {
+		bottom:20px;
+		left:unset;
+		opacity:1;
+		position:fixed;
+		right:20px;
+		width:300px;
+		filter:drop-shadow(2px 2px 4px rgba(0,0,0,.4))
+	}
+	/*==========
+	END of MSG popup
 	==========*/
 }
 

@@ -1,6 +1,7 @@
 /* nav bar active selector */
 navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 
+
 /* nav bar controls */
 ! function(e, n) {
 	var i = {
@@ -86,6 +87,7 @@ navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 }(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e){function n(){}return n.prototype = e, new n});
 $('nav').nav();
 
+
 /* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
 $(window).scroll(function() {
 	var scroll = $(window).scrollTop();
@@ -112,6 +114,148 @@ $(window).scroll(function() {
 		}
 });
 
+
 /* Disable loading screen. */
 window.setTimeout(function(){document.getElementById("loading_screen").style.opacity="0";},1000);
 window.setTimeout(function(){document.getElementById("wrapper").style.opacity="1";},250);
+
+
+/* MSG popup email form. */
+var container = document.getElementById('msg');
+var svgButton = document.getElementById('msg-svg-fill');
+function msg_show(){
+	document.getElementById("msg-svg-fill").classList.add("hide");
+	document.getElementById("msg").classList.remove("hide");
+}
+function msg_hide(){
+	document.getElementById("msg-svg-fill").classList.remove("hide");
+	document.getElementById("msg").classList.add("hide");
+}
+document.addEventListener('click',function(event){
+	if(container!==event.target&&svgButton!==event.target&&!container.contains(event.target)){
+		svgButton.classList.remove("hide");
+		container.classList.add("hide");
+	}
+});
+
+loadFirst("//cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js",function(){ /* jquery.validate loaded */
+	loadFirst("//cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js",function(){ /* validate additional-methods loaded */
+		$.validator.addMethod(
+			"badCharRegex",
+			function(value,element,regexp){
+				var re=new RegExp(regexp);
+				return this.optional(element)||re.test(value);
+			},
+			"Please check your input."
+		);
+
+		$("#msgForm").validate({
+			rules:{
+				msgName:{
+					required:true,
+					minlength:2,
+					maxlength:32,
+					badCharRegex:/^[^\<\>&#]+$/i
+				},
+				msgEmail:{
+					required:true,
+					email:true,
+					maxlength:256
+				},
+				msgTextarea:{
+					required:true,
+					maxlength:512,
+					badCharRegex:/^[^\<\>&#]+$/i
+				}
+			},
+			messages:{
+				msgName:{
+					required:"Please enter your full name.",
+					minlength:"This field must be between 2 to 32 characters.",
+					maxlength:"This field must be between 2 to 32 characters.",
+					badCharRegex:"The following characters are not permited in this form. ( > < & # ) Please remove before submitting."
+				},
+				msgEmail:{
+					required:"Please enter a valid email address.",
+					maxlength:"Please try to keep your email address to 256 characters or less."
+				},
+				msgTextarea:{
+					required:"Please include a short message regarding how we can help you.",
+					maxlength:"Please try to keep your messages to 512 characters or less.",
+					badCharRegex:"The following characters are not permited in this form. ( > < & # ) Please remove before submitting."
+				}
+			},
+			errorPlacement:function($error,$element){
+				var name=$element.attr("name");
+				$("#error-"+name).append($error);
+			},
+			submitHandler:function(form){
+				var request;
+				// Abort any pending request.
+				if(request) request.abort();
+				var $inputs=$(form).find("input,select,textarea,button");
+				var serializedData=$(form).serialize();
+				// Disable the inputs for the duration of the ajax request.
+				$inputs.prop("disabled",true);
+				request=$.ajax({
+					beforeSend:function(XMLHttpRequest){
+						$('#msgForm .has-error').removeClass('has-error');
+						$('#msgForm .help-block').html('').hide();
+						$('#msgFormMessage').removeClass('alert-success').html('');
+					},
+					cache:false,
+					data:serializedData,
+					dataType:'json',
+					type:"post",
+					url:"/{CCMS_LIB:_default.php;FUNC:ccms_lng}/msgForm-ajax.html"
+				});
+				// Called on success.
+				request.done(function(json,textStatus) {
+					if(json.error){
+						// Error messages
+						if(json.error.msgName){
+							$('#msgName').parent().addClass('has-error');
+							$('#error-msgName').html(json.error.msgName).slideDown();
+						}
+						if(json.error.msgEmail){
+							$('#msgEmail').parent().addClass('has-error');
+							$('#error-msgEmail').html(json.error.msgEmail).slideDown();
+						}
+						if(json.error.msgTextarea){
+							$('#msgTextarea').parent().addClass('has-error');
+							$('#error-msgTextarea').html(json.error.msgTextarea).slideDown();
+						}
+						$inputs.prop("disabled",false);
+					}
+					if(json.success){
+						$('#msgFormMessage').addClass('alert-success').html(json.success).slideDown();
+						setTimeout(function(){
+							$('#msgFormMessage').slideUp("fast",function(){
+								$(this).removeClass('alert-success').html('');
+							});
+						},5000);
+						$('#msgForm').find('.form-control').val('');
+						// reenable the inputs
+						setTimeout(function(){
+							$inputs.prop("disabled",false);
+						},2000);
+					}
+				})
+				// Called on failure.
+				request.fail(function(jqXHR,textStatus,errorThrown){
+					// log the error to the console
+					$("#msgForm").html("The following error occurred: "+textStatus,errorThrown);
+				});
+				// Called if the request failed or succeeded.
+				request.always(function(){
+					// reenable the inputs
+					setTimeout(function(){
+						$inputs.prop("disabled",false);
+					},5000);
+				});
+				// Prevent default posting of form.
+				return false;
+			}
+		});
+	});
+});
