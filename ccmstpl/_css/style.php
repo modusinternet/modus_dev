@@ -484,15 +484,15 @@ BEGINNING of MSG popup
 
 .msg-svg-fill path,.msg-svg-fill circle{fill:rgb(255,255,255)}
 
-#msg-svg-fill:hover {background:rgb(255,165,0)}
+#msg-svg-fill:hover{background:rgb(255,165,0)}
 
-#msg-svg-fill.hide {
+#msg-svg-fill.hide{
 	bottom:0;
 	opacity:0;
 	z-index:-5
 }
 
-#msg {
+#msg{
 	bottom:0;
 	left:0px;
 	opacity:1;
@@ -503,17 +503,17 @@ BEGINNING of MSG popup
 	transition:all .5s ease-in-out
 }
 
-#msg.hide {
+#msg.hide{
 	bottom:0;
 	opacity:0;
 	z-index:-5
 }
 
-#msg>div {
-	background:var(--msg-header-background);
+#msg>div{
+	background:rgb(255,165,0);
 	border-top-left-radius:8px;
 	border-top-right-radius:8px;
-	color:var(--msg-header-color);
+	color:#fff;
 	padding:5px 10px
 }
 
@@ -571,7 +571,7 @@ BEGINNING of MSG popup
 }
 
 #msg #msgSubmit {
-	background-color:var(--button-color-alpha);
+	background-color:rgba(255,165,0,.5);
 	border:none;
 	border-radius:8px;
 	color:rgb(255,255,255);
@@ -584,7 +584,7 @@ BEGINNING of MSG popup
 	width:100%
 }
 
-/*#msg #msgSubmit:hover {background:var(--button-color)}*/
+#msg #msgSubmit:hover {background:rgb(255,165,0)}
 
 #msg label.error {
 	color:rgb(255,0,0);
