@@ -138,6 +138,7 @@ document.addEventListener('click',function(event){
 	}
 });
 
+
 loadFirst("//cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js",function(){ /* jquery.validate loaded */
 	loadFirst("//cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js",function(){ /* validate additional-methods loaded */
 		$.validator.addMethod(
@@ -191,11 +192,11 @@ loadFirst("//cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.
 			},
 			submitHandler:function(form){
 				var request;
-				// Abort any pending request.
+				/* Abort any pending request. */
 				if(request) request.abort();
 				var $inputs=$(form).find("input,select,textarea,button");
 				var serializedData=$(form).serialize();
-				// Disable the inputs for the duration of the ajax request.
+				/* Disable the inputs for the duration of the ajax request. */
 				$inputs.prop("disabled",true);
 				request=$.ajax({
 					beforeSend:function(XMLHttpRequest){
@@ -209,10 +210,10 @@ loadFirst("//cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.
 					type:"post",
 					url:"/{CCMS_LIB:_default.php;FUNC:ccms_lng}/msgForm-ajax.html"
 				});
-				// Called on success.
+				/* Called on success. */
 				request.done(function(json,textStatus) {
 					if(json.error){
-						// Error messages
+						/* Error messages */
 						if(json.error.msgName){
 							$('#msgName').parent().addClass('has-error');
 							$('#error-msgName').html(json.error.msgName).slideDown();
@@ -241,19 +242,19 @@ loadFirst("//cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.
 						},2000);
 					}
 				})
-				// Called on failure.
+				/* Called on failure. */
 				request.fail(function(jqXHR,textStatus,errorThrown){
-					// log the error to the console
+					/* log the error to the console */
 					$("#msgForm").html("The following error occurred: "+textStatus,errorThrown);
 				});
-				// Called if the request failed or succeeded.
+				/* Called if the request failed or succeeded. */
 				request.always(function(){
-					// reenable the inputs
+					/* reenable the inputs */
 					setTimeout(function(){
 						$inputs.prop("disabled",false);
 					},5000);
 				});
-				// Prevent default posting of form.
+				/* Prevent default posting of form. */
 				return false;
 			}
 		});
