@@ -63,7 +63,20 @@ if($_POST["g-recaptcha-response"]) {
 		$json['error']['grecaptcha'] = 'Incorrect code. Please try again.';
 	}
 } else {
-    $json['error']['grecaptcha'] = 'Please prove that you are not a robot.';
+	$json['error']['grecaptcha'] = 'Please prove that you are not a robot.';
+}
+*/
+
+/*
+// Checking reCaptcha
+if($_POST["g-recaptcha-response"]) {
+	$resp = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret=" . $CFG['GOOGLE_RECAPTCHA_PRIVATEKEY'] . "&response=" . $_POST['g-recaptcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR'] );
+	if($resp.success == false) {
+		$error = $resp.error-codes;
+		$json['error']['grecaptcha'] = "Incorrect code. Please try again.<br />error code: " . $error;
+	}
+} else {
+	$json['error']['grecaptcha'] = 'Please prove that you are not a robot.';
 }
 */
 
@@ -73,7 +86,7 @@ if(!isset( $json['error'])) {
 	$replace = array("<br />", "", "<br />");
 
 	// Email text
-	$mail_message = "This email message was sent by someone using the Popup Message form on <a href=\"" . $_SERVER["HTTP_REFERER"] . "\">" . $_SERVER["HTTP_REFERER"] . "</a>.<br /><br />IP Address: " . $_SERVER["REMOTE_ADDR"] . "<br />";
+	$mail_message = "This email message was sent by someone using the Message Form Popup on <a href=\"" . $_SERVER["HTTP_REFERER"] . "\">" . $_SERVER["HTTP_REFERER"] . "</a>.<br /><br />IP Address: " . $_SERVER["REMOTE_ADDR"] . "<br />";
 	$mail_message .= "From: " . $CLEAN["msgName"] . "<br />";
 	$mail_message .= "Email: " . $CLEAN["msgEmail"] . "<br />";
 	$mail_message .= "Message: " . str_replace($search, $replace, $CLEAN["msgTextarea"]) . "<br />
@@ -83,7 +96,7 @@ if(!isset( $json['error'])) {
 	$mail_headers .= "Content-type: text/html; charset=UTF-8\n";
 	$mail_headers .= "From: " . $CFG["EMAIL_FROM"] . "\r\n";
 	// Sending email
-	mail( $CFG["EMAIL_FROM"], "Email from " . $CFG["DOMAIN"] . ", Popup Message form", $mail_message, $mail_headers, "-f" . $CFG["EMAIL_BOUNCES_RETURNED_TO"] );
+	mail( $CFG["EMAIL_FROM"], "Email from " . $CFG["DOMAIN"] . ", Message Form Popup", $mail_message, $mail_headers, "-f" . $CFG["EMAIL_BOUNCES_RETURNED_TO"] );
 	//mail( "vince@modusinternet.com", "Email from " . $CFG["DOMAIN"] . ", Popup Message form", $mail_message, $mail_headers, "-f" . $CFG["EMAIL_BOUNCES_RETURNED_TO"] );
 	$json['success'] = 'Your message was sent successfully!';
 }
