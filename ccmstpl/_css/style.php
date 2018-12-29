@@ -138,8 +138,6 @@ p{margin-bottom:1rem}
 
 svg{max-width:100px}
 
-svg>circle{fill:rgb(255,165,0)}
-
 svg>path{fill:rgb(255,165,0)}
 
 .bigButton{
@@ -462,7 +460,6 @@ nav .active{background:rgb(255,165,0) !important}
 END of tags found in the HEADER tag
 ==========*/
 
-
 /*==========
 BEGINNING of MSG popup
 ==========*/
@@ -485,7 +482,7 @@ BEGINNING of MSG popup
 	transition:all .5s ease-in-out
 }
 
-.msg-svg-fill path {fill:rgb(255,255,255)}
+.msg-svg-fill path,.msg-svg-fill circle{fill:rgb(255,255,255)}
 
 #msg-svg-fill:hover {background:rgb(255,165,0)}
 
