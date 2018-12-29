@@ -318,8 +318,8 @@ cssgrid-footer.c3{grid-area:c3}
 	height:50px;
 	position:fixed;
 	right:5px;
-	transition:all 0.25s
-	width:50px;
+	transition:all 0.25s;
+	width:50px
 }
 
 .scrollToTopButton-active{bottom:5px}
