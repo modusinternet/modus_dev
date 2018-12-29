@@ -482,7 +482,7 @@ BEGINNING of MSG popup
 	transition:all .5s ease-in-out
 }
 
-.msg-svg-fill path,.msg-svg-fill circle{fill:rgb(255,255,255)}
+#msg-svg-fill path,#msg-svg-fill circle{fill:rgb(255,255,255)}
 
 #msg-svg-fill:hover {background:rgb(255,165,0)}
 
