@@ -464,10 +464,6 @@ END of tags found in the HEADER tag
 /*==========
 BEGINNING of MSG popup
 ==========*/
-
-
-
-
 #msg-svg-fill {
 	background:rgba(255,165,0,.5);
 	border:none;
@@ -505,9 +501,6 @@ BEGINNING of MSG popup
 	radius:8px;
 	width:100%;
 	z-index:5;
-	-webkit-transition:all .5s ease-in-out;
-	-moz-transition:all .5s ease-in-out;
-	-o-transition:all .5s ease-in-out;
 	transition:all .5s ease-in-out
 }
 
@@ -544,7 +537,7 @@ BEGINNING of MSG popup
 	background:green;
 	color:white;
 	display:block;
-	padding: 5px 10px !important
+	padding:5px 10px !important
 }
 
 #msg form {
@@ -561,9 +554,6 @@ BEGINNING of MSG popup
 	padding:10px;
 	margin-bottom:10px;
 	width:100%;
-	-webkit-transition:all .5s ease-in-out;
-	-moz-transition:all .5s ease-in-out;
-	-o-transition:all .5s ease-in-out;
 	transition:all .5s ease-in-out
 }
 
@@ -607,10 +597,6 @@ BEGINNING of MSG popup
 /*==========
 END of MSG popup
 ==========*/
-
-
-
-
 
 
 /* 400px or larger. */
