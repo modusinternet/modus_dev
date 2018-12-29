@@ -138,6 +138,8 @@ p{margin-bottom:1rem}
 
 svg{max-width:100px}
 
+svg>circle{fill:rgb(255,165,0)}
+
 svg>path{fill:rgb(255,165,0)}
 
 .bigButton{
