@@ -785,8 +785,8 @@ END of MSG popup
 
 
 /* 1199px or larger. To help adjust video background position on larger screens. */
-@media only screen and (min-width:1199px){.parallax>video {top:-200px}}
+@media only screen and (min-width:1199px){.parallax>video{top:-200px}}
 
 
 /* 1599px or larger. To help adjust video background position on larger screens. */
-@media only screen and (min-width:1599px){.parallax>video {top:-300px}}
+@media only screen and (min-width:1599px){.parallax>video{top:-300px}}
