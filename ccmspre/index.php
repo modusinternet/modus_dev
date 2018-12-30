@@ -733,7 +733,8 @@ function CCMS_Main() {
 	// fruit/orange
 	// fruit/orange/vitamin
 	// fruit/orange/vitamin/c
-	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
+	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
+	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)(\.html?)(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
@@ -760,17 +761,17 @@ function CCMS_Main() {
 	  if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 			$odhandle = @opendir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir);
 			while (($file = @readdir($odhandle)) !== false) {
-				 if ($file != "." && $file != ".." && is_file($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file)) {
-					  if ($file == $ccms_file[0] . ".php") {
-							// .php template.  Do not check or save cached version.
-							ob_start();
-							include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file;
-							$html = ob_get_contents();
-							ob_end_clean();
-							CCMS_TPL_Parser($html);
-							$found = true;
-							break;
-					  } elseif ($file == $ccms_file[0] . ".css" || $file == $ccms_file[0] . ".html" || $file == $ccms_file[0] . ".js") {
+				if ($file != "." && $file != ".." && is_file($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file)) {
+					if ($file == $ccms_file[0] . ".php") {
+						// .php template.  Do not check or save cached version.
+						ob_start();
+						include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file;
+						$html = ob_get_contents();
+						ob_end_clean();
+						CCMS_TPL_Parser($html);
+						$found = true;
+						break;
+					} elseif ($file == $ccms_file[0] . ".css" || $file == $ccms_file[0] . ".html" || $file == $ccms_file[0] . ".js") {
 							if ($CLEAN["SESSION"]["user_id"] == null) {
 								// If this is a normal session and the user is not logged in then cache this page in the visitors browers.
 								// .html template, normal template request, not logged in.  Check for a cache version, that's not expired and if necessary, cache a new copy.
