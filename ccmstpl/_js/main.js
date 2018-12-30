@@ -2,6 +2,33 @@
 navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 
 
+/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
+$(window).scroll(function() {
+	var scroll = $(window).scrollTop();
+	if(scroll >= 50) {
+		$("header").addClass("header-scroll");
+		$("header img").addClass("header-div-a-img-scroll");
+		$("header div button").addClass("header-div-button-scroll");
+		$("nav").addClass("nav-scroll");
+		$(".scrollToTopButton").addClass("scrollToTopButton-active");
+	} else {
+		$("header").removeClass("header-scroll");
+		$("header img").removeClass("header-div-a-img-scroll");
+		$("header div button").removeClass("header-div-button-scroll");
+		$("nav").removeClass("nav-scroll");
+		$(".scrollToTopButton").removeClass("scrollToTopButton-active");
+	}
+
+	if(scroll >= 450) {
+		$("header img").addClass("header-div-a-img-scroll-dropshadow");
+		$(".toggle").addClass("toggle-scroll-dropshadow");
+	} else {
+		$("header img").removeClass("header-div-a-img-scroll-dropshadow");
+		$(".toggle").removeClass("toggle-scroll-dropshadow");
+	}
+});
+
+
 /* nav bar controls */
 ! function(e, n) {
 	var i = {
@@ -56,7 +83,7 @@ navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 		},
 		closeSubMenu: function(n, i) {
 			i.removeClass("nav-active").children("ul").stop().clearQueue().slideUp(n.slideSpeed, function() {
-				e(this).attr("style", "display: none;")
+					e(this).attr("style", "display: none;")
 			}).find(".nav-active").removeClass("nav-active").children("ul").slideUp(n.slideSpeed, function() {
 				e(this).clearQueue()
 			})
@@ -84,35 +111,8 @@ navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 		disableSubMenuLink: "always",
 		slideSpeed: 300
 	}
-}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e){function n(){}return n.prototype = e, new n});
-$("nav").nav();
-
-
-/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
-$(window).scroll(function() {
-	var scroll = $(window).scrollTop();
-	if(scroll >= 50) {
-		$("header").addClass("header-scroll");
-		$("header img").addClass("header-div-a-img-scroll");
-		$("header div button").addClass("header-div-button-scroll");
-		$("nav").addClass("nav-scroll");
-		$(".scrollToTopButton").addClass("scrollToTopButton-active");
-	} else {
-		$("header").removeClass("header-scroll");
-		$("header img").removeClass("header-div-a-img-scroll");
-		$("header div button").removeClass("header-div-button-scroll");
-		$("nav").removeClass("nav-scroll");
-		$(".scrollToTopButton").removeClass("scrollToTopButton-active");
-	}
-
-	if(scroll >= 450) {
-		$("header img").addClass("header-div-a-img-scroll-dropshadow");
-		$(".toggle").addClass("toggle-scroll-dropshadow");
-	} else {
-		$("header img").removeClass("header-div-a-img-scroll-dropshadow");
-		$(".toggle").removeClass("toggle-scroll-dropshadow");
-	}
-});
+}(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e) {	function n() {}	return n.prototype = e, new n	});
+$('nav').nav();
 
 
 /* Disable loading screen. */
