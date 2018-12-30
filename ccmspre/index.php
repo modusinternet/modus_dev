@@ -736,17 +736,17 @@ function CCMS_Main() {
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
 	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
-echo "CLEAN['ccms_tpl']=[".$CLEAN["ccms_tpl"]."]<br>";
+//echo "CLEAN['ccms_tpl']=[".$CLEAN["ccms_tpl"]."]<br>";
 
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
 
-echo "ccms_file[0]=[".$ccms_file[0]."]<br>";
+//echo "ccms_file[0]=[".$ccms_file[0]."]<br>";
 
 	// Copys the first part of the string inside $CLEAN["ccms_tpl"] before the last /.
 	$ccms_dir = @strstr($CLEAN["ccms_tpl"], $ccms_file[0], true);
 
-echo "ccms_dir=[".$ccms_dir."]<br>";
+//echo "ccms_dir=[".$ccms_dir."]<br>";
 
 	// Test to see if CLEAN["ccms_tpl"] file being requested is stored on server with a .php or
 	// .html extension.  .php is tested for first, if found it is pre-parsed by php, stored in
@@ -765,9 +765,8 @@ echo "ccms_dir=[".$ccms_dir."]<br>";
 	if ($CFG["lngCodeFoundFlag"] && $CFG["lngCodeActiveFlag"]) {
 		// Test to make sure the visitor is not requesting a language which is either non existant or status not live.  If so they should be sent to the error.php template regardless.
 
-echo "is_dir=[".$_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . $ccms_dir."]<br>";
+//echo "is_dir=[".$_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . $ccms_dir."]<br>";
 
-		//if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 		if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 			$odhandle = @opendir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir);
 			while (($file = @readdir($odhandle)) !== false) {
