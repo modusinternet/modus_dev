@@ -734,7 +734,7 @@ function CCMS_Main() {
 	// fruit/orange/vitamin
 	// fruit/orange/vitamin/c
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
-	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)(\.html?)(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
+	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
 echo "CLEAN['ccms_tpl']=[".$CLEAN["ccms_tpl"]."]<br>";
 
@@ -767,6 +767,7 @@ echo "ccms_dir=[".$ccms_dir."]<br>";
 
 echo "is_dir=[".$_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . $ccms_dir."]<br>";
 
+		//if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 		if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 			$odhandle = @opendir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir);
 			while (($file = @readdir($odhandle)) !== false) {
