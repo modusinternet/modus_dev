@@ -779,7 +779,7 @@ function CCMS_Main() {
 							} elseif ($file == $ccms_file[0] . ".html") {
 								header("Content-Type: text/html; charset=utf-8");
 							} elseif ($file == $ccms_file[0] . ".js") {
-								header("Content-Type: application/javascript;");
+								header("Content-Type: application/javascript");
 							} else {
 								header("Content-Type: text/html; charset=utf-8");
 							}
