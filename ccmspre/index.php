@@ -848,7 +848,15 @@ function CCMS_Main() {
 						} else {
 							// If this is a verified session asigned of an active user then disable cache.
 							// .html template, admin/translator template request, logged in.  Do not check or save cached version.
-							header("Content-Type: text/html; charset=utf-8");
+							if($file == $ccms_file[0] . ".css"){
+								header("Content-Type: text/css; charset=utf-8");
+							} elseif ($file == $ccms_file[0] . ".html") {
+								header("Content-Type: text/html; charset=utf-8");
+							} elseif ($file == $ccms_file[0] . ".js") {
+								header("Content-Type: application/javascript");
+							} else {
+								header("Content-Type: text/html; charset=utf-8");
+							}
 							header("Cache-Control: no-cache, must-revalidate");
 							header("Pragma: no-cache");
 							$html = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file);
