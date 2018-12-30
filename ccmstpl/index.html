@@ -164,11 +164,11 @@
 				var l = document.createElement('link'); l.rel = 'stylesheet';
 				/*l.href = "/ccmstpl/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}-min.css";*/
 				/*l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}";*/
-				l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style.css";	
+				l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style.css";
 				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
 				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
-					loadFirst("/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_js/main", function() {/* main javascript for the site is loaded */
+					loadFirst("/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_js/main.js", function() {/* main javascript for the site is loaded */
 
 
 
