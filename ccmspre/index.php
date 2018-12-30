@@ -736,6 +736,8 @@ function CCMS_Main() {
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
 	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)(\.html?)(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
+echo $CLEAN["ccms_tpl"]."<br>/n";
+
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
 
