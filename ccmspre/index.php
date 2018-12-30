@@ -791,13 +791,13 @@ function CCMS_Main() {
 
 
 								if($file == $ccms_file[0] . ".css"){
-									header("Content-Type: text/css; charset=UTF-8");
+									header("Content-Type: text/css; charset=utf-8");
 								} elseif ($file == $ccms_file[0] . ".html") {
-									header("Content-Type: text/html; charset=UTF-8");
+									header("Content-Type: text/html; charset=utf-8");
 								} elseif ($file == $ccms_file[0] . ".js") {
-									header("Content-Type: application/javascript;");
+									header("Content-Type: application/javascript; charset=utf-8");
 								} else {
-									header("Content-Type: text/html; charset=UTF-8");
+									header("Content-Type: text/html; charset=utf-8");
 								}
 
 
