@@ -168,8 +168,8 @@
 				var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
 
 				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js",function(){/* JQuery is loaded */
-					loadFirst("/ccmstpl/_js/main.js",function(){/* main javascript for the site is loaded */
-						
+					loadFirst("/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_js/main.js",function(){/* main javascript for the site is loaded */
+
 
 						/*
 						window.performance.mark("mark_end_javascript");
