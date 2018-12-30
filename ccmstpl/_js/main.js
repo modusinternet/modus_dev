@@ -1,3 +1,4 @@
+/* Compress using https://jscompress.com/ */
 /* nav bar active selector */
 navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 
