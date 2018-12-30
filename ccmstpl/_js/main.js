@@ -85,7 +85,6 @@ navActiveArray.forEach(function(s){$("#"+s).addClass("active");});
 		slideSpeed: 300
 	}
 }(jQuery, window, document), "function" != typeof Object.create && (Object.create = function(e){function n(){}return n.prototype = e, new n});
-$('nav').nav();
 
 
 /* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
