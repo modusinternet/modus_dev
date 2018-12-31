@@ -118,7 +118,7 @@ $('nav').nav();
 
 /* Disable loading screen. */
 window.setTimeout(function(){document.getElementById("loading_screen").style.opacity="0";},1000);
-window.setTimeout(function(){document.getElementById("wrapper").style.opacity="1";},100);
+window.setTimeout(function(){document.getElementById("wrapper").style.opacity="1";},200);
 
 
 /* MSG popup email form. */
