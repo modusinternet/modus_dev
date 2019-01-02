@@ -185,6 +185,72 @@
 				overflow:hidden
 			}
 
+			.hatchPattern{
+				background-image:url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
+				height:100%;
+				left:0;
+				opacity:.4;
+				position:fixed;
+				top:0;
+				width:100%;
+				z-index:-1
+			}
+
+			.parallax{
+				height:500px;
+				padding:120px 20px 10px 0px
+			}
+
+			.parallax div{
+				position:relative;
+				bottom:-150px
+			}
+
+			.parallax div p{
+				color:#fff;
+				margin:0px;
+				text-align:right;
+				filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
+			}
+
+			.parallax video{
+				min-height:100%;
+				min-width:110%;
+				position:fixed;
+				right:0;
+				transform:translateX(calc((100% - 100vw) / 2));
+				top:0;
+				z-index:-2
+			}
+
+			header{
+				background:none;
+				left:0;
+				position:fixed;
+				right:0;
+				top:0;
+				z-index:1;
+				transition:all 1.0s ease-in-out
+			}
+
+			header img{
+				margin:10px;
+				filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.6));
+				transition:all 1.0s ease-in-out;
+				width:250px
+			}
+
+
+
+			/* 400px or larger. */
+			@media only screen and (min-width:400px) {
+				.parallax{padding:80px 20px 10px 0px}
+
+				.parallax div{bottom:-170px}
+
+				.parallax video{top:-100px}
+			}
+
 
 			/* 768px or larger. */
 			@media only screen and (min-width:768px) {
@@ -193,6 +259,8 @@
 						"ev1 ev2"
 						"ev3 ev4"
 				}
+
+				.parallax div{bottom:-240px}
 			}
 
 
@@ -204,6 +272,10 @@
 						"ev1 ev2"
 						"ev3 ev4"
 				}
+
+				.parallax{padding:80px 40px 10px 0px}
+
+				.parallax video{top:-100px}
 			}
 
 
@@ -216,17 +288,16 @@
 						"c1 c2 c3"
 				}
 
-				.cssgrid-footer{
-					grid-gap:1rem;
-					grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-					grid-template-areas:
-						"c1 c2 c3"
-				}
-
-				.cssgrid-footer>div>em{display:none}
-
-				.cssgrid-footer form input{width:250px}
+				.parallax div{bottom:-330px}
 			}
+
+
+			/* 1199px or larger. To help adjust video background position on larger screens. */
+			@media only screen and (min-width:1199px){.parallax>video{top:-200px}}
+
+
+			/* 1599px or larger. To help adjust video background position on larger screens. */
+			@media only screen and (min-width:1599px){.parallax>video{top:-300px}}
 		</style>
 		<script>
 			var navActiveArray = ["nl-lng","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
