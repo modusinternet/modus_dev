@@ -406,7 +406,7 @@
 					navigator.serviceWorker
 					.register('/ccmstpl/_js/sw_cached_site.js')
 					/*.register('/ccmstpl/_js/sw_cached_pages.js')*/
-					.then(reg => console.log('Service Worker: Registered (Pages)'))
+					.then(reg => console.log('Service Worker: Registered (Site)'))
 					/* if something goes wrong then send the error to .catch for output using back ticks `` */
 					.catch(err=>console.log(`Service Worker: Error: ${err}`));
 				});
