@@ -1,20 +1,7 @@
 /* Compress using https://jscompress.com/ */
 
 
-// Make sure sw are supported
-if(navigator.serviceWorker){
-	// You could use a function call like function() but we us ES6 arrow functions below to reduce syntax, () => {}
-	window.addEventListener('load',()=>{
-		navigator.serviceWorker
-		.register('/ccmstpl/_js/sw_cached_site.js')
-		/*.register('/ccmstpl/_js/sw_cached_pages.js')*/
-		.then(reg => console.log('Service Worker: Registered (Pages)'))
-		// if something goes wrong then send the error to .catch for output using back ticks ``
-		.catch(err=>console.log(`Service Worker: Error: ${err}`));
-	});
-} else {
-	console.log(`Service Worker not supported: Error: ${err}`);
-}
+
 
 
 /* nav bar active selector */
