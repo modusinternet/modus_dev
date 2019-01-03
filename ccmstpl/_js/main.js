@@ -12,6 +12,8 @@ if(navigator.serviceWorker){
 		// if something goes wrong then send the error to .catch for output using back ticks ``
 		.catch(err=>console.log(`Service Worker: Error: ${err}`));
 	});
+} else {
+	console.log(`Service Worker not supported: Error: ${err}`);
 }
 
 
