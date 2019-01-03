@@ -399,18 +399,7 @@
 		<script>
 			/*window.performance.mark("mark_beginning_javascript");*/
 
-			/* Make sure sw are supported */
-			if(navigator.serviceWorker){
-				/* You could use a function call like function() but we us ES6 arrow functions below to reduce syntax, () => {} */
-				window.addEventListener('load', () => {
-					navigator.serviceWorker
-					.register('/ccmstpl/_js/sw_cached_site.js')
-					.then(reg => console.log('Service Worker: Registered (Site)'))
-					.catch(err => console.log(`Service Worker: Error: ${err}`));
-				});
-			} else {
-				console.log('Service Worker not supported.');
-			}
+			
 
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
