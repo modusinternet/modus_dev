@@ -258,7 +258,7 @@ cssgrid-footer.c3{grid-area:c3}
 .footerBG{
 	width:100%;
 	padding:200px 0 0;
-	background-image:url(https://d3rifeizl63fms.cloudfront.net/ccmstpl/_img/bgfooter.png);
+	background-image:url(https://d3rifeizl63fms.cloudfront.net/ccmstpl/_img/footerBg.png);
 	background-size:cover !important;
 	background-position:center bottom;
 	background-repeat:no-repeat
