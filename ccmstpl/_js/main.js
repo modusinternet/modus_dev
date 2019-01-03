@@ -117,7 +117,12 @@ $('nav').nav();
 
 
 /* Disable loading screen. */
-window.setTimeout(function(){document.getElementById("loading_svg").style.opacity="0";},500);
+window.setTimeout(function(){
+	document.getElementById("loading_svg").style.opacity="0";
+	window.setTimeout(function(){
+		document.getElementById("loading_svg").style.display="none";
+	},2000);
+},500);
 window.setTimeout(function(){document.getElementsByTagName("header")[0].style.opacity="1";},500);
 
 
