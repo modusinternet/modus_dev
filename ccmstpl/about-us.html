@@ -1,0 +1,240 @@
+{CCMS_DB_PRELOAD:all,about-us}<!DOCTYPE html>
+<html dir="{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}" lang="{CCMS_LIB:_default.php;FUNC:ccms_lng}" prefix="og: http://ogp.me/ns#">
+	<head>
+		<!-- Repeated content and can be placed once in your header head template. -->
+		{CCMS_TPL:header-head.html}
+		<!-- Should be representative of the page in reference. -->
+		<title dir="{CCMS_DB_DIR:about-us,title}">{CCMS_DB:about-us,title}</title>
+		<meta property="og:title" dir="{CCMS_DB_DIR:about-us,title}" content="{CCMS_DB:about-us,title}" />
+		<meta name="twitter:title" dir="{CCMS_DB_DIR:about-us,title}" content="{CCMS_DB:about-us,title}" />
+		<meta name="description" dir="{CCMS_DB_DIR:about-us,description}" content="{CCMS_DB:about-us,description}" />
+		<meta property="og:description" dir="{CCMS_DB_DIR:about-us,description}" content="{CCMS_DB:about-us,description}" />
+		<meta name="twitter:description" dir="{CCMS_DB_DIR:about-us,description}" content="{CCMS_DB:about-us,description}" />
+		<meta property="og:image" content="/_img/main-image-or-logo.jpg" />
+		<meta property="og:image:secure_url" content="/_img/main-image-or-logo.jpg" />
+		<meta property="og:image:width" content="123" />
+		<meta property="og:image:height" content="123" />
+		<!-- Must be at least 60px by 60px.	Images greater than 120px by 120px will be resized and cropped in a square aspect ratio. -->
+		<meta name="twitter:image" content="/_img/main-image-or-logo.jpg" />
+		<meta property="og:url" content="https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}/" />
+		<script type="application/ld+json">
+			[{
+				"@context":"https://schema.org",
+				"@type":"WebSite",
+				"name":"mywebsite",
+				"url":"https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}",
+				"alternateName":"mywebsite description"
+			},{
+				"@context":"https://schema.org",
+				"@type":"Organization",
+				"name":"mywebsite name, LLC",
+				"url":"https://{CCMS_LIB:_default.php;FUNC:ccms_cfgDomain}",
+				"logo":{
+					"@type":"ImageObject",
+					"url":"/_img/main-image-or-logo.jpg"
+				},
+				"sameAs":[
+					"https://twitter.com/mywebsite",
+					"https://instagram.com/mywebsite",
+					"https://plus.google.com/+mywebsite",
+					"https://www.facebook.com/mywebsite",
+					"https://www.pinterest.com/mywebsite/",
+					"https://www.youtube.com/user/mywebsite"
+				]
+			}]
+		</script>
+		<style>
+			/* Add to the top of each page where needed, like below, rather than via stylesheet otherwise it wont get a chance to run before being disabled. */
+			#loading_svg{
+				background-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 94 30" xmlns="http://www.w3.org/2000/svg"><rect width="4" height="10" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="8" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.15s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.15s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.15s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="16" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.3s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.3s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.3s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="24" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.45s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.45s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.45s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="32" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.6s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.6s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.6s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="40" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.75s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.75s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.75s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="48" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="0.9s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="0.9s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="0.9s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="56" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="1.05s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="1.05s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="1.05s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="64" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="1.2s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="1.2s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="1.2s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="72" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="1.35s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="1.35s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="1.35s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="80" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="1.5s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="1.5s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="1.5s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect><rect width="4" height="10" x="88" y="10" fill="%23FFA500" opacity=".2"><animate attributeName="opacity" attributeType="XML" begin="1.65s" dur="1.5s" repeatCount="indefinite" values="0.2; 1; .2"/><animate attributeName="height" attributeType="XML" begin="1.65s" dur="1.5s" repeatCount="indefinite" values="10; 20; 10"/><animate attributeName="y" attributeType="XML" begin="1.65s" dur="1.5s" repeatCount="indefinite" values="10; 5; 10"/></rect></svg>');
+				background-position:center center;
+				background-repeat:no-repeat;
+				bottom:0;
+				height:50%;
+				left:0;
+				margin:auto;
+				opacity:1;
+				position:absolute;
+				right:0;
+				top:0;
+				width:50%;
+				transition:opacity 2s;
+				z-index:100
+			}
+
+			:root{}
+
+			*{
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				-webkit-box-sizing:border-box
+			}
+
+			#wrapper{transition:all 2s}
+
+			h1,h2,h3,h4,h5,h6{
+				color:rgb(255,165,0);
+				font-family:"Roboto",sans-serif;
+				font-weight:100;
+				text-align:center
+			}
+
+			h1{
+				font-size:4.4rem;
+				line-height:5rem
+			}
+
+			h2{
+				font-size:4rem;
+				line-height:4.6rem
+			}
+
+			h3{
+				font-size:3.6rem;
+				line-height:4.2rem
+			}
+
+			h4{
+				font-size:3.2rem;
+				line-height:3.8rem
+			}
+
+			h5{
+				font-size:2.8rem;
+				line-height:3.4rem
+			}
+
+			h6{
+				font-size:2.2rem;
+				line-height:2.8rem
+			}
+
+			main{
+				position:absolute;
+				width:100%
+			}
+
+			main a{
+				color:rgb(255,165,0);
+				text-decoration:underline;
+				text-decoration-style:dotted
+			}
+
+			main a:focus,main a:hover,main a.active{font-weight:400}
+
+			p{margin-bottom:1rem}
+
+			svg{max-width:100px}
+
+			svg>path{fill:rgb(255,165,0)}
+
+			.bigButton{
+				background:rgba(255,165,0,.5);
+				border:none;
+				border-radius:7px;
+				color:#fff;
+				cursor:pointer;
+				font-size:2.2rem;
+				line-height:4rem;
+				margin:2rem 0 3rem;
+				padding:10px 10%;
+				transition:all 0.25s
+			}
+
+			.bottomBorder{
+				display:inline-block;
+				border-bottom:2px solid rgb(255,165,0);
+				margin:30px 0 10px;
+				width:150px
+			}
+
+			header{
+				background:none;
+				left:0;
+				opacity:0;
+				position:fixed;
+				right:0;
+				top:0;
+				z-index:1;
+				transition:all 1.0s ease-in-out
+			}
+
+			header img{
+				margin:10px;
+				filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}2px 2px 4px rgba(255,255,255,.6));
+				transition:all 1.0s ease-in-out;
+				width:250px
+			}
+		</style>
+		<script>
+			var navActiveArray = ["nl-3","nl-lng","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
+		</script>
+	</head>
+	<body>
+		<div id="loading_svg"></div>
+		<div id="wrapper">
+			<main>
+				<h1>About Us</h1>
+{CCMS_TPL:footer.html}
+			</main>
+{CCMS_TPL:header-body.html}
+		</div>
+
+		<script>
+			/*window.performance.mark("mark_beginning_javascript");*/
+
+			/* Make sure sw are supported */
+			if(navigator.serviceWorker){
+				/* You could use a function call like function() but we us ES6 arrow functions below to reduce syntax, () => {} */
+				window.addEventListener('load', () => {
+					navigator.serviceWorker
+					.register('/ccmstpl/_js/sw_cached_site.js')
+					.then(reg => console.log('Service Worker: Registered (Site)'))
+					.catch(err => console.log(`Service Worker: Error: ${err}`));
+				});
+			} else {
+				console.log('Service Worker not supported.');
+			}
+
+			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
+
+			function loadJSResources(){
+				var l=document.createElement("link");l.rel="stylesheet";
+				/*l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}.css";*/
+				l.href="/ccmstpl/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}-min.css";
+				var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
+
+				/*loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js",function(){*/
+				/*loadFirst("//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js",function(){*/
+				loadFirst("/ccmsusr/_js/jquery-3.3.1.min.js",function(){
+
+					/*loadFirst("//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js",function(){*/
+					loadFirst("/ccmsusr/_js/jquery-validate-1.19.0.min.js",function(){
+
+						/*loadFirst("//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js",function(){*/
+						loadFirst("/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js",function(){
+
+							loadFirst("/ccmstpl/_js/main.js",function(){
+							/*loadFirst("/ccmstpl/_js/main-min.js",function(){*/
+
+
+
+								/*window.performance.mark("mark_end_javascript");
+								console.log(window.performance.getEntriesByName("mark_beginning_javascript"));
+								console.log(window.performance.getEntriesByName("mark_end_javascript"));*/
+							});
+						});
+					});
+				});
+			}
+
+
+
+			if(window.addEventListener){window.addEventListener("load",loadJSResources,false)}
+			else if(window.attachEvent){window.attachEvent("onload",loadJSResources)}
+			else{window.onload=loadJSResources}
+		</script>
+	</body>
+</html>
