@@ -73,7 +73,6 @@ self.addEventListener('install', e => {
 	// this portion of code is best used to store things like static resource files,
 	// namely: jquery, css and 404 error templates.  Simply add them to the cacheFiles array above
 	// and uncomment the e.waitUntil code below.
-	/*
 	e.waitUntil(
 		// Open the cache
 		caches.open(thisCacheName).then(cache => {
@@ -82,7 +81,6 @@ self.addEventListener('install', e => {
 			return cache.addAll(cacheFiles);
 		})
 	); // end e.waitUntil
-	*/
 });
 
 self.addEventListener('activate', e => {
