@@ -57,20 +57,22 @@ self.addEventListener('fetch', e => {
 
 
 
-const thisCacheName='v6';
+const thisCacheName='v7';
 
 // Default files to always cache
 var cacheFiles = [
-	'/ccmstpl/_css/style-ltr-min.css',
 	'/ccmsusr/_js/jquery-3.3.1.min.js',
 	'/ccmsusr/_js/jquery-validate-1.19.0.min.js',
 	'/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
-	'/ccmstpl/_js/main.js'
+	'/ccmstpl/404.html'
 ]
 
 self.addEventListener('install', e => {
 	console.log('[ServiceWorker] Installed');
 	// e.waitUntil Delays the event until the Promise is resolved
+	// this portion of code is best used to store things like static resource files,
+	// namely: jquery, css and 404 error templates.  Simply add them to the cacheFiles array above
+	// and uncomment the e.waitUntil code below.
 	/*
 	e.waitUntil(
 		// Open the cache
