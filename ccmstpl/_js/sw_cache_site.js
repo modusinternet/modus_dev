@@ -57,7 +57,7 @@ self.addEventListener('fetch', e => {
 
 
 
-const cacheName='v3';
+const cacheName='v4';
 /*
 self.addEventListener('install', e => {
 	console.log('Service Worker: Installed');
@@ -144,7 +144,8 @@ self.addEventListener('activate', e => {
 				// If a cached item is saved under a previous cacheName
 				if (thisCacheName !== cacheName) {
 					// Delete that cached file
-					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+					//console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+					console.log(`[ServiceWorker] Removing Cached Files from Cache: ${thisCacheName}`);
 					return caches.delete(thisCacheName);
 				}
 			}));
