@@ -85,7 +85,7 @@ self.addEventListener('activate', function(event) {
 });
 
 
-
+/*
 self.addEventListener('fetch', e => {
 	console.log('Service Worker: Fetching');
 	e.respondWith(
@@ -101,19 +101,14 @@ self.addEventListener('fetch', e => {
 		}).catch(err => caches.match(e.request).then(res => res))
 	);
 });
-
-/*
-self.addEventListener('fetch', e => {
-	console.log('Service Worker: Fetching');
+*/
+self.addEventListener('fetch', function(e) {
 	e.respondWith(
-		caches.open(cacheName).then(cache => {
-			return cache.match(e.request).then(response => {
-				return response || fetch(e.request).then(response => {
-					cache.put(e.request, response.clone());
-					return response;
-				});
+		caches.open(cacheName).then(function(cache) {
+			return fetch(e.request).then(function(response) {
+				cache.put(e.request, response.clone());
+				return response;
 			});
 		})
 	);
 });
-*/
