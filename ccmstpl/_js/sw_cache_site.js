@@ -244,13 +244,14 @@ self.addEventListener('fetch', e => {
 				// Open the cache
 				caches.open(cacheName).then(cache => {
 					// Put the fetched response in the cache
-					cache.put(e.request, responseClone);
-					console.log('[ServiceWorker] New Data Cached', e.request.url);
+					//cache.put(e.request, responseClone);
+					cache.put(e.request, response);
+					console.log(`[ServiceWorker] New Data Cached: ${e.request.url}`);
 					// Return the response
 					return response;
 				}); // end caches.open
 			}).catch(err => {
-				console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
+				console.log(`[ServiceWorker] Error Fetching & Caching New Data: ${err}`);
 			});
 		}) // end caches.match(e.request)
 	); // end e.respondWith
