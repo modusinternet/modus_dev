@@ -43,30 +43,35 @@ self.addEventListener('fetch', e => {
 });
 */
 
-const cacheName='v1';
+const cacheName='v10';
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(
-        [
-          '/ccmstpl/_css/style-ltr-min.css',
-          '/ccmsusr/_js/jquery-3.3.1.min.js',
-          '/ccmsusr/_js/jquery-validate-1.19.0.min.js',
-          '/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
-		  '/ccmstpl/_js/main.js',
-		  '/en/'
-        ]
-      );
-    })
-  );
+self.addEventListener('install', e => {
+	console.log('Service Worker: Installed');
 });
 
+/*
+self.addEventListener('activate', e => {
+	console.log('Service Worker: Activated');
+	// clear old cache
+	e.waitUntil(
+		caches.keys().then(cacheNames => {
+			return Promise.all(
+				cacheNames.map(cache => {
+					if(cache !== cacheName) {
+						console.log('Service Worker: Clearing Old Cache');
+						return caches.delete(cache);
+					}
+				})
+			);
+		})
+	);
+});
+*/
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.filter(function(cacheName) {
+		cacheNames.filter(function(cacheName) {
           // Return true if you want to remove this cache,
           // but remember that caches are shared across
           // the whole origin
@@ -77,6 +82,8 @@ self.addEventListener('activate', function(event) {
     })
   );
 });
+
+
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
