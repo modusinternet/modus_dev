@@ -43,7 +43,7 @@ self.addEventListener('fetch', e => {
 });
 */
 
-const cacheName='v2';
+const cacheName='v21';
 /*
 self.addEventListener('install', e => {
 	console.log('Service Worker: Installed');
