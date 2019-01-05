@@ -105,11 +105,11 @@ self.addEventListener('activate', e => {
 	);
 });
 */
+/*
 self.addEventListener('activate', function(event) {
 	event.waitUntil(
 		caches.keys().then(function(cacheNames) {
-			return Promise.all(
-				cacheNames.filter(function(cacheName) {
+			return Promise.all(cacheNames.filter(function(cacheName) {
 					// Return true if you want to remove this cache,
 					// but remember that caches are shared across
 					// the whole origin
@@ -119,6 +119,23 @@ self.addEventListener('activate', function(event) {
 			);
 		})
 	);
+});
+*/
+self.addEventListener('activate', function(e) {
+	console.log('[ServiceWorker] Activated');
+	e.waitUntil(
+		// Get all the cache keys (cacheName)
+		caches.keys().then(function(cacheNames) {
+			return Promise.all(cacheNames.map(function(thisCacheName) {
+				// If a cached item is saved under a previous cacheName
+				if (thisCacheName !== cacheName) {
+					// Delete that cached file
+					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+					return caches.delete(thisCacheName);
+				}
+			}));
+		})
+	); // end e.waitUntil
 });
 
 
