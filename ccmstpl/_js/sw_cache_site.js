@@ -117,9 +117,10 @@ self.addEventListener('fetch', e => {
 			// If the request is NOT in the cache, fetch and cache
 			var requestClone = e.request.clone();
 			return fetch(e.request).then(response => {
-				if (!response) {
+				if (!response || response.status === 404) {
 					console.log("[ServiceWorker] No response from fetch ")
-					return response;
+					//return response;
+					return caches.match('/ccmstpl/404.html');
 				}
 				var responseClone = response.clone();
 				// Open the cache
