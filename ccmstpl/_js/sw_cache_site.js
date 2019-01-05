@@ -24,7 +24,6 @@ self.addEventListener('activate', e => {
 	);
 });
 
-
 // Call Fetch Event
 self.addEventListener('fetch', e => {
 	console.log('Service Worker: Fetching');
@@ -42,6 +41,21 @@ self.addEventListener('fetch', e => {
 	);
 });
 */
+
+
+
+
+
+
+
+
+// 1) how to make sure new versions of this file are downloaded?
+// 2) What is the expire time for a service worker?
+// 3) Why do console.log comments not always appear, are certian functions just not run?
+// 4) What is the best way to include responces or errors in console.logs?
+// 5) Is filter() depricated and is map() a better function?
+
+
 
 const cacheName='v21';
 /*
@@ -74,12 +88,12 @@ var cacheFiles = [
 	'/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
 	'/ccmstpl/_js/main.js'
 ]
-self.addEventListener('install', function(e) {
+self.addEventListener('install', e => {
 	console.log('[ServiceWorker] Installed');
 	// e.waitUntil Delays the event until the Promise is resolved
 	e.waitUntil(
 		// Open the cache
-		caches.open(cacheName).then(function(cache) {
+		caches.open(cacheName).then(cache => {
 			// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
 			return cache.addAll(cacheFiles);
@@ -121,12 +135,12 @@ self.addEventListener('activate', function(event) {
 	);
 });
 */
-self.addEventListener('activate', function(e) {
+self.addEventListener('activate', e => {
 	console.log('[ServiceWorker] Activated');
 	e.waitUntil(
 		// Get all the cache keys (cacheName)
-		caches.keys().then(function(cacheNames) {
-			return Promise.all(cacheNames.map(function(thisCacheName) {
+		caches.keys().then(cacheNames => {
+			return Promise.all(cacheNames.map(thisCacheName => {
 				// If a cached item is saved under a previous cacheName
 				if (thisCacheName !== cacheName) {
 					// Delete that cached file
@@ -204,13 +218,13 @@ self.addEventListener('fetch', function(e) {
 	); // end e.respondWith
 });
 */
-self.addEventListener('fetch', function(e) {
+self.addEventListener('fetch', e => {
 	//console.log('[ServiceWorker] Fetch', e.request.url);
 	console.log(`[ServiceWorker] Fetch: ${e.request.url}`);
 	// e.respondWidth Responds to the fetch event
 	e.respondWith(
 		// Check in cache for the request being made
-		caches.match(e.request).then(function(response) {
+		caches.match(e.request).then(response => {
 			// If the request is in the cache
 			if (response) {
 				console.log("[ServiceWorker] Found in Cache", e.request.url, response);
@@ -219,21 +233,21 @@ self.addEventListener('fetch', function(e) {
 			}
 			// If the request is NOT in the cache, fetch and cache
 			var requestClone = e.request.clone();
-			return fetch(requestClone).then(function(response) {
+			return fetch(requestClone).then(response => {
 				if ( !response ) {
 					console.log("[ServiceWorker] No response from fetch ")
 					return response;
 				}
 				var responseClone = response.clone();
 				// Open the cache
-				caches.open(cacheName).then(function(cache) {
+				caches.open(cacheName).then(cache => {
 					// Put the fetched response in the cache
 					cache.put(e.request, responseClone);
 					console.log('[ServiceWorker] New Data Cached', e.request.url);
 					// Return the response
 					return response;
 				}); // end caches.open
-			}).catch(function(err) {
+			}).catch(err => {
 				console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
 			});
 		}) // end caches.match(e.request)
