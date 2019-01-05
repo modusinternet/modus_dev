@@ -44,11 +44,26 @@ self.addEventListener('fetch', e => {
 */
 
 const cacheName='v10';
-
+/*
 self.addEventListener('install', e => {
 	console.log('Service Worker: Installed');
 });
-
+*/
+self.addEventListener('install', function(event) {
+	event.waitUntil(
+		caches.open(cacheName).then(function(cache) {
+			return cache.addAll(
+				[
+					'/ccmstpl/_css/style-ltr-min.css',
+					'/ccmsusr/_js/jquery-3.3.1.min.js',
+					'/ccmsusr/_js/jquery-validate-1.19.0.min.js',
+					'/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
+					'/ccmstpl/_js/main.js'
+				]
+			);
+		})
+	);
+});
 
 /*
 self.addEventListener('activate', e => {
@@ -102,6 +117,7 @@ self.addEventListener('fetch', e => {
 	);
 });
 */
+/*
 self.addEventListener('fetch', function(event) {
 	event.respondWith(
 		caches.open(cacheName).then(function(cache) {
@@ -111,4 +127,39 @@ self.addEventListener('fetch', function(event) {
 			});
 		})
 	);
+});
+*/
+self.addEventListener('fetch', function(e) {
+	console.log('[ServiceWorker] Fetch', e.request.url);
+	// e.respondWidth Responds to the fetch event
+	e.respondWith(
+		// Check in cache for the request being made
+		caches.match(e.request).then(function(response) {
+			// If the request is in the cache
+			if (response) {
+				console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+				// Return the cached version
+				return response;
+			}
+			// If the request is NOT in the cache, fetch and cache
+			var requestClone = e.request.clone();
+			return fetch(requestClone).then(function(response) {
+				if ( !response ) {
+					console.log("[ServiceWorker] No response from fetch ")
+					return response;
+				}
+				var responseClone = response.clone();
+				// Open the cache
+				caches.open(cacheName).then(function(cache) {
+					// Put the fetched response in the cache
+					cache.put(e.request, responseClone);
+					console.log('[ServiceWorker] New Data Cached', e.request.url);
+					// Return the response
+					return response;
+				}); // end caches.open
+			}).catch(function(err) {
+				console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
+			});
+		}) // end caches.match(e.request)
+	); // end e.respondWith
 });
