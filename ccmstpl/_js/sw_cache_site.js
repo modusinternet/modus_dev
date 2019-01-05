@@ -102,11 +102,11 @@ self.addEventListener('fetch', e => {
 	);
 });
 */
-self.addEventListener('fetch', function(e) {
-	e.respondWith(
+self.addEventListener('fetch', function(event) {
+	event.respondWith(
 		caches.open(cacheName).then(function(cache) {
-			return fetch(e.request).then(function(response) {
-				cache.put(e.request, response.clone());
+			return fetch(event.request).then(function(response) {
+				cache.put(event.request, response.clone());
 				return response;
 			});
 		})
