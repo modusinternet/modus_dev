@@ -234,7 +234,8 @@ self.addEventListener('fetch', e => {
 			}
 			// If the request is NOT in the cache, fetch and cache
 			var requestClone = e.request.clone();
-			return fetch(requestClone).then(response => {
+			//return fetch(requestClone).then(response => {
+			return fetch(e.request).then(response => {
 				if ( !response ) {
 					console.log("[ServiceWorker] No response from fetch ")
 					return response;
