@@ -71,6 +71,7 @@ var cacheFiles = [
 self.addEventListener('install', e => {
 	console.log('[ServiceWorker] Installed');
 	// e.waitUntil Delays the event until the Promise is resolved
+	/*
 	e.waitUntil(
 		// Open the cache
 		caches.open(thisCacheName).then(cache => {
@@ -79,6 +80,7 @@ self.addEventListener('install', e => {
 			return cache.addAll(cacheFiles);
 		})
 	); // end e.waitUntil
+	*/
 });
 
 self.addEventListener('activate', e => {
