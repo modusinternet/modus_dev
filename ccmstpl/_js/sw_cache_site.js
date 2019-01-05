@@ -144,7 +144,6 @@ self.addEventListener('activate', e => {
 				// If a cached item is saved under a previous cacheName
 				if (thisCacheName !== cacheName) {
 					// Delete that cached file
-					//console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
 					console.log(`[ServiceWorker] Removing Cached Files from Cache: ${thisCacheName}`);
 					return caches.delete(thisCacheName);
 				}
@@ -228,7 +227,8 @@ self.addEventListener('fetch', e => {
 		caches.match(e.request).then(response => {
 			// If the request is in the cache
 			if (response) {
-				console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+				//console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+				console.log(`[ServiceWorker] Found in Cache: ${e.request.url}, ${response}`);
 				// Return the cached version
 				return response;
 			}
