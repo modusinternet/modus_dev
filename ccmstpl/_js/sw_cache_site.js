@@ -49,6 +49,7 @@ self.addEventListener('install', e => {
 	console.log('Service Worker: Installed');
 });
 */
+/*
 self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(cacheName).then(function(cache) {
@@ -63,6 +64,27 @@ self.addEventListener('install', function(event) {
 			);
 		})
 	);
+});
+*/
+// Default files to always cache
+var cacheFiles = [
+	'/ccmstpl/_css/style-ltr-min.css',
+	'/ccmsusr/_js/jquery-3.3.1.min.js',
+	'/ccmsusr/_js/jquery-validate-1.19.0.min.js',
+	'/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
+	'/ccmstpl/_js/main.js'
+]
+self.addEventListener('install', function(e) {
+	console.log('[ServiceWorker] Installed');
+	// e.waitUntil Delays the event until the Promise is resolved
+	e.waitUntil(
+		// Open the cache
+		caches.open(cacheName).then(function(cache) {
+			// Add all the default files to the cache
+			console.log('[ServiceWorker] Caching cacheFiles');
+			return cache.addAll(cacheFiles);
+		})
+	); // end e.waitUntil
 });
 
 /*
