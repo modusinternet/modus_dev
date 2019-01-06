@@ -883,9 +883,9 @@ if($file == "error404.php"){
 
 		// Rest the tpl variable to the error page.
 		$CLEAN["ccms_tpl"] = "error";
-		if ($CLEAN["ccms_tpl"] == "error") {
-			header("HTTP/1.0 404 not found");
-		}
+		//if ($CLEAN["ccms_tpl"] == "error") {
+			//header("HTTP/1.0 404 not found");
+		//}
 
 		ob_start();
 		include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $CLEAN["ccms_tpl"] . ".php";

@@ -1,5 +1,6 @@
 <?php
-http_response_code(404);
+//http_response_code(404);
+header("HTTP/1.0 404 not found");
 header("Content-Type: text/html; charset=UTF-8");
 header("Cache-Control: public, must-revalidate, proxy-revalidate");
 ?><!DOCTYPE html>
@@ -17,10 +18,10 @@ header("Cache-Control: public, must-revalidate, proxy-revalidate");
 		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		
+
 		<style type="text/css">
 			.gsc-adBlock { opacity: .3 !important;}
-			
+
 			input.gsc-input {
 				outline: none !important;
 				display: block !important;
@@ -35,7 +36,7 @@ header("Cache-Control: public, must-revalidate, proxy-revalidate");
 				border: 1px solid #ccc !important;
 				border-radius: 4px !important;
 			}
-			
+
 			input.gsc-search-button {
 				color: #fff !important;
 				background-color: #337ab7 !important;
@@ -61,7 +62,7 @@ header("Cache-Control: public, must-revalidate, proxy-revalidate");
 				border-radius: 4px !important;
 				height: auto !important;
 			}
-			
+
 			input.gsc-search-button:hover {
 				color: #fff !important;
 				background-color: #286090 !important;
@@ -131,8 +132,8 @@ if($qry->execute()) {
 				<p>
 					Google Search Results<br />
 					<br />
-					
-					
+
+
 <script>
 	var gcsForm = function() {
 		var element = google.search.cse.element.getElement('gcsForm');
@@ -159,8 +160,8 @@ if($qry->execute()) {
 	})();
 </script>
 <gcse:search enableAutoComplete="true" gname="gcsForm"></gcse:search>
-					
-					
+
+
 				</p>
 <?else:?>
 				<p>
