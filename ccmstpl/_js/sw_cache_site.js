@@ -57,25 +57,26 @@ self.addEventListener('fetch', e => {
 
 
 
-const thisCacheName='v7';
+const cacheName='v8';
 
 // Default files to always cache
 var cacheFiles = [
 	'/ccmsusr/_js/jquery-3.3.1.min.js',
 	'/ccmsusr/_js/jquery-validate-1.19.0.min.js',
 	'/ccmsusr/_js/jquery-validate-additional-methods-1.19.0.min.js',
-	'/ccmstpl/404.html'
+	'/ccmstpl/404.html',
+	'/ccmstpl/offline.html'
 ]
 
 self.addEventListener('install', e => {
 	console.log('[ServiceWorker] Installed');
 	// e.waitUntil Delays the event until the Promise is resolved
 	// this portion of code is best used to store things like static resource files,
-	// namely: jquery, css and 404 error templates.  Simply add them to the cacheFiles array above
+	// namely: jquery, css and 404 error templates.	Simply add them to the cacheFiles array above
 	// and uncomment the e.waitUntil code below.
 	e.waitUntil(
 		// Open the cache
-		caches.open(thisCacheName).then(cache => {
+		caches.open(cacheName).then(cache => {
 			// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
 			return cache.addAll(cacheFiles);
@@ -86,22 +87,21 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
 	console.log('[ServiceWorker] Activated');
 	e.waitUntil(
-		// Get all the cache keys (thisCacheName)
-		caches.keys().then(cacheNames => {
-			return Promise.all(
-				cacheNames.map(oldCacheName => {
-					// If a cached item is saved under a previous cacheName
-					if (oldCacheName !== thisCacheName) {
-						// Delete that cached file
-						console.log(`[ServiceWorker] Removing Cached Files from Cache: ${oldCacheName}`);
-						return caches.delete(oldCacheName);
-					}
-				})
-			);
+		// Get all the cache keys (cacheName)
+		caches.keys().then(keyList => {
+			return Promise.all(keyList.map(key => {
+				// If a cached item is saved under a previous cacheName
+				if (key !== cacheName) {
+					// Delete that cached file
+					console.log(`[ServiceWorker] Removing Cached Files from Cache: ${key}`);
+					return caches.delete(key);
+				}
+			}));
 		})
 	); // end e.waitUntil
 });
 
+/*
 self.addEventListener('fetch', e => {
 	console.log(`[ServiceWorker] Fetching: ${e.request.url}`);
 	// e.respondWidth Responds to the fetch event
@@ -115,16 +115,14 @@ self.addEventListener('fetch', e => {
 				return response;
 			}
 			// If the request is NOT in the cache, fetch and cache
-			var requestClone = e.request.clone();
 			return fetch(e.request).then(response => {
 				if (!response || response.status === 404) {
 					console.log("[ServiceWorker] No response from fetch ")
 					//return response;
 					return caches.match('/ccmstpl/404.html');
 				}
-				var responseClone = response.clone();
 				// Open the cache
-				caches.open(thisCacheName).then(cache => {
+				caches.open(cacheName).then(cache => {
 					// Put the fetched response in the cache
 					cache.put(e.request, response);
 					console.log(`[ServiceWorker] New Data Cached: ${e.request.url}`);
@@ -136,4 +134,38 @@ self.addEventListener('fetch', e => {
 			});
 		}) // end caches.match(e.request)
 	); // end e.respondWith
+});
+*/
+
+self.addEventListener('fetch', e => {
+	e.respondWith(
+		// Try the cache
+		caches.match(e.request).then(response => {
+			if (response) {
+				return response;
+			}
+			return fetch(e.request).then(response => {
+				if (response.status === 404) {
+					return caches.match('/ccmstpl/404.html');
+				}
+				//return response
+
+
+				// Open the cache
+				caches.open(cacheName).then(cache => {
+					// Put the fetched response in the cache
+					cache.put(e.request, response);
+					console.log(`[ServiceWorker] New Data Cached: ${e.request.url}`);
+					// Return the response
+					return response;
+				}); // end caches.open
+
+
+
+			});
+		}).catch(function() {
+			// If both fail, show a generic fallback:
+			return caches.match('/ccmstpl/offline.html');
+		})
+	);
 });
