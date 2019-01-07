@@ -160,12 +160,13 @@ self.addEventListener('fetch', e => {
 
 // Send a request to the network and the cache.
 // The cache will most likely respond first and, if the network data has not already been received, we update the page with the data in the response. When the network responds we update the page again with the latest information.
+var networkDataReceived = false;
+var networkUpdate;
 self.addEventListener('fetch', function(e) {
-	var networkDataReceived = false;
 	startSpinner();
 	e.respondWith(
 		// fetch fresh data
-		var networkUpdate = fetch(e.request).then(function(response) {
+		networkUpdate = fetch(e.request).then(function(response) {
 			cache.put(e.request, response.clone());
 			return response;
 		}).then(function(data) {
