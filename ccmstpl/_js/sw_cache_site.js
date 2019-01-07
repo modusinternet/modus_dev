@@ -174,7 +174,7 @@ self.addEventListener('fetch', function(e) {
 });
 */
 
-// Check the cache first, if that fails look on the network.
+// Check the cache first, if that fails look on the network. (Best for mostly static websites)
 self.addEventListener('fetch', e => {
 	e.respondWith(
 		caches.match(e.request).then(response => {
@@ -184,9 +184,6 @@ self.addEventListener('fetch', e => {
 			}
 			// Not found in Cache so call the network
 			return fetch(e.request);
-		}).catch(function() {
-			// If both fail, show a generic fallback:
-			return caches.match('/ccmstpl/offline.html');
 		})
 	);
 });
