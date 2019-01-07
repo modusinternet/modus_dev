@@ -160,6 +160,7 @@ self.addEventListener('fetch', e => {
 
 // Send a request to the network and the cache.
 // The cache will most likely respond first and, if the network data has not already been received, we update the page with the data in the response. When the network responds we update the page again with the latest information.
+/*
 var networkDataReceived = false;
 var networkUpdate;
 self.addEventListener('fetch', function(e) {
@@ -189,3 +190,29 @@ self.addEventListener('fetch', function(e) {
 		}).catch(showErrorMessage).then(stopSpinner());
 	);
 });
+*/
+var networkDataReceived = false;
+
+startSpinner();
+
+// fetch fresh data
+var networkUpdate = fetch('/data.json').then(function(response) {
+  return response.json();
+}).then(function(data) {
+  networkDataReceived = true;
+  updatePage(data);
+});
+
+// fetch cached data
+caches.match('/data.json').then(function(response) {
+  if (!response) throw Error("No data");
+  return response.json();
+}).then(function(data) {
+  // don't overwrite newer network data
+  if (!networkDataReceived) {
+    updatePage(data);
+  }
+}).catch(function() {
+  // we didn't get cached data, the network is our last hope:
+  return networkUpdate;
+}).catch(showErrorMessage).then(stopSpinner());
