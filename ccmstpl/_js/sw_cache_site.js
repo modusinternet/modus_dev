@@ -216,4 +216,4 @@ caches.match('/data.json').then(function(response) {
   // we didn't get cached data, the network is our last hope:
   return networkUpdate;
 //}).catch(showErrorMessage).then(stopSpinner());
-}).catch(showErrorMessage));
+}).catch(showErrorMessage);
