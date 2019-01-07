@@ -6,24 +6,6 @@ self.addEventListener('install', e => {
 	console.log('Service Worker: Installed');
 });
 
-// Call Activate Event
-self.addEventListener('activate', e => {
-	console.log('Service Worker: Activated');
-	// clear old cache
-	e.waitUntil(
-		caches.keys().then(cacheNames => {
-			return Promise.all(
-				cacheNames.map(cache => {
-					if(cache !== cacheName) {
-						console.log('Service Worker: Clearing Old Cache');
-						return caches.delete(cache);
-					}
-				})
-			);
-		})
-	);
-});
-
 // Call Fetch Event
 self.addEventListener('fetch', e => {
 	console.log('Service Worker: Fetching');
@@ -57,7 +39,7 @@ self.addEventListener('fetch', e => {
 
 
 
-const cacheName='v9';
+const cacheName='v10';
 
 // Default files to always cache
 var cacheFiles = [
@@ -191,29 +173,20 @@ self.addEventListener('fetch', function(e) {
 	);
 });
 */
-var networkDataReceived = false;
 
-//startSpinner();
-
-// fetch fresh data
-var networkUpdate = fetch('/data.json').then(function(response) {
-  return response.json();
-}).then(function(data) {
-  networkDataReceived = true;
-  updatePage(data);
+// Check the cache first, if that fails look on the network.
+self.addEventListener('fetch', e => {
+	e.respondWith(
+		caches.match(e.request).then(response => {
+			if(response) {
+				// Found in Cache
+				return response;
+			}
+			// Not found in Cache so call the network
+			return fetch(e.request);
+		}).catch(function() {
+			// If both fail, show a generic fallback:
+			return caches.match('/ccmstpl/offline.html');
+		})
+	);
 });
-
-// fetch cached data
-caches.match('/data.json').then(function(response) {
-  if (!response) throw Error("No data");
-  return response.json();
-}).then(function(data) {
-  // don't overwrite newer network data
-  if (!networkDataReceived) {
-    updatePage(data);
-  }
-}).catch(function() {
-  // we didn't get cached data, the network is our last hope:
-  return networkUpdate;
-//}).catch(showErrorMessage).then(stopSpinner());
-}).catch(showErrorMessage);
