@@ -57,7 +57,7 @@ self.addEventListener('fetch', e => {
 
 
 
-const cacheName='v8';
+const cacheName='v9';
 
 // Default files to always cache
 var cacheFiles = [
@@ -136,7 +136,7 @@ self.addEventListener('fetch', e => {
 	); // end e.respondWith
 });
 */
-
+/*
 self.addEventListener('fetch', e => {
 	e.respondWith(
 		// Try the cache
@@ -148,24 +148,43 @@ self.addEventListener('fetch', e => {
 				if (response.status === 404) {
 					return caches.match('/ccmstpl/404.html');
 				}
-				//return response
-
-
-				// Open the cache
-				caches.open(cacheName).then(cache => {
-					// Put the fetched response in the cache
-					cache.put(e.request, response);
-					console.log(`[ServiceWorker] New Data Cached: ${e.request.url}`);
-					// Return the response
-					return response;
-				}); // end caches.open
-
-
-
+				return response
 			});
 		}).catch(function() {
 			// If both fail, show a generic fallback:
 			return caches.match('/ccmstpl/offline.html');
 		})
+	);
+});
+*/
+
+// Send a request to the network and the cache.
+// The cache will most likely respond first and, if the network data has not already been received, we update the page with the data in the response. When the network responds we update the page again with the latest information.
+self.addEventListener('fetch', function(e) {
+	var networkDataReceived = false;
+	startSpinner();
+	e.respondWith(
+		// fetch fresh data
+		var networkUpdate = fetch(e.request).then(function(response) {
+			cache.put(e.request, response.clone());
+			return response;
+		}).then(function(data) {
+			networkDataReceived = true;
+			updatePage(data);
+		})
+
+		// fetch cached data
+		caches.match(e.request).then(function(response) {
+			if (!response) throw Error("No data");
+			return response;
+		}).then(function(data) {
+			// don't overwrite newer network data
+			if (!networkDataReceived) {
+				updatePage(data);
+			}
+		}).catch(function() {
+			// we didn't get cached data, the network is our last hope:
+			return networkUpdate;
+		}).catch(showErrorMessage).then(stopSpinner());
 	);
 });
