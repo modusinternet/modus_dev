@@ -193,7 +193,7 @@ self.addEventListener('fetch', function(e) {
 */
 var networkDataReceived = false;
 
-startSpinner();
+//startSpinner();
 
 // fetch fresh data
 var networkUpdate = fetch('/data.json').then(function(response) {
@@ -215,4 +215,5 @@ caches.match('/data.json').then(function(response) {
 }).catch(function() {
   // we didn't get cached data, the network is our last hope:
   return networkUpdate;
-}).catch(showErrorMessage).then(stopSpinner());
+//}).catch(showErrorMessage).then(stopSpinner());
+}).catch(showErrorMessage));
