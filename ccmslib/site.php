@@ -26,7 +26,6 @@ function navLngList() {
 	}
 }
 
-
 function lng_dir_left_go_right_right_go_left() {
 	global $CFG;
 	if($CFG["CCMS_LNG_DIR"] == "ltr") {
