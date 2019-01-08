@@ -405,7 +405,7 @@
 				window.addEventListener('load', () => {
 					navigator.serviceWorker
 					.register('/ccmstpl/_js/sw_cache_site.js')
-					.then(reg => console.log('[ServiceWorker] Registered (Site)'))
+					.then(console.log('[ServiceWorker] Registered (Site)'))
 					.catch(err => console.log(`[ServiceWorker] Error: ${err}`));
 				});
 			} else {
