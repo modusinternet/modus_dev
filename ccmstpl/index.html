@@ -476,8 +476,8 @@
 			if(navigator.serviceWorker){
 				window.addEventListener('load',() => {
 					navigator.serviceWorker
-					.register('/ccmstpl/_js/sw.js',{ scope:'/'})
-					.then(console.log('[ServiceWorker] Registered (Site)'))
+					.register('/sw.js')
+					.then(console.log('[ServiceWorker] Registered Successfully'))
 					.catch(err => console.log(`[ServiceWorker] Error: ${err}`));
 				});
 			} else {
@@ -552,7 +552,7 @@
 
 
 
-			var deferredPrompt;
+			let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', function (e) {
 	// Prevent Chrome 67 and earlier from automatically showing the prompt
