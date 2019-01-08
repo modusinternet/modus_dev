@@ -761,6 +761,10 @@ function CCMS_Main() {
 		if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 			$odhandle = @opendir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir);
 			while (($file = @readdir($odhandle)) !== false) {
+
+echo $file . "<br>";
+
+
 				if ($file != "." && $file != ".." && is_file($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file)) {
 					if ($file == $ccms_file[0] . ".php") {
 						// .php template.  Do not check or save cached version.
