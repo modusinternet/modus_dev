@@ -1,6 +1,6 @@
 {
+	"short_name": "Modus",
 	"name": "Modus Internet",
-	"short_name": "Modus Int",
 	"icons": [
 		{
 			"src": "/ccmstpl/_img/ico/android-chrome-192x192.png",
@@ -13,7 +13,9 @@
 			"type": "image/png"
 		}
 	],
+	"start_url": "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/",
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
-	"display": "standalone"
+	"display": "standalone",
+	"scope": "/"
 }
