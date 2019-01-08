@@ -723,6 +723,8 @@ function CCMS_Main() {
 		$CLEAN["ccms_tpl"] .= "index";
 	}
 
+echo $CLEAN["ccms_tpl"] . "<br>";
+
 	// Trims the forward slash (/) from the beginning and .html from the end.  Resave back to CLEAN["ccms_tpl"]:
 	// /index
 	// /fruit/orange.html
@@ -736,8 +738,13 @@ function CCMS_Main() {
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
 	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
+echo $CLEAN["ccms_tpl"] . "<br>";
+
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
+
+echo $ccms_file[0] . "<br>";
+die();
 
 	// Copys the first part of the string inside $CLEAN["ccms_tpl"] before the last /.
 	$ccms_dir = @strstr($CLEAN["ccms_tpl"], $ccms_file[0], true);
@@ -766,7 +773,7 @@ function CCMS_Main() {
 
 				if ($file != "." && $file != ".." && is_file($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file)) {
 
-echo $ccms_file[0] . "<br>";
+//echo $ccms_file[0] . "<br>";
 
 					if ($file == $ccms_file[0] . ".php") {
 						// .php template.  Do not check or save cached version.
