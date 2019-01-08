@@ -484,11 +484,6 @@
 				console.log('Service Worker not supported.');
 			}
 
-
-
-
-
-
 			/*
 			let deferredPrompt;
 
@@ -499,31 +494,8 @@
 				// Stash the event so it can be triggered later.
 				deferredPrompt = e;
 				// Update UI notify the user they can add to home screen
-				//btnAdd.style.display = 'block';
-				showAddToHomeScreen();
+				btnAdd.style.display = 'block';
 			});
-
-			function showAddToHomeScreen() {
-				var a2hsBtn = document.getElementById("btnAdd");
-				a2hsBtn.style.display = "block";
-				a2hsBtn.addEventListener("click", addToHomeScreen);
-			}
-
-			function addToHomeScreen() {
-				//var a2hsBtn = document.querySelector(".ad2hs-prompt");
-				var a2hsBtn = document.getElementById("btnAdd");
-				// hide our user interface that shows our A2HS button
-				a2hsBtn.style.display = 'none';  // Show the prompt
-				deferredPrompt.prompt();  // Wait for the user to respond to the prompt
-				deferredPrompt.userChoice.then(function(choiceResult){
-					if (choiceResult.outcome === 'accepted') {
-						console.log('User accepted the A2HS prompt');
-					} else {
-						console.log('User dismissed the A2HS prompt');
-					}
-					deferredPrompt = null;
-				});
-			}
 
 			btnAdd.addEventListener('click', (e) => {
 				// hide our user interface that shows our A2HS button
@@ -541,66 +513,44 @@
 					deferredPrompt = null;
 				});
 			});
-
-			window.addEventListener('appinstalled', (evt) => {
-				app.logEvent('a2hs', 'installed');
-			});
 			*/
-
-
-
-
-
 
 			let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', function (e) {
-	// Prevent Chrome 67 and earlier from automatically showing the prompt
-	e.preventDefault();
-	// Stash the event so it can be triggered later.
-	deferredPrompt = e;
-	//showAddToHomeScreen();
-});
+			window.addEventListener('beforeinstallprompt', e => {
+				e.preventDefault();
+				deferredPrompt = e;
+				/* showAddToHomeScreen(); */
+			});
 
-function showAddToHomeScreen() {
-	var a2hsBtn = document.querySelector(".ad2hs-prompt");
-	a2hsBtn.style.display = "flex";
-	a2hsBtn.addEventListener("click", addToHomeScreen);
-}
-
-function addToHomeScreen() {
-	var a2hsBtn = document.querySelector(".ad2hs-prompt");
-	// hide our user interface that shows our A2HS button
-	a2hsBtn.style.display = 'none';
-	if (deferredPrompt) {
-		// Show the prompt
-		deferredPrompt.prompt();
-		// Wait for the user to respond to the prompt
-		deferredPrompt.userChoice.then(function (choiceResult) {
-			if (choiceResult.outcome === 'accepted') {
-				console.log('User accepted the A2HS prompt');
-			} else {
-				console.log('User dismissed the A2HS prompt');
+			/*
+			function showAddToHomeScreen() {
+				var a2hsBtn = document.querySelector(".ad2hs-prompt");
+				a2hsBtn.style.display = "flex";
+				a2hsBtn.addEventListener("click", addToHomeScreen);
 			}
-			deferredPrompt = null;
-		});
-	}
-}
 
-//showAddToHomeScreen();
+			function addToHomeScreen() {
+				var a2hsBtn = document.querySelector(".ad2hs-prompt");
+				// hide our user interface that shows our A2HS button
+				a2hsBtn.style.display = 'none';
+				if (deferredPrompt) {
+					// Show the prompt
+					deferredPrompt.prompt();
+					// Wait for the user to respond to the prompt
+					deferredPrompt.userChoice.then( choiceResult => {
+						if (choiceResult.outcome === 'accepted') {
+							console.log('User accepted the A2HS prompt');
+						} else {
+							console.log('User dismissed the A2HS prompt');
+						}
+						deferredPrompt = null;
+					});
+				}
+			}
 
-window.addEventListener('appinstalled', function (evt) {
-	console.log('a2hs', 'installed');
-});
-
-
-
-
-
-
-
-
-
+			showAddToHomeScreen();
+			*/
 
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
