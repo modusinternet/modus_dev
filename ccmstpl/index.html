@@ -418,14 +418,21 @@
 
 			window.addEventListener('beforeinstallprompt', (e) => {
 				// Prevent Chrome 67 and earlier from automatically showing the prompt
-				//e.preventDefault();
-				//e.prompt();
+				e.preventDefault();
 				// Stash the event so it can be triggered later.
 				deferredPrompt = e;
 				// Update UI notify the user they can add to home screen
-				btnAdd.style.display = 'block';
+				//btnAdd.style.display = 'block';
+				showAddToHomeScreen();
 			});
 
+			function showAddToHomeScreen() {
+				var a2hsBtn = document.querySelector(".btnAdd");
+				a2hsBtn.style.display = "block";
+				a2hsBtn.addEventListener("click", addToHomeScreen);
+			}
+
+			/*
 			btnAdd.addEventListener('click', (e) => {
 				// hide our user interface that shows our A2HS button
 				btnAdd.style.display = 'none';
@@ -442,6 +449,7 @@
 					deferredPrompt = null;
 				});
 			});
+			*/
 
 			window.addEventListener('appinstalled', (evt) => {
 				app.logEvent('a2hs', 'installed');
