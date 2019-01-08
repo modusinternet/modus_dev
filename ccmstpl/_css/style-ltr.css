@@ -713,8 +713,6 @@ END of MSG popup
 		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:95%
 	}
 
-	/*nav>ul{background:unset}*/
-
 	nav>ul>.submenu>a:after{
 		content:" \2228 ";/* down-pointing triangle/arrow */
 		font-size:1rem;
