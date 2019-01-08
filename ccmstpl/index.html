@@ -244,6 +244,74 @@
 
 
 
+
+
+
+
+
+
+
+
+			.ad2hs-prompt {
+  display: none;
+  width: 100%;
+  line-height: 2em;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  padding: 5% 0;
+  min-height: 10%;
+  position: fixed;
+  bottom: 0;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex-grow: 1;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.ad2hs-prompt:hover {
+  box-shadow: 0 0 0 0 0.25rem;
+}
+
+.ad2hs-prompt a:focus {
+  text-decoration: underline;
+}
+
+.ad2hs-prompt:focus-within {
+  box-shadow: 0 0 0 0.25rem;
+}
+
+.ad2hs-prompt:focus-within a:focus {
+  text-decoration: none;
+}
+
+.ad2hs-prompt H1 {
+  font-size: 2em;
+  text-align: center;
+  width: 100%;
+}
+
+.ad2hs-prompt .btn {
+  align-self: flex-end;
+  margin-right: 5%;
+}
+
+.ad2hs-prompt > * + * {
+  margin-top: 0.75rem;
+}
+
+.ad2hs-prompt :last-child {
+  margin-top: auto;
+  margin-bottom: 0.75rem;
+}
+
+
+
+
+
+
 			/* 400px or larger. */
 			@media only screen and (min-width:400px) {
 				.parallax{padding:80px 20px 10px 0px}
@@ -392,6 +460,11 @@
 				</div>
 {CCMS_TPL:footer.html}
 <button class="btnAdd" id="btnAdd" style="display:none">add me</button>
+
+<div class="ad2hs-prompt">
+	<h1>Add 2048 To Your Homescreen!</h1>
+	<div class="btn btn-premium">Add</div>
+</div>
 			</main>
 
 {CCMS_TPL:header-body.html}
@@ -400,20 +473,12 @@
 		<script>
 			/*window.performance.mark("mark_beginning_javascript");*/
 
-			if(navigator.serviceWorker){
-				window.addEventListener('load', () => {
-					navigator.serviceWorker
-					.register('/ccmstpl/_js/sw_cache_site.js')
-					.then(console.log('[ServiceWorker] Registered (Site)'))
-					.catch(err => console.log(`[ServiceWorker] Error: ${err}`));
-				});
-			} else {
-				console.log('Service Worker not supported.');
-			}
 
 
 
 
+
+			/*
 			let deferredPrompt;
 
 			window.addEventListener('beforeinstallprompt', (e) => {
@@ -448,6 +513,58 @@
 					deferredPrompt = null;
 				});
 			}
+			*/
+
+
+
+
+
+
+			var deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', function (e) {
+	// Prevent Chrome 67 and earlier from automatically showing the prompt
+	e.preventDefault();
+	// Stash the event so it can be triggered later.
+	deferredPrompt = e;
+	showAddToHomeScreen();
+});
+
+function showAddToHomeScreen() {
+	var a2hsBtn = document.querySelector(".ad2hs-prompt");
+	a2hsBtn.style.display = "flex";
+	a2hsBtn.addEventListener("click", addToHomeScreen);
+}
+
+function addToHomeScreen() {
+	var a2hsBtn = document.querySelector(".ad2hs-prompt");
+	// hide our user interface that shows our A2HS button
+	a2hsBtn.style.display = 'none';
+	if (deferredPrompt) {
+		// Show the prompt
+		deferredPrompt.prompt();
+		// Wait for the user to respond to the prompt
+		deferredPrompt.userChoice.then(function (choiceResult) {
+			if (choiceResult.outcome === 'accepted') {
+				console.log('User accepted the A2HS prompt');
+			} else {
+				console.log('User dismissed the A2HS prompt');
+			}
+			deferredPrompt = null;
+		});
+	}
+}
+
+showAddToHomeScreen();
+
+window.addEventListener('appinstalled', function (evt) {
+	console.log('a2hs', 'installed');
+});
+
+
+
+
+
 
 			/*
 			btnAdd.addEventListener('click', (e) => {
@@ -466,11 +583,11 @@
 					deferredPrompt = null;
 				});
 			});
-			*/
 
 			window.addEventListener('appinstalled', (evt) => {
 				app.logEvent('a2hs', 'installed');
 			});
+			*/
 
 
 
@@ -506,7 +623,16 @@
 				});
 			}
 
-
+			if(navigator.serviceWorker){
+				window.addEventListener('load', () => {
+					navigator.serviceWorker
+					.register('/ccmstpl/_js/sw_cache_site.js')
+					.then(console.log('[ServiceWorker] Registered (Site)'))
+					.catch(err => console.log(`[ServiceWorker] Error: ${err}`));
+				});
+			} else {
+				console.log('Service Worker not supported.');
+			}
 
 			if(window.addEventListener){window.addEventListener("load",loadJSResources,false)}
 			else if(window.attachEvent){window.attachEvent("onload",loadJSResources)}
