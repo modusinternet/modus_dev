@@ -765,11 +765,12 @@ function CCMS_Main() {
 					if ($file == $ccms_file[0] . ".php") {
 						// .php template.  Do not check or save cached version.
 
+/*
 if($file == "error404.php"){
 	header("HTTP/1.0 404 not found");
 	die();
 }
-
+*/
 						ob_start();
 						include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file;
 						$html = ob_get_contents();
