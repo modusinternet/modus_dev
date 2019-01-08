@@ -737,7 +737,7 @@ echo $CLEAN["ccms_tpl"] . "<br>";
 	// fruit/orange/vitamin/c
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
 	//$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
-	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?).(.*)?\z/i', '$2', $CLEAN["ccms_tpl"]);
+	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)\.(.*)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
 echo $CLEAN["ccms_tpl"] . "<br>";
 
