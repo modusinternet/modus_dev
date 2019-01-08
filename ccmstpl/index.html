@@ -559,7 +559,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 	e.preventDefault();
 	// Stash the event so it can be triggered later.
 	deferredPrompt = e;
-	showAddToHomeScreen();
+	//showAddToHomeScreen();
 });
 
 function showAddToHomeScreen() {
@@ -587,7 +587,7 @@ function addToHomeScreen() {
 	}
 }
 
-showAddToHomeScreen();
+//showAddToHomeScreen();
 
 window.addEventListener('appinstalled', function (evt) {
 	console.log('a2hs', 'installed');
