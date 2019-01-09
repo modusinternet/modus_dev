@@ -1,4 +1,4 @@
-const cacheName='v2';
+const cacheName='v23452345';
 
 var cacheFiles=[
 	'/ccmsusr/_js/jquery-3.3.1.min.js',
