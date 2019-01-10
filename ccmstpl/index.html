@@ -251,68 +251,6 @@
 
 
 
-/*
-			.ad2hs-prompt {
-  display: none;
-  width: 100%;
-  line-height: 2em;
-  background-color: #fff;
-  color: #333;
-  text-align: center;
-  text-decoration: none;
-  padding: 5% 0;
-  min-height: 10%;
-  position: fixed;
-  bottom: 0;
-  justify-content: flex-end;
-  flex-direction: column;
-  flex-grow: 1;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-.ad2hs-prompt:hover {
-  box-shadow: 0 0 0 0 0.25rem;
-}
-
-.ad2hs-prompt a:focus {
-  text-decoration: underline;
-}
-
-.ad2hs-prompt:focus-within {
-  box-shadow: 0 0 0 0.25rem;
-}
-
-.ad2hs-prompt:focus-within a:focus {
-  text-decoration: none;
-}
-
-.ad2hs-prompt H1 {
-  font-size: 2em;
-  text-align: center;
-  width: 100%;
-}
-
-.ad2hs-prompt .btn {
-  align-self: flex-end;
-  margin-right: 5%;
-}
-
-.ad2hs-prompt > * + * {
-  margin-top: 0.75rem;
-}
-
-.ad2hs-prompt :last-child {
-  margin-top: auto;
-  margin-bottom: 0.75rem;
-}
-*/
-
-.add-button {
-  position: absolute;
-  top: 100px;
-  left: 1px;
-}
 
 
 
@@ -323,6 +261,125 @@
 
 
 
+
+
+
+
+
+
+
+
+
+			.onesignal-popover-container {
+				display: block;
+				text-align: start;
+			    font-family: Times New Roman,Times,serif;
+			    color: #000;
+			    font-style: normal;
+			    font-weight: 400;
+			    text-decoration: none;
+			    list-style-type: disc;
+				line-height: 1;
+			    direction: ltr;
+				font-size: 14px;
+			    position: fixed;
+			    z-index: 2258594000;
+			    left: 0;
+			    right: 0;
+			    -webkit-font-smoothing: initial;
+				top: 0;
+			}
+
+			.onesignal-popover-dialog {
+				display: block;
+				box-sizing: border-box;
+			    max-width: 100%;
+			    margin: 0 auto;
+			    box-shadow: 0 0 20px 3px rgba(0,0,0,.22)!important;
+			    background: #fff!important;
+			    padding: 1.286em;
+			    border-bottom-left-radius: 2px;
+			    border-bottom-right-radius: 2px;
+			    font-family: Roboto,Noto,Helvetica Neue,Helvetica,Arial,sans-serif;
+				width: 500px;
+			    -webkit-animation-name: slideDownEnter;
+			    -webkit-animation-iteration-count: 1;
+			    -webkit-animation-timing-function: ease-out;
+			    -webkit-animation-duration: .4s;
+			    -webkit-animation-fill-mode: forwards;
+			    animation-name: slideDownEnter;
+			    animation-iteration-count: 1;
+			    animation-timing-function: ease-out;
+			    animation-duration: .4s;
+			    animation-fill-mode: forwards;
+			}
+
+			.normal-popover {
+				display: block;
+			}
+
+			.popover-body {
+				box-sizing: border-box;
+				margin: 0;
+			}
+
+			.popover-body-icon {
+				display: block;
+				box-sizing: border-box;
+			    float: left;
+			    width: 80px;
+			    height: 80px;
+			    position: relative;
+			}
+
+			.popover-body-message {
+				display: block;
+				box-sizing: border-box;
+			    padding: 0 .2em 0 1.286em;
+			    float: left;
+			    width: calc(100% - 80px);
+			    font-size: 1.143em;
+			    line-height: 1.45em;
+			    -o-user-select: none;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    cursor: default;
+			    color: #666!important;
+			}
+
+			.popover-footer {
+				position: relative;
+			    margin: .25em .25em 0 0;
+			}
+
+			.align-right .primary .popover-button {
+				box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 6px 0 rgba(0,0,0,.12);
+			    background: #1165f1!important;
+			    color: #fff!important;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 
 			/* 400px or larger. */
 			@media only screen and (min-width:400px) {
@@ -471,40 +528,41 @@
 					</div>
 				</div>
 {CCMS_TPL:footer.html}
-<button class="btnAdd" id="btnAdd" style="display:none">add me</button>
-
-<!-- div class="ad2hs-prompt">
-	<h1>Add 2048 To Your Homescreen!</h1>
-	<div class="btn btn-premium">Add</div>
-</div -->
-
-<!-- div id="onesignal-popover-container" class="onesignal-popover-container onesignal-reset slide-down">
-	<div id="onesignal-popover-dialog" class="onesignal-popover-dialog">
-		<div id="normal-popover">
-			<div class="popover-body">
-				<div class="popover-body-icon">
-					<img alt="notification icon" class="" src="/ccmstpl/_img/alert.png">
-				</div>
-				<div class="popover-body-message">
-					StartEngine would like to update you on the newest investment opportunities:
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="popover-footer">
-				<button id="onesignal-popover-allow-button" class="align-right primary popover-button">ALLOW</button>
-				<button id="onesignal-popover-cancel-button" class="align-right secondary popover-button">NO THANKS</button>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-</div -->
-
-<button class="add-button">Add to home screen</button>
-
 			</main>
 
 {CCMS_TPL:header-body.html}
 		</div>
+
+
+
+
+
+
+		<div id="onesignal-popover-container" class="onesignal-popover-container onesignal-reset slide-down">
+			<div id="onesignal-popover-dialog" class="onesignal-popover-dialog">
+				<div id="normal-popover">
+					<div class="popover-body">
+						<div class="popover-body-icon">
+							<img alt="notification icon" class="" src="/ccmstpl/_img/alert.png">
+						</div>
+						<div class="popover-body-message">
+							StartEngine would like to update you on the newest investment opportunities:
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="popover-footer">
+						<button id="onesignal-popover-allow-button" class="align-right primary popover-button">ALLOW</button>
+						<button id="onesignal-popover-cancel-button" class="align-right secondary popover-button">NO THANKS</button>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 
 		<script>
 			/*window.performance.mark("mark_beginning_javascript");*/
@@ -521,91 +579,24 @@
 			}
 
 			/*
-			let deferredPrompt;
-
-			window.addEventListener('beforeinstallprompt', (e) => {
-				console.log('beforeinstallprompt event submitted.');
-				// Prevent Chrome 67 and earlier from automatically showing the prompt
-				e.preventDefault();
-				// Stash the event so it can be triggered later.
-				deferredPrompt = e;
-				// Update UI notify the user they can add to home screen
-				btnAdd.style.display = 'block';
-			});
-
-			btnAdd.addEventListener('click', (e) => {
-				// hide our user interface that shows our A2HS button
-				btnAdd.style.display = 'none';
-				// Show the prompt
-				deferredPrompt.prompt();
-				// Wait for the user to respond to the prompt
-				deferredPrompt.userChoice
-					.then((choiceResult) => {
-						if (choiceResult.outcome === 'accepted') {
-							console.log('User accepted the A2HS prompt');
-					} else {
-						console.log('User dismissed the A2HS prompt');
-					}
-					deferredPrompt = null;
-				});
-			});
+			Add to Home screen (or A2HS) code.
+			https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 			*/
-
-			/*
 			let deferredPrompt;
-
-			window.addEventListener('beforeinstallprompt', e => {
-				e.preventDefault();
-				deferredPrompt = e;
-				showAddToHomeScreen();
-			});
-
-			function showAddToHomeScreen() {
-				var a2hsBtn = document.querySelector(".ad2hs-prompt");
-				a2hsBtn.style.display = "flex";
-				a2hsBtn.addEventListener("click", addToHomeScreen);
-			}
-
-			function addToHomeScreen() {
-				var a2hsBtn = document.querySelector(".ad2hs-prompt");
-				// hide our user interface that shows our A2HS button
-				a2hsBtn.style.display = 'none';
-				if (deferredPrompt) {
-					// Show the prompt
-					deferredPrompt.prompt();
-					// Wait for the user to respond to the prompt
-					deferredPrompt.userChoice.then( choiceResult => {
-						if (choiceResult.outcome === 'accepted') {
-							console.log('User accepted the A2HS prompt');
-						} else {
-							console.log('User dismissed the A2HS prompt');
-						}
-						deferredPrompt = null;
-					});
-				}
-			}
-
-			showAddToHomeScreen();
-			*/
-
-			let deferredPrompt;
-			const addBtn = document.querySelector('.add-button');
-			addBtn.style.display = 'none';
-
+			const addBtn = document.querySelector('.onesignal-popover-container');
 			window.addEventListener('beforeinstallprompt', (e) => {
-				// Prevent Chrome 67 and earlier from automatically showing the prompt
+				/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
 				e.preventDefault();
-				// Stash the event so it can be triggered later.
+				/* Stash the event so it can be triggered later. */
 				deferredPrompt = e;
-				// Update UI to notify the user they can add to home screen
+				/* Update UI to notify the user they can add to home screen. */
 				addBtn.style.display = 'block';
-
 				addBtn.addEventListener('click', (e) => {
-					// hide our user interface that shows our A2HS button
+					/* hide our user interface that shows our A2HS button. */
 					addBtn.style.display = 'none';
-					// Show the prompt
+					/* Show the prompt. */
 					deferredPrompt.prompt();
-					// Wait for the user to respond to the prompt
+					/* Wait for the user to respond to the prompt. */
 					deferredPrompt.userChoice.then((choiceResult) => {
 						if (choiceResult.outcome === 'accepted') {
 							console.log('User accepted the A2HS prompt');
