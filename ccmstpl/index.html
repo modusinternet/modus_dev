@@ -465,6 +465,48 @@
 	<h1>Add 2048 To Your Homescreen!</h1>
 	<div class="btn btn-premium">Add</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onesignal-popover-container" class="onesignal-popover-container onesignal-reset slide-down">
+	<div id="onesignal-popover-dialog" class="onesignal-popover-dialog">
+		<div id="normal-popover">
+			<div class="popover-body">
+				<div class="popover-body-icon">
+					<img alt="notification icon" class="" src="/ccmstpl/_img/alert.png">
+				</div>
+				<div class="popover-body-message">
+					StartEngine would like to update you on the newest investment opportunities:
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="popover-footer">
+				<button id="onesignal-popover-allow-button" class="align-right primary popover-button">ALLOW</button>
+				<button id="onesignal-popover-cancel-button" class="align-right secondary popover-button">NO THANKS</button>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
 			</main>
 
 {CCMS_TPL:header-body.html}
@@ -515,6 +557,9 @@
 			});
 			*/
 
+
+
+			/*
 			let deferredPrompt;
 
 			window.addEventListener('beforeinstallprompt', e => {
@@ -549,7 +594,8 @@
 			}
 
 			showAddToHomeScreen();
-			
+			*/
+
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			function loadJSResources(){
