@@ -618,8 +618,12 @@
 				/* Stash the event so it can be triggered later. */
 				deferredPrompt = e;
 				/* Update UI to notify the user they can add to home screen. */
-				addBtn.style.display = 'block';
-				addBtn.style.top = '0';
+				/*addBtn.style.display = 'block';
+				addBtn.style.top = '0';*/
+
+				/*var d = document.getElementById("div1"); */
+				addBtn.className += " active";
+
 				/*$("header").addClass("header-scroll");*/
 				addBtn.addEventListener('click', (e) => {
 					/* hide our user interface that shows our A2HS button. */
