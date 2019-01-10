@@ -269,7 +269,7 @@
 
 
 
-
+			/*
 			.onesignal-popover-container {
 				display: block;
 				text-align: start;
@@ -359,6 +359,7 @@
 			    background: #1165f1!important;
 			    color: #fff!important;
 			}
+			*/
 
 
 
@@ -367,8 +368,23 @@
 
 
 
+			/* Add to Home Screen (or A2HS) Box */
+			#A2HS-box {
+				display:block;
+				left:0;
+				position:fixed;
+				right:0;
+				top:0;
+				z-index: 999999999999
+			}
 
-
+			#A2HS-box>div {
+				margin: 0 auto;
+				box-shadow: 0 0 20px 3px rgba(0,0,0,.22)!important;
+				background: #fff!important;
+				padding: 1.286em;
+				width: 500px;
+			}
 
 
 
@@ -538,7 +554,7 @@
 
 
 
-		<div id="onesignal-popover-container" class="onesignal-popover-container onesignal-reset slide-down">
+		<!-- div id="onesignal-popover-container" class="onesignal-popover-container onesignal-reset slide-down">
 			<div id="onesignal-popover-dialog" class="onesignal-popover-dialog">
 				<div id="normal-popover">
 					<div class="popover-body">
@@ -556,6 +572,12 @@
 						<div class="clearfix"></div>
 					</div>
 				</div>
+			</div>
+		</div -->
+
+		<div class="A2HS-box" id="A2HS-box">
+			<div>
+				Add to Home Screen?
 			</div>
 		</div>
 
@@ -583,7 +605,7 @@
 			https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 			*/
 			let deferredPrompt;
-			const addBtn = document.querySelector('.onesignal-popover-container');
+			const addBtn = document.querySelector('.A2HS-box');
 			window.addEventListener('beforeinstallprompt', (e) => {
 				/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
 				e.preventDefault();
