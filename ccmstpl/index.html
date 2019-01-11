@@ -505,47 +505,61 @@
 			Add to Home screen (A2HS) code.
 			https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 			*/
-			/* check cookie to determin if we want to listen for the 'beforeinstallprompt' event */
 
-			let deferredPrompt;
-			const A2HSbox = document.getElementById("A2HS-box");
-			const A2HSbox_no = document.getElementById("A2HS-box-no");
-			const A2HSbox_yes = document.getElementById("A2HS-box-yes");
-			window.addEventListener("beforeinstallprompt",e => {
-				console.log('"beforeinstallprompt" event detected, dropping A2HS box.');
-				/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
-				e.preventDefault();
-				/* Stash the event so it can be triggered later. */
-				deferredPrompt = e;
-				/* Update UI to notify the user they can add to home screen. */
-				A2HSbox.classList.add("active");
 
-				A2HSbox_no.addEventListener('click',e => {
-					console.log('User dismissed A2HS prompt #1.');
-					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.classList.remove("active");
-					deferredPrompt = null;
-					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
-					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
-				});
 
-				A2HSbox_yes.addEventListener('click',e => {
-					console.log('User accepted A2HS prompt #1.');
-					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.classList.remove("active");
-					/* Show the prompt. */
-					deferredPrompt.prompt();
-					/* Wait for the user to respond to the prompt. */
-					deferredPrompt.userChoice.then(choiceResult => {
-						if (choiceResult.outcome === 'accepted') {
-							console.log('User accepted A2HS prompt #2.');
-						} else {
-							console.log('User dismissed A2HS prompt #2.');
-						}
+
+
+			/* Check cookie to determin if we want to listen for the 'beforeinstallprompt' event. */
+			let c = getCookie("A2HSbox");
+			if (c == "") {
+				/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
+				let deferredPrompt;
+				const A2HSbox = document.getElementById("A2HS-box");
+				const A2HSbox_no = document.getElementById("A2HS-box-no");
+				const A2HSbox_yes = document.getElementById("A2HS-box-yes");
+				window.addEventListener("beforeinstallprompt",e => {
+					console.log('"beforeinstallprompt" event detected, dropping A2HS box.');
+					/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
+					e.preventDefault();
+					/* Stash the event so it can be triggered later. */
+					deferredPrompt = e;
+					/* Update UI to notify the user they can add to home screen. */
+					A2HSbox.classList.add("active");
+
+					A2HSbox_no.addEventListener('click',e => {
+						console.log('User dismissed A2HS prompt #1.');
+						/* hide our user interface that shows our A2HS button. */
+						A2HSbox.classList.remove("active");
 						deferredPrompt = null;
+						/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+						document.cookie = "A2HSbox=1; max-age=15768000; path=/";
+					});
+
+					A2HSbox_yes.addEventListener('click',e => {
+						console.log('User accepted A2HS prompt #1.');
+						/* hide our user interface that shows our A2HS button. */
+						A2HSbox.classList.remove("active");
+						/* Show the prompt. */
+						deferredPrompt.prompt();
+						/* Wait for the user to respond to the prompt. */
+						deferredPrompt.userChoice.then(choiceResult => {
+							if (choiceResult.outcome === 'accepted') {
+								console.log('User accepted A2HS prompt #2.');
+							} else {
+								console.log('User dismissed A2HS prompt #2.');
+							}
+							deferredPrompt = null;
+						});
 					});
 				});
-			});
+			}
+
+
+
+
+
+
 
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
