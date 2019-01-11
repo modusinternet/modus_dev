@@ -511,6 +511,20 @@
 
 
 			/* Check cookie to determin if we want to listen for the 'beforeinstallprompt' event. */
+			function getCookie(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			}
 			let c = getCookie("A2HSbox");
 			if (c == "") {
 				/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
