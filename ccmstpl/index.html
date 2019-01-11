@@ -525,15 +525,17 @@
 				}
 				return "";
 			}
-			let cookie = getCookie("A2HSbox");
+			let cookie;
 			let deferredPrompt;
 			const A2HSbox = document.getElementById("A2HS-box");
 			const A2HSbox_no = document.getElementById("A2HS-box-no");
 			const A2HSbox_yes = document.getElementById("A2HS-box-yes");
-			if (cookie == "") {
-				/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
-				window.addEventListener("beforeinstallprompt",e => {
-					console.log('"beforeinstallprompt" event detected, dropping A2HS box.');
+			window.addEventListener("beforeinstallprompt",e => {
+				cookie = getCookie("A2HSbox");
+				/* Test for A2HSbox cookie. */
+				if (cookie == "") {
+					/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
+					console.log('A2HSbox cookie not found and "beforeinstallprompt" event detected, dropping A2HS box.');
 					/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
 					e.preventDefault();
 					/* Stash the event so it can be triggered later. */
@@ -568,8 +570,9 @@
 							deferredPrompt = null;
 						});
 					});
-				});
-			}
+				}
+			});
+
 
 
 
