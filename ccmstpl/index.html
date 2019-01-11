@@ -512,10 +512,10 @@
 
 			/* Check cookie to determin if we want to listen for the 'beforeinstallprompt' event. */
 			function getCookie(cname) {
-				var name = cname + "=";
-				var ca = document.cookie.split(';');
-				for(var i = 0; i < ca.length; i++) {
-					var c = ca[i];
+				let name = cname + "=";
+				let ca = document.cookie.split(';');
+				for(let i = 0; i < ca.length; i++) {
+					let c = ca[i];
 					while (c.charAt(0) == ' ') {
 						c = c.substring(1);
 					}
@@ -525,13 +525,13 @@
 				}
 				return "";
 			}
-			let c = getCookie("A2HSbox");
-			if (c == "") {
+			let cookie = getCookie("A2HSbox");
+			let deferredPrompt;
+			const A2HSbox = document.getElementById("A2HS-box");
+			const A2HSbox_no = document.getElementById("A2HS-box-no");
+			const A2HSbox_yes = document.getElementById("A2HS-box-yes");
+			if (cookie == "") {
 				/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
-				let deferredPrompt;
-				const A2HSbox = document.getElementById("A2HS-box");
-				const A2HSbox_no = document.getElementById("A2HS-box-no");
-				const A2HSbox_yes = document.getElementById("A2HS-box-yes");
 				window.addEventListener("beforeinstallprompt",e => {
 					console.log('"beforeinstallprompt" event detected, dropping A2HS box.');
 					/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
