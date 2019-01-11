@@ -518,12 +518,12 @@
 				/* Stash the event so it can be triggered later. */
 				deferredPrompt = e;
 				/* Update UI to notify the user they can add to home screen. */
-				A2HSbox.className += "active";
+				A2HSbox.classList.add += "active";
 
 				A2HSbox_no.addEventListener('click',e => {
 					console.log('User dismissed A2HS prompt #1.');
 					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.className -= "active";
+					A2HSbox.classList.remove -= "active";
 					deferredPrompt = null;
 					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
 					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
@@ -532,7 +532,7 @@
 				A2HSbox_yes.addEventListener('click',e => {
 					console.log('User accepted A2HS prompt #1.');
 					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.className -= "active";
+					A2HSbox.classList.remove -= "active";
 					/* Show the prompt. */
 					deferredPrompt.prompt();
 					/* Wait for the user to respond to the prompt. */
