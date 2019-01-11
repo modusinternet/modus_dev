@@ -520,27 +520,26 @@
 				A2HSbox.className += " active";
 
 				A2HSbox_no.addEventListener('click',e => {
+					console.log('User dismissed A2HS prompt #1.');
 					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.className -= " active";
-					/* A2HSbox.style.display = "none"; */
-					console.log('User dismissed the first A2HS prompt');
+					A2HSbox.className -= "active";
 					deferredPrompt = null;
 					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
 					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
 				});
 
 				A2HSbox_yes.addEventListener('click',e => {
+					console.log('User accepted A2HS prompt #1.');
 					/* hide our user interface that shows our A2HS button. */
-					A2HSbox.style.display = 'none';
-					A2HSbox.className -= " active";
+					A2HSbox.className -= "active";
 					/* Show the prompt. */
 					deferredPrompt.prompt();
 					/* Wait for the user to respond to the prompt. */
 					deferredPrompt.userChoice.then(choiceResult => {
 						if (choiceResult.outcome === 'accepted') {
-							console.log('User accepted the second A2HS prompt');
+							console.log('User accepted A2HS prompt #2.');
 						} else {
-							console.log('User dismissed the second A2HS prompt');
+							console.log('User dismissed A2HS prompt #2.');
 						}
 						deferredPrompt = null;
 					});
