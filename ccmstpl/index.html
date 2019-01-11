@@ -255,7 +255,7 @@
 
 
 
-			/* Add to Home Screen (or A2HS) Box */
+			/* Add to Home Screen (A2HS) Box */
 			#A2HS-box{
 				left:0;
 				position:fixed;
@@ -477,8 +477,8 @@
 				Add a Home Screen shortcut to launch like a native app?
 			</div>
 			<div>
-				<button>NO THANKS</button>
-				<button>ALLOW</button>
+				<button id="A2HS-box-no">NO THANKS</button>
+				<button id="A2HS-box-yes">ALLOW</button>
 			</div>
 		</div>
 
@@ -505,8 +505,12 @@
 			Add to Home screen (A2HS) code.
 			https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 			*/
+			/* check cookie to determin if we want to listen for the 'beforeinstallprompt' event */
+
 			let deferredPrompt;
 			const A2HSbox = document.getElementById("A2HS-box");
+			const A2HSbox_no = document.getElementById("A2HS-box-no");
+			const A2HSbox_yes = document.getElementById("A2HS-box-yes");
 			window.addEventListener("beforeinstallprompt",e => {
 				/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
 				e.preventDefault();
@@ -514,17 +518,29 @@
 				deferredPrompt = e;
 				/* Update UI to notify the user they can add to home screen. */
 				A2HSbox.className += " active";
-				A2HSbox.addEventListener('click',e => {
+
+				A2HSbox_no.addEventListener('click',e => {
+					/* hide our user interface that shows our A2HS button. */
+					A2HSbox.className -= " active";
+					/* A2HSbox.style.display = "none"; */
+					console.log('User dismissed the first A2HS prompt');
+					deferredPrompt = null;
+					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
+				});
+
+				A2HSbox_yes.addEventListener('click',e => {
 					/* hide our user interface that shows our A2HS button. */
 					A2HSbox.style.display = 'none';
+					A2HSbox.className -= " active";
 					/* Show the prompt. */
 					deferredPrompt.prompt();
 					/* Wait for the user to respond to the prompt. */
 					deferredPrompt.userChoice.then(choiceResult => {
 						if (choiceResult.outcome === 'accepted') {
-							console.log('User accepted the A2HS prompt');
+							console.log('User accepted the second A2HS prompt');
 						} else {
-							console.log('User dismissed the A2HS prompt');
+							console.log('User dismissed the second A2HS prompt');
 						}
 						deferredPrompt = null;
 					});
