@@ -265,9 +265,7 @@
 				z-index:999999999999
 			}
 
-			#A2HS-box.active{
-				top:0
-			}
+			#A2HS-box.active{top:0}
 
 			#A2HS-box>div{
 				box-shadow:0 0 20px 3px rgba(0,0,0,.22);
@@ -279,6 +277,8 @@
 				width:auto
 			}
 
+			#A2HS-box>div:nth-child(2){text-align:right}
+
 			#A2HS-box>div>img{
 				float:left;
 				margin-right:10px;
@@ -287,11 +287,21 @@
 
 			#A2HS-box>div>button{
 				border:none;
-				box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 6px 0 rgba(0,0,0,.12);
-				background:#1165f1;
-				color:#fff;
 				padding:1rem 2rem
 			}
+
+			#A2HS-box>div>button:nth-child(1){
+				background:#fff;
+				box-shadow:none;
+				color:#1165f1
+			}
+
+			#A2HS-box>div>button:nth-child(2){
+				background:#1165f1;
+				box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 6px 0 rgba(0,0,0,.12);
+				color:#fff
+			}
+
 
 
 
@@ -464,13 +474,13 @@
 
 
 
-		<div class="A2HS-box" id="A2HS-box">
+		<div class="A2HS-box">
 			<div>
 				<img alt="notification icon" src="/ccmstpl/_img/notice.png">
 				Add a Home Screen shortcut to launch like a native app?
 			</div>
-			<div style="text-align:right">
-				<button style="box-shadow:none; background:#fff; color:#1165f1">NO THANKS</button>
+			<div>
+				<button>NO THANKS</button>
 				<button>ALLOW</button>
 			</div>
 		</div>
