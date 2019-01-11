@@ -495,31 +495,25 @@
 			}
 
 			/*
-			Add to Home screen (or A2HS) code.
+			Add to Home screen (A2HS) code.
 			https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 			*/
 			let deferredPrompt;
-			const addBtn = document.querySelector('.A2HS-box');
-			window.addEventListener('beforeinstallprompt', (e) => {
+			const A2HSbox = document.querySelector('.A2HS-box');
+			window.addEventListener('beforeinstallprompt',e => {
 				/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
 				e.preventDefault();
 				/* Stash the event so it can be triggered later. */
 				deferredPrompt = e;
 				/* Update UI to notify the user they can add to home screen. */
-				/*addBtn.style.display = 'block';
-				addBtn.style.top = '0';*/
-
-				/*var d = document.getElementById("div1"); */
-				addBtn.className += " active";
-
-				/*$("header").addClass("header-scroll");*/
-				addBtn.addEventListener('click', (e) => {
+				A2HSbox.className += " active";
+				A2HSbox.addEventListener('click',e => {
 					/* hide our user interface that shows our A2HS button. */
-					addBtn.style.display = 'none';
+					A2HSbox.style.display = 'none';
 					/* Show the prompt. */
 					deferredPrompt.prompt();
 					/* Wait for the user to respond to the prompt. */
-					deferredPrompt.userChoice.then((choiceResult) => {
+					deferredPrompt.userChoice.then(choiceResult => {
 						if (choiceResult.outcome === 'accepted') {
 							console.log('User accepted the A2HS prompt');
 						} else {
