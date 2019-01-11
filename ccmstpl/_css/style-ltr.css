@@ -671,7 +671,7 @@ END of MSG popup
 	BEGINNING of tags found in the HEADER tag
 	==========*/
 	nav{
-		background:transparent;
+		/*background:transparent;*/
 		display:block;
 		position:absolute;
 		bottom:auto;
