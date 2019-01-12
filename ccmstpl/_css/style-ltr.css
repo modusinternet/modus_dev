@@ -231,8 +231,8 @@ cssgrid-footer.c3{grid-area:c3}
 .cssgrid-footer form input{
 	border:1px solid rgba(0,0,0,0.1);
 	border-radius:25px;
-	border-top-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}-radius:0;
-	border-bottom-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}-radius:0;
+	border-top-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}-radius:0;
+	border-bottom-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}-radius:0;
 	color:#555;
 	font-size:1.2rem;
 	height:48px;
@@ -244,8 +244,8 @@ cssgrid-footer.c3{grid-area:c3}
 	background:rgba(255,165,0,.5);
 	border:1px solid rgba(0,0,0,0.1);
 	border-radius:25px;
-	border-top-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}-radius:0;
-	border-bottom-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}-radius:0;
+	border-top-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}-radius:0;
+	border-bottom-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}-radius:0;
 	color:#ffffff;
 	font-size:1.2rem;
 	height:48px;
