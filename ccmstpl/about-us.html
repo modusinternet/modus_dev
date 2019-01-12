@@ -59,7 +59,7 @@
 				top:0;
 				width:50%;
 				transition:opacity 2s;
-				z-index:100
+				z-index:1000000
 			}
 
 			:root{}
@@ -150,6 +150,80 @@
 				width:150px
 			}
 
+			.contentType1{
+				background-color:#fff;
+				padding:40px 10px
+			}
+
+			.contentType1>div{
+				margin:0 auto;
+				max-width:1024px;
+				text-align:center
+			}
+
+			.contenType2{
+				background-color:#f7f6f4;
+				padding:40px 10px
+			}
+
+			.cssgrid.c1{grid-area:c1}
+			.cssgrid.c2{grid-area:c2}
+			.cssgrid.c3{grid-area:c3}
+
+			.cssgrid{
+				display:grid;
+				grid-gap:1em;
+				grid-template-areas:
+					"c1"
+					"c2"
+					"c3"
+			}
+
+			.cssgrid .box{
+				background-color:#f7f6f4;
+				border-radius:7px;
+				padding:30px;
+				overflow:hidden
+			}
+
+			.hatchPattern{
+				background-image:url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
+				height:100%;
+				left:0;
+				opacity:.4;
+				position:fixed;
+				top:0;
+				width:100%;
+				z-index:-1
+			}
+
+			.parallax{
+				height:500px;
+				padding:120px 20px 10px 0px
+			}
+
+			.parallax div{
+				position:relative;
+				bottom:-150px
+			}
+
+			.parallax div p{
+				color:#fff;
+				margin:0px;
+				text-align:{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left};
+				filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
+			}
+
+			.parallax video{
+				min-height:100%;
+				min-width:110%;
+				position:fixed;
+				right:0;
+				transform:translateX(calc((100% - 100vw) / 2));
+				top:0;
+				z-index:-2
+			}
+
 			header{
 				background:none;
 				left:0;
@@ -157,7 +231,7 @@
 				position:fixed;
 				right:0;
 				top:0;
-				z-index:1;
+				z-index:100;
 				transition:all 1.0s ease-in-out
 			}
 
@@ -167,6 +241,137 @@
 				transition:all 1.0s ease-in-out;
 				width:250px
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/* Add to Home Screen (A2HS) Box */
+			#A2HS-box{
+				left:0;
+				position:fixed;
+				right:0;
+				top:-300px;
+				transition:all 2s;
+				z-index:999999999999
+			}
+
+			#A2HS-box.active{top:0}
+
+			#A2HS-box>div{
+				box-shadow:0 0 20px 3px rgba(0,0,0,.22);
+				background:#fff;
+				padding:1.286em;
+				position:relative;
+				margin:0 auto;
+				max-width:500px;
+				width:auto
+			}
+
+			#A2HS-box>div:nth-child(2){text-align:right}
+
+			#A2HS-box>div>img{
+				float:left;
+				margin-right:10px;
+				width:75px
+			}
+
+			#A2HS-box>div>button{
+				background:#fff;
+				border:none;
+				box-shadow:none;
+				color:#1165f1;
+				padding:1rem 2rem
+			}
+
+			#A2HS-box>div>button:nth-child(2){
+				background:#1165f1;
+				box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 6px 0 rgba(0,0,0,.12);
+				color:#fff
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/* 400px or larger. */
+			@media only screen and (min-width:400px) {
+				.parallax{padding:80px 20px 10px 0px}
+
+				.parallax div{bottom:-170px}
+
+				.parallax video{top:-100px}
+			}
+
+
+			/* 768px or larger. */
+			@media only screen and (min-width:768px) {
+				.cssgrid-events{
+					grid-template-areas:
+						"ev1 ev2"
+						"ev3 ev4"
+				}
+
+				.parallax div{bottom:-240px}
+			}
+
+
+			/* 824px or larger. Pixel Xl Landscape resolution is 411 x 823. */
+			@media only screen and (min-width: 824px) {
+				.cssgrid-events{
+					grid-gap:1rem;
+					grid-template-areas:
+						"ev1 ev2"
+						"ev3 ev4"
+				}
+
+				.parallax{padding:80px 40px 10px 0px}
+
+				.parallax video{top:-100px}
+			}
+
+
+			/* 1023px or larger. */
+			@media only screen and (min-width:1023px){
+				.cssgrid{
+					grid-gap:1rem;
+					grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+					grid-template-areas:
+						"c1 c2 c3"
+				}
+
+				.parallax div{bottom:-330px}
+			}
+
+
+			/* 1199px or larger. To help adjust video background position on larger screens. */
+			@media only screen and (min-width:1199px){.parallax>video{top:-200px}}
+
+
+			/* 1599px or larger. To help adjust video background position on larger screens. */
+			@media only screen and (min-width:1599px){.parallax>video{top:-300px}}
 		</style>
 		<script>
 			var navActiveArray = ["nl-3","nl-lng","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
