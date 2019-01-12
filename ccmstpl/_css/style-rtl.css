@@ -620,7 +620,7 @@ END of MSG popup
 		left:unset;
 		opacity:1;
 		position:fixed;
-		right:20px;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px;
 		width:300px;
 		filter:drop-shadow(2px 2px 4px rgba(0,0,0,.4))
 	}
