@@ -277,7 +277,11 @@ cssgrid-footer.c3{grid-area:c3}
 
 .parallax{
 	height:500px;
-	padding:120px 20px 10px 0px
+	/* padding:120px 20px 10px 0px */
+	padding-top:120px;
+	padding-bottom:10px;
+	padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
+	padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px
 }
 
 .parallax div{
@@ -599,7 +603,13 @@ END of MSG popup
 	/*==========
 	BEGINNING of tags found in the MAIN tag
 	==========*/
-	.parallax{padding:80px 20px 10px 0px}
+	.parallax{
+		/* padding:80px 20px 10px 0px */
+		padding-top:80px;
+		padding-bottom:10px;
+		padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
+		padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px
+	}
 
 	.parallax div{bottom:-170px}
 
@@ -660,7 +670,13 @@ END of MSG popup
 			"ev3 ev4"
 	}
 
-	.parallax{padding:80px 40px 10px 0px}
+	.parallax{
+		/* padding:80px 40px 10px 0px */
+		padding-top:80px;
+		padding-bottom:10px;
+		padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
+		padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:40px
+	}
 
 	.parallax video{top:-100px}
 	/*==========
