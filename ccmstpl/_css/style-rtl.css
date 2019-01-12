@@ -277,7 +277,6 @@ cssgrid-footer.c3{grid-area:c3}
 
 .parallax{
 	height:500px;
-	/* padding:120px 20px 10px 0px */
 	padding-top:120px;
 	padding-bottom:10px;
 	padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
@@ -604,7 +603,6 @@ END of MSG popup
 	BEGINNING of tags found in the MAIN tag
 	==========*/
 	.parallax{
-		/* padding:80px 20px 10px 0px */
 		padding-top:80px;
 		padding-bottom:10px;
 		padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
@@ -671,7 +669,6 @@ END of MSG popup
 	}
 
 	.parallax{
-		/* padding:80px 40px 10px 0px */
 		padding-top:80px;
 		padding-bottom:10px;
 		padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
