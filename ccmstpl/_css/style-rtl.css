@@ -515,7 +515,7 @@ BEGINNING of MSG popup
 
 #msg>div svg {
 	cursor:pointer;
-	float:right;
+	float:{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left};
 	height:24px;
 	margin-top:5px;
 	width:24px
