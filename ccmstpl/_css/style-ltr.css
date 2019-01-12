@@ -345,7 +345,7 @@ header{
 	position:fixed;
 	right:0;
 	top:0;
-	z-index:1;
+	z-index:10000;
 	transition:all 1.0s ease-in-out
 }
 
@@ -474,7 +474,7 @@ BEGINNING of MSG popup
 	position:fixed;
 	right:5px;
 	width:50px;
-	z-index:5;
+	z-index:1000;
 	transition:all .5s ease-in-out
 }
 
@@ -671,7 +671,6 @@ END of MSG popup
 	BEGINNING of tags found in the HEADER tag
 	==========*/
 	nav{
-		/*background:transparent;*/
 		display:block;
 		position:absolute;
 		bottom:auto;
@@ -688,20 +687,20 @@ END of MSG popup
 		position:absolute;
 		top:100%;
 		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0;
-		z-index:901
+		z-index:10001
 	}
 
 	nav ul ul ul{
 		top:5px;
 		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:95%;
-		z-index:902
+		z-index:10002
 	}
 
 	nav ul ul ul li:first-child{border-top:none}
 
-	nav ul ul ul ul{z-index:903}
+	nav ul ul ul ul{z-index:10003}
 
-	nav ul ul ul ul ul{z-index:904}
+	nav ul ul ul ul ul{z-index:10004}
 
 	nav ul li.nav-oppsite>ul{
 		{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:auto;
