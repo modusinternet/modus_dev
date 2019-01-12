@@ -288,7 +288,7 @@ cssgrid-footer.c3{grid-area:c3}
 .parallax div p{
 	color:#fff;
 	margin:0px;
-	text-align:{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left};
+	text-align:{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right};
 	filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
 }
 
@@ -515,7 +515,7 @@ BEGINNING of MSG popup
 
 #msg>div svg {
 	cursor:pointer;
-	float:right;
+	float:{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left};
 	height:24px;
 	margin-top:5px;
 	width:24px
@@ -620,7 +620,7 @@ END of MSG popup
 		left:unset;
 		opacity:1;
 		position:fixed;
-		right:20px;
+		{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px;
 		width:300px;
 		filter:drop-shadow(2px 2px 4px rgba(0,0,0,.4))
 	}
