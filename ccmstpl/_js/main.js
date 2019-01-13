@@ -266,12 +266,12 @@ $("#msgForm").validate({
 Add to Home screen (A2HS) code.
 https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
 */
-/* Check cookie to determin if we want to listen for the 'beforeinstallprompt' event. */
 function getCookie(cname) {
-	let name = cname + "=";
-	let ca = document.cookie.split(';');
-	for(let i = 0; i < ca.length; i++) {
-		let c = ca[i];
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+		var c = ca[i];
 		while (c.charAt(0) == ' ') {
 			c = c.substring(1);
 		}
@@ -303,7 +303,7 @@ window.addEventListener("beforeinstallprompt",e => {
 			console.log('User dismissed A2HS prompt #1.');
 			/* hide our user interface that shows our A2HS button. */
 			A2HSbox.classList.remove("active");
-			/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+			/* Set cookie to defer A2HS box apearence in the future.	(15768000 = 6 months) */
 			document.cookie = "A2HSbox=1; max-age=15768000; path=/";
 			deferredPrompt = null;
 		});
@@ -320,7 +320,7 @@ window.addEventListener("beforeinstallprompt",e => {
 					console.log('User accepted A2HS prompt #2.');
 				} else {
 					console.log('User dismissed A2HS prompt #2.');
-					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+					/* Set cookie to defer A2HS box apearence in the future.	(15768000 = 6 months) */
 					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
 				}
 				deferredPrompt = null;
