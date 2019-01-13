@@ -202,8 +202,8 @@
 
 			function loadJSResources(){
 				var l=document.createElement("link");l.rel="stylesheet";
-				/*l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}.css";*/
-				l.href="/ccmstpl/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}-min.css";
+				l.href = "/{CCMS_LIB:_default.php;FUNC:ccms_lng}/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}.css";
+				/*l.href="/ccmstpl/_css/style-{CCMS_LIB:_default.php;FUNC:ccms_lng_dir}-min.css";*/
 				var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
 
 				/*loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js",function(){*/

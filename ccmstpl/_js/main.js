@@ -281,15 +281,15 @@ function getCookie(cname) {
 	}
 	return "";
 }
-let cookie;
+let a2Cookie;
 let deferredPrompt;
 const A2HSbox = document.getElementById("A2HS-box");
 const A2HSbox_no = document.getElementById("A2HS-box-no");
 const A2HSbox_yes = document.getElementById("A2HS-box-yes");
 window.addEventListener("beforeinstallprompt",e => {
-	cookie = getCookie("A2HSbox");
+	a2Cookie = getCookie("A2HSbox");
 	/* Test for A2HSbox cookie. */
-	if (cookie == "") {
+	if (a2Cookie == "") {
 		/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
 		console.log('A2HSbox cookie not found and "beforeinstallprompt" event detected, dropping A2HS box.');
 		/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
