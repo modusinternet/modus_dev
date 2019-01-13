@@ -130,19 +130,6 @@
 
 			svg>path{fill:rgb(255,165,0)}
 
-			.bigButton{
-				background:rgba(255,165,0,.5);
-				border:none;
-				border-radius:7px;
-				color:#fff;
-				cursor:pointer;
-				font-size:2.2rem;
-				line-height:4rem;
-				margin:2rem 0 3rem;
-				padding:10px 10%;
-				transition:all 0.25s
-			}
-
 			.bottomBorder{
 				display:inline-block;
 				border-bottom:2px solid rgb(255,165,0);
@@ -159,72 +146,6 @@
 				margin:0 auto;
 				max-width:1024px;
 				text-align:center
-			}
-
-			.contenType2{
-				background-color:#f7f6f4;
-				padding:40px 10px
-			}
-
-			.cssgrid.c1{grid-area:c1}
-			.cssgrid.c2{grid-area:c2}
-			.cssgrid.c3{grid-area:c3}
-
-			.cssgrid{
-				display:grid;
-				grid-gap:1em;
-				grid-template-areas:
-					"c1"
-					"c2"
-					"c3"
-			}
-
-			.cssgrid .box{
-				background-color:#f7f6f4;
-				border-radius:7px;
-				padding:30px;
-				overflow:hidden
-			}
-
-			.hatchPattern{
-				background-image:url(//d3rifeizl63fms.cloudfront.net/ccmstpl/_img/hatchBg.png);
-				height:100%;
-				left:0;
-				opacity:.4;
-				position:fixed;
-				top:0;
-				width:100%;
-				z-index:-1
-			}
-
-			.parallax{
-				height:500px;
-				padding-top:120px;
-				padding-bottom:10px;
-				padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
-				padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px
-			}
-
-			.parallax div{
-				position:relative;
-				bottom:-150px
-			}
-
-			.parallax div p{
-				color:#fff;
-				margin:0px;
-				text-align:{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left};
-				filter:drop-shadow({CCMS_LIB:site.php;FUNC:shadow_direction}4px 4px 4px rgba(0,0,0,.9))
-			}
-
-			.parallax video{
-				min-height:100%;
-				min-width:110%;
-				position:fixed;
-				right:0;
-				transform:translateX(calc((100% - 100vw) / 2));
-				top:0;
-				z-index:-2
 			}
 
 			header{
@@ -307,84 +228,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-			/* 400px or larger. */
-			@media only screen and (min-width:400px) {
-				.parallax{
-					padding-top:80px;
-					padding-bottom:10px;
-					padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
-					padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:20px
-				}
-
-				.parallax div{bottom:-170px}
-
-				.parallax video{top:-100px}
-			}
-
-
-			/* 768px or larger. */
-			@media only screen and (min-width:768px) {
-				.cssgrid-events{
-					grid-template-areas:
-						"ev1 ev2"
-						"ev3 ev4"
-				}
-
-				.parallax div{bottom:-240px}
-			}
-
-
-			/* 824px or larger. Pixel Xl Landscape resolution is 411 x 823. */
-			@media only screen and (min-width: 824px) {
-				.cssgrid-events{
-					grid-gap:1rem;
-					grid-template-areas:
-						"ev1 ev2"
-						"ev3 ev4"
-				}
-
-				.parallax{
-					padding-top:80px;
-					padding-bottom:10px;
-					padding-{CCMS_LIB:site.php;FUNC:lng_dir_right_go_left_left_go_right}:0px;
-					padding-{CCMS_LIB:site.php;FUNC:lng_dir_left_go_right_right_go_left}:40px
-				}
-
-				.parallax video{top:-100px}
-			}
-
-
-			/* 1023px or larger. */
-			@media only screen and (min-width:1023px){
-				.cssgrid{
-					grid-gap:1rem;
-					grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-					grid-template-areas:
-						"c1 c2 c3"
-				}
-
-				.parallax div{bottom:-330px}
-			}
-
-
-			/* 1199px or larger. To help adjust video background position on larger screens. */
-			@media only screen and (min-width:1199px){.parallax>video{top:-200px}}
-
-
-			/* 1599px or larger. To help adjust video background position on larger screens. */
-			@media only screen and (min-width:1599px){.parallax>video{top:-300px}}
 		</style>
 		<script>
 			var navActiveArray = ["nl-3","nl-lng","lng-{CCMS_LIB:_default.php;FUNC:ccms_lng}"];
@@ -394,7 +237,12 @@
 		<div id="loading_svg"></div>
 		<div id="wrapper">
 			<main>
-				<h1>About Us</h1>
+				<div class="contentType1">
+					<div>
+						<h1 style="margin-bottom:3rem">About Us</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper finibus euismod. Aliquam elementum nisl eu egestas convallis. Pellentesque a egestas nisi. Praesent vel aliquam velit. Aliquam ultricies dapibus nisi, nec malesuada quam imperdiet et. Donec laoreet arcu vitae maximus egestas. Nullam consequat metus in libero accumsan commodo. Etiam ultrices, nisi id posuere molestie, tortor dolor viverra augue, nec bibendum leo velit in lectus. Praesent vel molestie ligula.</p>
+					</div>
+				</div>
 {CCMS_TPL:footer.html}
 			</main>
 {CCMS_TPL:header-body.html}
