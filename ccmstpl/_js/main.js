@@ -126,7 +126,7 @@ window.setTimeout(function(){document.getElementsByTagName("header")[0].style.op
 
 
 /* MSG popup email form. */
-var container = document.getElementById('msg');
+var msgContainer = document.getElementById('msg');
 var svgButton = document.getElementById('msg-svg-fill');
 function msg_show(){
 	document.getElementById("msg-svg-fill").classList.add("hide");
@@ -136,11 +136,12 @@ function msg_hide(){
 	document.getElementById("msg-svg-fill").classList.remove("hide");
 	document.getElementById("msg").classList.add("hide");
 }
-document.addEventListener('click',function(event){
-	if(container!==event.target&&svgButton!==event.target&&!container.contains(event.target)){
+/*document.addEventListener('click',function(e){*/
+msgContainer.addEventListener('focusout',function(e){
+	/*if(msgContainer!==e.target&&svgButton!==e.target&&!msgContainer.contains(e.target)){*/
 		svgButton.classList.remove("hide");
-		container.classList.add("hide");
-	}
+		msgContainer.classList.add("hide");
+	/*}*/
 });
 $.validator.addMethod(
 	"badCharRegex",
