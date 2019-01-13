@@ -261,6 +261,75 @@ $("#msgForm").validate({
 	}
 });
 
+
+/*
+Add to Home screen (A2HS) code.
+https://developer.mozilla.org/en-US/docs/Web/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready
+*/
+/* Check cookie to determin if we want to listen for the 'beforeinstallprompt' event. */
+function getCookie(cname) {
+	let name = cname + "=";
+	let ca = document.cookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+let cookie;
+let deferredPrompt;
+const A2HSbox = document.getElementById("A2HS-box");
+const A2HSbox_no = document.getElementById("A2HS-box-no");
+const A2HSbox_yes = document.getElementById("A2HS-box-yes");
+window.addEventListener("beforeinstallprompt",e => {
+	cookie = getCookie("A2HSbox");
+	/* Test for A2HSbox cookie. */
+	if (cookie == "") {
+		/* A2HSbox cookie not found so run 'beforeinstallprompt' event detection code. */
+		console.log('A2HSbox cookie not found and "beforeinstallprompt" event detected, dropping A2HS box.');
+		/* Prevent Chrome 67 and earlier from automatically showing the prompt. */
+		e.preventDefault();
+		/* Stash the event so it can be triggered later. */
+		deferredPrompt = e;
+		/* Update UI to notify the user they can add to home screen. */
+		A2HSbox.classList.add("active");
+
+		A2HSbox_no.addEventListener('click',e => {
+			console.log('User dismissed A2HS prompt #1.');
+			/* hide our user interface that shows our A2HS button. */
+			A2HSbox.classList.remove("active");
+			/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+			document.cookie = "A2HSbox=1; max-age=15768000; path=/";
+			deferredPrompt = null;
+		});
+
+		A2HSbox_yes.addEventListener('click',e => {
+			console.log('User accepted A2HS prompt #1.');
+			/* hide our user interface that shows our A2HS button. */
+			A2HSbox.classList.remove("active");
+			/* Show the prompt. */
+			deferredPrompt.prompt();
+			/* Wait for the user to respond to the prompt. */
+			deferredPrompt.userChoice.then(choiceResult => {
+				if (choiceResult.outcome === 'accepted') {
+					console.log('User accepted A2HS prompt #2.');
+				} else {
+					console.log('User dismissed A2HS prompt #2.');
+					/* Set cookie to defer A2HS box apearence in the future.  (15768000 = 6 months) */
+					document.cookie = "A2HSbox=1; max-age=15768000; path=/";
+				}
+				deferredPrompt = null;
+			});
+		});
+	}
+});
+
+
 /* This feature helps clear out a cached cookies so that a new one can be written in place when changing your language.  You can choose to not use if you wish, it was just added to help make sure the example templates would do as we wished them to as written.  Your templates probably will not require such code, all links should contain the full language snippit in them to help drive the templates to the correct language content.  ie: { CCMS_LIB:_default.php;FUNC:ccms_lng} <-- remove the space. */
 function ccms_lcu(lng) { /* lcu = language cookie update */
 	document.cookie = "ccms_lng={CCMS_LIB:_default.php;FUNC:ccms_lng}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
