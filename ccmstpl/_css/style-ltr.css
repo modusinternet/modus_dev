@@ -257,7 +257,7 @@ cssgrid-footer.c3{grid-area:c3}
 
 .footerBG{
 	width:100%;
-	padding:200px 0 0;
+	padding:240px 0 0;
 	background-image:url(https://d3rifeizl63fms.cloudfront.net/ccmstpl/_img/footerBg.png);
 	background-size:cover !important;
 	background-position:center bottom;
@@ -801,8 +801,6 @@ END of MSG popup
 		font-size:1rem;
 		transform:rotate(270deg)
 	}
-
-	.nav-scroll{background:rgba(0,0,0,.6)}
 
 	.nl-lng-submenu{
 		max-height:550px;

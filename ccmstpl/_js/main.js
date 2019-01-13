@@ -11,13 +11,11 @@ $(window).scroll(function() {
 		$("header").addClass("header-scroll");
 		$("header img").addClass("header-div-a-img-scroll");
 		$("header div button").addClass("header-div-button-scroll");
-		$("nav").addClass("nav-scroll");
 		$(".scrollToTopButton").addClass("scrollToTopButton-active");
 	} else {
 		$("header").removeClass("header-scroll");
 		$("header img").removeClass("header-div-a-img-scroll");
 		$("header div button").removeClass("header-div-button-scroll");
-		$("nav").removeClass("nav-scroll");
 		$(".scrollToTopButton").removeClass("scrollToTopButton-active");
 	}
 
