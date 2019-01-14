@@ -144,7 +144,7 @@ msgContainer.addEventListener('click',function(e){
 	}
 });
 */
-msgContainer.addEventListener('focusout',function(e){
+msgContainer.addEventListener('click',function(e){
 	svgButton.classList.remove("hide");
 	msgContainer.classList.add("hide");
 });
