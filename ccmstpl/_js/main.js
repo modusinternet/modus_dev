@@ -136,13 +136,19 @@ function msg_hide(){
 	document.getElementById("msg-svg-fill").classList.remove("hide");
 	document.getElementById("msg").classList.add("hide");
 }
-/*document.addEventListener('click',function(e){*/
-msgContainer.addEventListener('focusout',function(e){
-	/*if(msgContainer!==e.target&&svgButton!==e.target&&!msgContainer.contains(e.target)){*/
+/*
+msgContainer.addEventListener('click',function(e){
+	if(msgContainer!==e.target&&svgButton!==e.target&&!msgContainer.contains(e.target)){
 		svgButton.classList.remove("hide");
 		msgContainer.classList.add("hide");
-	/*}*/
-}, false);
+	}
+});
+*/
+msgContainer.addEventListener('focusout',function(e){
+	svgButton.classList.remove("hide");
+	msgContainer.classList.add("hide");
+});
+
 $.validator.addMethod(
 	"badCharRegex",
 	function(value,element,regexp){
