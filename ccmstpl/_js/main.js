@@ -142,7 +142,7 @@ msgContainer.addEventListener('focusout',function(e){
 		svgButton.classList.remove("hide");
 		msgContainer.classList.add("hide");
 	/*}*/
-}, true);
+}, false);
 $.validator.addMethod(
 	"badCharRegex",
 	function(value,element,regexp){
