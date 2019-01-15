@@ -129,12 +129,20 @@ window.setTimeout(function(){document.getElementsByTagName("header")[0].style.op
 var msgContainer = document.getElementById('msg');
 var svgButton = document.getElementById('msg-svg-fill');
 function msg_show(){
+	/*
 	document.getElementById("msg-svg-fill").classList.add("hide");
 	document.getElementById("msg").classList.remove("hide");
+	*/
+	svgButton.classList.add("hide");
+	msgContainer.classList.remove("hide");
 }
 function msg_hide(){
+	/*
 	document.getElementById("msg-svg-fill").classList.remove("hide");
 	document.getElementById("msg").classList.add("hide");
+	*/
+	svgButton.classList.remove("hide");
+	msgContainer.classList.add("hide");
 }
 /*
 msgContainer.addEventListener('click',function(e){
