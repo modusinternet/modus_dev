@@ -144,9 +144,8 @@ function msg_hide(){
 	svgButton.classList.remove("hide");
 	msgContainer.classList.add("hide");
 }
-document.addEventListener("click", function(a) {
-	msgContainer === a.target || svgButton === a.target || msgContainer.contains(a.target) || (svgButton.classList.remove("hide"), msgContainer.classList.add("hide"))
-})
+
+
 /*
 msgContainer.addEventListener('click',function(e){
 	if(msgContainer!==e.target&&svgButton!==e.target&&!msgContainer.contains(e.target)){
@@ -154,13 +153,15 @@ msgContainer.addEventListener('click',function(e){
 		msgContainer.classList.add("hide");
 	}
 });
-*/
-/*
 msgContainer.addEventListener('click',function(e){
 	svgButton.classList.remove("hide");
 	msgContainer.classList.add("hide");
 });
 */
+document.addEventListener("click", function(a) {
+	msgContainer === a.target || svgButton === a.target || msgContainer.contains(a.target) || (svgButton.classList.remove("hide"), msgContainer.classList.add("hide"))
+})
+
 
 $.validator.addMethod(
 	"badCharRegex",
