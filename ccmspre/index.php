@@ -60,17 +60,17 @@ define('UTF8_STRING_DIGIT_PUNC_WHITE', '/^[\pL\pM*+\pN\pP\s]*\z/u');
 // /u Pattern strings are treated as UTF-8
 
 $ccms_whitelist = array(
-	"ccms_lngSelect"			=> array("type" => "LNG",								"maxlength"     => 5),
-	"ccms_parms"				=> array("type" => "PARMS",							"maxlength"     => 128),
-	"ccms_tpl"					=> array("type" => "TPL",								"maxlength"     => 256),
-	"ccms_session"				=> array("type" => "SESSION_ID",						"maxlength"     => 64),
-	"ccms_cid"					=> array("type" => "SESSION_ID",						"maxlength"     => 64),
-	"ccms_lng"					=> array("type" => "LNG",								"maxlength"     => 5),
-	"ccms_token"				=> array("type" => "UTF8_STRING_DIGIT_WHITE",	"maxlength"     => 64),
-	"HTTP_ACCEPT_LANGUAGE"	=> array("type" => "HTTP_ACCEPT_LANGUAGE",		"maxlength"     => 256),
-	"HTTP_COOKIE"				=> array("type" => "HTTP_COOKIE",					"maxlength"     => 512),
-	"HTTP_USER_AGENT"			=> array("type" => "HTTP_USER_AGENT",				"maxlength"     => 512),
-	"QUERY_STRING"				=> array("type" => "QUERY_STRING",					"maxlength"     => 1024)
+	"ccms_lngSelect"			=> array("type" => "LNG",								"maxlength"	 => 5),
+	"ccms_parms"				=> array("type" => "PARMS",							"maxlength"	 => 128),
+	"ccms_tpl"					=> array("type" => "TPL",								"maxlength"	 => 256),
+	"ccms_session"				=> array("type" => "SESSION_ID",						"maxlength"	 => 64),
+	"ccms_cid"					=> array("type" => "SESSION_ID",						"maxlength"	 => 64),
+	"ccms_lng"					=> array("type" => "LNG",								"maxlength"	 => 5),
+	"ccms_token"				=> array("type" => "UTF8_STRING_DIGIT_WHITE",	"maxlength"	 => 64),
+	"HTTP_ACCEPT_LANGUAGE"	=> array("type" => "HTTP_ACCEPT_LANGUAGE",		"maxlength"	 => 256),
+	"HTTP_COOKIE"				=> array("type" => "HTTP_COOKIE",					"maxlength"	 => 512),
+	"HTTP_USER_AGENT"			=> array("type" => "HTTP_USER_AGENT",				"maxlength"	 => 512),
+	"QUERY_STRING"				=> array("type" => "QUERY_STRING",					"maxlength"	 => 1024)
 );
 
 function CCMS_Set_LNG() {
@@ -625,68 +625,68 @@ function CCMS_TPL_Parser($a = null) {
 				// When PHP attempts to load the the user_lib.php template it will produce an error complaining that the
 				// test1 function is already in use because it was previously loaded on the _default.php template.
 				// Rule of thumb, make sure all your functions have different names.
-                if (function_exists($c[4])) {
-                    if ($c["5"] == "") {
-                        call_user_func($c[4]);
-                    } else {
-                        call_user_func_array($c[4], $tmp);
-                    }
-                } else {
-                    require_once $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["LIBDIR"] . "/" . $c[2];
-                    if (function_exists($c[4])) {
-                        if ($c["5"] == "") {
-                            call_user_func($c[4]);
-                        } else {
-                            call_user_func_array($c[4], $tmp);
-                        }
-                    } else {
-                        echo $c[0] . " ERROR: FUNC '" . $c[4] . "' not found. ";
-                    }
-                }
-            } elseif (preg_match('/^\{(CCMS_DB):([a-z]+[a-z-_\pN]+),([a-z]+[a-z-_\pN]+)}\z/i', $b, $c)) {
-                // {CCMS_DB:about_us_filter,meta_description}
-                // {CCMS_DB:about_us_filter,meta_keywords}
-                // {CCMS_DB:about_us_filter,title}
-                // {CCMS_DB:about_us_filter,first_paragraph}
-                // {CCMS_DB:about_us_filter,second_paragraph}
-                // {CCMS_DB:footer_filter,copywrite}
-                // {CCMS_DB:header_filter,title}
-                // {CCMS_DB:twiter_feed_filter,title}
-                // {CCMS_DB:twiter_feed_filter,tag_top}
-                // {CCMS_DB:twiter_feed_filter,tag_bottm}
-                CCMS_DB($c);
-            } elseif (preg_match('/^\{(CCMS_DB_DIR):([a-z]+[a-z-_\pN]+),([a-z]+[a-z-_\pN]+)(:(1))?}\z/i', $b, $c)) {
-                // {CCMS_DB_DIR:about_us_filter,meta_description}
-                // {CCMS_DB_DIR:about_us_filter,meta_description:1}
-                // {CCMS_DB_DIR:about_us_filter,meta_keywords:1}
-                // {CCMS_DB_DIR:about_us_filter,title}
-                // {CCMS_DB_DIR:about_us_filter,first_paragraph}
-                // {CCMS_DB_DIR:about_us_filter,second_paragraph}
-                // {CCMS_DB_DIR:footer_filter,copywrite}
-                // {CCMS_DB_DIR:footer_filter,copywrite:1}
-                // {CCMS_DB_DIR:header_filter,title}
-                // {CCMS_DB_DIR:twiter_feed_filter,title}
-                // {CCMS_DB_DIR:twiter_feed_filter,tag_top:1}
-                // {CCMS_DB_DIR:twiter_feed_filter,tag_bottm}
-                CCMS_DB_Dir($c);
-            } elseif (preg_match('/^\{(CCMS_DB_PRELOAD):([a-z]+[a-z-_,\pN]*)}\z/i', $b, $c)) {
-                // {CCMS_DB_PRELOAD:about_us_filter,footer_filter,header_filter,twiter_feed_filter}
-                CCMS_DB_Preload($c);
-            } elseif (preg_match('/^\{(CCMS_TPL):([a-z-_\pN\/]+(\.php|\.html)?)}\z/i', $b, $c)) {
-                // This preg_match helps prevent CCMS_TPL calls like this; {CCMS_TPL:css/../../../../../../../etc/passwd}
-                // {CCMS_TPL:test_01}
-                // {CCMS_TPL:test_02.html}
-                // {CCMS_TPL:test_03.php}
-                // {CCMS_TPL:temp/test_04}
-                // {CCMS_TPL:temp/test_05.html}
-                // {CCMS_TPL:temp/test_06.php}
-                CCMS_TPL_Insert($c);
-            } else {
-                echo $b;
-            }
-        }
-        echo substr($a, $from, strlen($a)-$from);
-    }
+				if (function_exists($c[4])) {
+					if ($c["5"] == "") {
+						call_user_func($c[4]);
+					} else {
+						call_user_func_array($c[4], $tmp);
+					}
+				} else {
+					require_once $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["LIBDIR"] . "/" . $c[2];
+					if (function_exists($c[4])) {
+						if ($c["5"] == "") {
+							call_user_func($c[4]);
+						} else {
+							call_user_func_array($c[4], $tmp);
+						}
+					} else {
+						echo $c[0] . " ERROR: FUNC '" . $c[4] . "' not found. ";
+					}
+				}
+			} elseif (preg_match('/^\{(CCMS_DB):([a-z]+[a-z-_\pN]+),([a-z]+[a-z-_\pN]+)}\z/i', $b, $c)) {
+				// {CCMS_DB:about_us_filter,meta_description}
+				// {CCMS_DB:about_us_filter,meta_keywords}
+				// {CCMS_DB:about_us_filter,title}
+				// {CCMS_DB:about_us_filter,first_paragraph}
+				// {CCMS_DB:about_us_filter,second_paragraph}
+				// {CCMS_DB:footer_filter,copywrite}
+				// {CCMS_DB:header_filter,title}
+				// {CCMS_DB:twiter_feed_filter,title}
+				// {CCMS_DB:twiter_feed_filter,tag_top}
+				// {CCMS_DB:twiter_feed_filter,tag_bottm}
+				CCMS_DB($c);
+			} elseif (preg_match('/^\{(CCMS_DB_DIR):([a-z]+[a-z-_\pN]+),([a-z]+[a-z-_\pN]+)(:(1))?}\z/i', $b, $c)) {
+				// {CCMS_DB_DIR:about_us_filter,meta_description}
+				// {CCMS_DB_DIR:about_us_filter,meta_description:1}
+				// {CCMS_DB_DIR:about_us_filter,meta_keywords:1}
+				// {CCMS_DB_DIR:about_us_filter,title}
+				// {CCMS_DB_DIR:about_us_filter,first_paragraph}
+				// {CCMS_DB_DIR:about_us_filter,second_paragraph}
+				// {CCMS_DB_DIR:footer_filter,copywrite}
+				// {CCMS_DB_DIR:footer_filter,copywrite:1}
+				// {CCMS_DB_DIR:header_filter,title}
+				// {CCMS_DB_DIR:twiter_feed_filter,title}
+				// {CCMS_DB_DIR:twiter_feed_filter,tag_top:1}
+				// {CCMS_DB_DIR:twiter_feed_filter,tag_bottm}
+				CCMS_DB_Dir($c);
+			} elseif (preg_match('/^\{(CCMS_DB_PRELOAD):([a-z]+[a-z-_,\pN]*)}\z/i', $b, $c)) {
+				// {CCMS_DB_PRELOAD:about_us_filter,footer_filter,header_filter,twiter_feed_filter}
+				CCMS_DB_Preload($c);
+			} elseif (preg_match('/^\{(CCMS_TPL):([a-z-_\pN\/]+(\.php|\.html)?)}\z/i', $b, $c)) {
+				// This preg_match helps prevent CCMS_TPL calls like this; {CCMS_TPL:css/../../../../../../../etc/passwd}
+				// {CCMS_TPL:test_01}
+				// {CCMS_TPL:test_02.html}
+				// {CCMS_TPL:test_03.php}
+				// {CCMS_TPL:temp/test_04}
+				// {CCMS_TPL:temp/test_05.html}
+				// {CCMS_TPL:temp/test_06.php}
+				CCMS_TPL_Insert($c);
+			} else {
+				echo $b;
+			}
+		}
+		echo substr($a, $from, strlen($a)-$from);
+	}
 }
 
 
@@ -723,8 +723,6 @@ function CCMS_Main() {
 		$CLEAN["ccms_tpl"] .= "index";
 	}
 
-//echo $CLEAN["ccms_tpl"] . "<br>";
-
 	// Trims the forward slash (/) from the beginning and .html from the end.  Resave back to CLEAN["ccms_tpl"]:
 	// /index
 	// /fruit/orange.html
@@ -739,14 +737,8 @@ function CCMS_Main() {
 	//$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)\.(.*)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
-//echo $CLEAN["ccms_tpl"] . "<br>";
-
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
-
-//echo $ccms_file[0] . "<br>";
-//die();
-
 	// Copys the first part of the string inside $CLEAN["ccms_tpl"] before the last /.
 	$ccms_dir = @strstr($CLEAN["ccms_tpl"], $ccms_file[0], true);
 
@@ -769,22 +761,9 @@ function CCMS_Main() {
 		if (is_dir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir)) {
 			$odhandle = @opendir($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir);
 			while (($file = @readdir($odhandle)) !== false) {
-
-//echo $file . "<br>";
-
 				if ($file != "." && $file != ".." && is_file($_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file)) {
-
-//echo $ccms_file[0] . "<br>";
-
 					if ($file == $ccms_file[0] . ".php") {
 						// .php template.  Do not check or save cached version.
-
-/*
-if($file == "error404.php"){
-	header("HTTP/1.0 404 not found");
-	die();
-}
-*/
 						ob_start();
 						include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $ccms_dir . $file;
 						$html = ob_get_contents();
