@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="www.frebsite.nl" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>jQuery.dmenu demo</title>
+		<style>
+			.header-logo
+			{
+				background: #54b4eb;
+			}
+			.logo
+			{
+				width: 80px;
+				margin-top: 10px;
+			}
+
+			.header-menu
+			{
+				background: #eee;
+				margin-bottom: 20px;
+			}
+			.dm-menu
+			{
+				--dm-bg: #eee;
+				--dm-item-current-bg: #fff;
+				--dm-item-hover-bg: #4ba2d3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<div class="header-logo">
+					<div class="container">
+						<img src="img/logo.png" class="logo" />
+					</div>
+				</div>
+				<div class="header-menu">
+					<div class="container">
+						<nav id="menu">
+							<a href="#" style="background-image: url(img/logo.png)"></a>
+							<ul>
+								<li class="SubmenuTabs IconHidden">
+									<a href="#"><i class="fas fa-home"></i> Tabs</a>
+									<ul>
+										<li class="SubmenuMega">
+											<a href="#">Lorem ipsum dolor</a>
+											<ul>
+												<li>
+													<div style="background-image: url(img/1.jpg)"></div>
+													<a href="#">Lorem ipsum dolor</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+												<li>
+													<div style="background-image: url(img/2.jpg)"></div>
+													<a href="#">Dolor sit amet</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li class="SubmenuMega">
+											<a href="#">Dolor sit</a>
+											<ul>
+												<li class="Selected">
+													<a href="#">Lorem ipsum</a>
+													<ul>
+														<li><a href="#">Lorem</a></li>
+														<li><a href="#">Ipsum dolor dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+												<li>
+													<a href="#">Dolor sit amet</a>
+													<ul>
+														<li><a href="#">Lorem ipsum</a></li>
+														<li><a href="#">Dolor sit</a></li>
+													</ul>
+												</li>
+												<li>
+													<a href="#">Lorem ipsum</a>
+													<ul>
+														<li><a href="#">Lorem</a></li>
+														<li><a href="#">Ipsum dolor dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Ipsum dolor</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor sit</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Link</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#"></i> Submenu with flyouts</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Dolor sit amet</a></li>
+										<li>
+											<a href="#">Ipsum dolor</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+											</ul>
+										</li>
+										<li class="SubSubmenuAlignRight">
+											<a href="#">Link (flyout left)</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Dolor sit amet</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Lorem</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Dolor sit amet</a></li>
+										<li class="SubSubmenuInline">
+											<a href="#">Link (with inline submenu)</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+												<li>
+													<a href="#">Lorem (flyout)</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Lorem ipsum (flyout)</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+											</ul>
+										</li>
+										<li class="SubSubmenuAlignRight">
+											<a href="#">Dolor sit amet (flyout left)</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Dolor sit amet</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="SubmenuMega">
+									<a href="#">Mega</a>
+									<ul>
+										<li>
+											<a href="#">Lorem ipsum</a>
+											<ul>
+												<li><a href="#">Dolor sit amet</a></li>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li>
+													<a href="#">Dolor sit amet (flyout)</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Ipsum dolor</a></li>
+													</ul>
+												</li>
+												<li class="SubSubmenuAlignRight">
+													<a href="#">Lorem ipsum dolor (flyout left)</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Dolor sit amet</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Dolor sit</a>
+											<ul>
+												<li><a href="#">Dolor sit amet</a></li>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li>
+													<a href="#">Dolor sit amet (flyout)</a>
+													<ul>
+														<li><a href="#">Lorem ipsum dolor</a></li>
+														<li><a href="#">Ipsum dolor</a></li>
+														<li class="SubSubmenuAlignRight">
+															<a href="#">Lorem ipsum dolor (flyout left)</a>
+															<ul>
+																<li><a href="#">Lorem ipsum dolor</a></li>
+																<li><a href="#">Dolor sit amet</a></li>
+																<li><a href="#">Lorem ipsum dolor</a></li>
+																<li><a href="#">Dolor sit amet</a></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Amet</a>
+											<ul>
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="#">Link</a></li>
+								<li class="SubmenuMega SubmenuFullwidth IconOnly">
+									<a href="#"><i class="fas fa-envelope"></i> Fullwidth mega</a>
+									<ul>
+										<li>
+											<div style="background-image: url(img/1.jpg)"></div>
+											<a href="#">Link</a>
+											<ul>
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+												<li>
+													<a href="#">Link (flyout)</a>
+													<ul>
+														<li><a href="#">Link</a></li>
+														<li><a href="#">Link</a></li>
+													</ul>
+												</li>
+												<li class="SubSubmenuAlignRight">
+													<a href="#">Link (flyout left)</a>
+													<ul>
+														<li><a href="#">Link</a></li>
+														<li><a href="#">Link</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<div style="background-image: url(img/2.jpg)"></div>
+											<a href="#">Link</a>
+											<ul>
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+											</ul>
+										</li>
+										<li>
+											<div style="background-image: url(img/3.jpg)"></div>
+											<a href="#">Link</a>
+											<ul>
+												<li><a href="#">Link</a></li>
+												<li><a href="#">Link</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+								<li><a href="#"><i class="fab fa-apple"></i> Apple</a></li>
+
+								<li class="AlignRight">
+									<a href="#">Align right</a>
+									<ul>
+										<li>
+											<a href="#">Link (with a flyout submenu)</a>
+											<ul>
+												<li><a href="#">Link with long text in it</a></li>
+												<li><a href="#">Link</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Link</a></li>
+										<li><a href="#">Link</a></li>
+									</ul>
+								</li>
+								<li class="AlignRight">
+									<a href="#"><i class="fas fa-search"></i></a>
+									<ul>
+										<li>
+											<form>
+												<input type="text" />
+												<input type="submit" value="zoek" />
+											</form>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div> <!-- /container -->
+				</div> <!-- /header-menu -->
+				<div class="container header-slider">
+
+				</div> <!-- /header-slider -->
+			</div> <!-- /header -->
+
+			<div class="container">
+				<h2>Some text</h2>
+				<a href="/nav/">nav 1</a><br>
+				<a href="/nav/2.html">nav 2</a><br>
+				<a href="/nav/3.html">nav 3</a><br>
+				<a href="/nav/4.html">nav 4</a><br>
+				<a href="/nav/5.html">nav 5</a><br>
+				<a href="/nav/6.html">nav 6</a><br>
+				<a href="/nav/7.html" style="font-weight:bold">nav 7</a>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+
+		</div> <!-- /page -->
+
+		<script>
+			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
+
+			var l=document.createElement("link");l.rel="stylesheet";
+			l.href = "/nav/css/demo.css";
+			var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
+
+			var l=document.createElement("link");l.rel="stylesheet";
+			l.href="/nav/css/jquery.dmenu.css";
+			var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
+
+			function loadJSResources(){
+				loadFirst("/nav/js/jquery-3.4.1.min.js",function(){
+					loadFirst("/nav/js/fontawesome-all-5.0.6.min.js",function(){
+						loadFirst("/nav/js/jquery.dmenu.js",function(){
+
+							$('#menu').dmenu({
+								menu 	: {
+									border			: false,
+									logo			: false,
+									align			: false
+								},
+								item	: {
+									bg				: false,
+									border 			: true,
+									subindicator	: false,
+									fit			: [
+										{
+											items 		: null,
+											fitter 		: 'icon-hide',
+											order		: 'all'
+										},
+										{
+											items 		: null,
+											fitter 		: 'icon-only',
+											order		: 'all'
+										},
+										{
+											items 		: ':not(.dm-item_align-right)',
+											fitter 		: 'submenu',
+											order		: 'rtl'
+										},
+										{
+											items 		: ':not(.dm-item_align-right)',
+											fitter 		: 'hide',
+											order		: 'rtl'
+										}
+									]
+								},
+								submenu	: {
+									arrow			: false,
+									border			: false,
+									shadow			: true
+								},
+								subitem	: {
+									bg				: true,
+									border			: false
+								}
+							});
+
+							$(window).resize();
+						});
+					});
+				});
+			}
+
+			if(window.addEventListener){window.addEventListener("load",loadJSResources,false)}
+			else if(window.attachEvent){window.attachEvent("onload",loadJSResources)}
+			else{window.onload=loadJSResources}
+		</script>
+
+	</body>
+</html>
