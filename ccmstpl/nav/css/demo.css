@@ -80,6 +80,6 @@ td
 }
 .header-slider
 {
-	background: url(../img/slide.jpg) center center / cover no-repeat #eee;
+	background: url(/ccmstpl/nav/img/slide.jpg) center center / cover no-repeat #eee;
 	height: 200px;
 }
