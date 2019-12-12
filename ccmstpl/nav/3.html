@@ -361,44 +361,36 @@
 						loadFirst("/ccmstpl/nav/js/jquery.dmenu.js",function(){
 
 							$('#menu').dmenu({
-								menu 	: {
-									border			: false,
-									logo			: false,
-									align			: 'center'
-								},
-								item	: {
-									bg				: false,
-									border 			: true,
-									fit			: [
-										{
-											items 		: null,
-											fitter 		: 'icon-hide',
-											order		: 'all'
-										},
-										{
-											items 		: null,
-											fitter 		: 'icon-only',
-											order		: 'all'
-										},
-										{
-											items 		: ':not(.dm-item_align-right)',
-											fitter 		: 'submenu',
-											order		: 'rtl'
-										},
-										{
-											items 		: ':not(.dm-item_align-right)',
-											fitter 		: 'hide',
-											order		: 'rtl'
-										}
-									]
-								},
-								submenu	: {
-									border			: false,
-									shadow			: true
-								},
-								subitem	: {
-									bg				: true,
-									border			: true
+								menu: {
+									border: false,
+									logo: false,
+									align: 'center'
+								},item: {
+									bg: false,
+									border: true,
+									fit: [{
+										items: null,
+										fitter: 'icon-hide',
+										order: 'all'
+									},{
+										items: null,
+										fitter: 'icon-only',
+										order: 'all'
+									},{
+										items: ':not(.dm-item_align-right)',
+										fitter: 'submenu',
+										order: 'rtl'
+									},{
+										items: ':not(.dm-item_align-right)',
+										fitter: 'hide',
+										order: 'rtl'
+									}]
+								},submenu: {
+									border: false,
+									shadow: true
+								},subitem: {
+									bg: true,
+									border: true
 								}
 							});
 
