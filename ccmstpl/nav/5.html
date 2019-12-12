@@ -307,13 +307,13 @@
 
 			<div class="container">
 				<h2>Some text</h2>
-				<a href="/nav/">nav 1</a><br>
-				<a href="/nav/2.html">nav 2</a><br>
-				<a href="/nav/3.html">nav 3</a><br>
-				<a href="/nav/4.html">nav 4</a><br>
-				<a href="/nav/5.html" style="font-weight:bold">nav 5</a><br>
-				<a href="/nav/6.html">nav 6</a><br>
-				<a href="/nav/7.html">nav 7</a>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/">nav 1</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/2.html">nav 2</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/3.html">nav 3</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/4.html">nav 4</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/5.html" style="font-weight:bold">nav 5</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/6.html">nav 6</a><br>
+				<a href="/{CCMS_LIB:_default.php;FUNC:ccms_lng}/nav/7.html">nav 7</a>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -332,17 +332,17 @@
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			var l=document.createElement("link");l.rel="stylesheet";
-			l.href = "/nav/css/demo.css";
+			l.href = "/ccmstpl/nav/css/demo.css";
 			var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
 
 			var l=document.createElement("link");l.rel="stylesheet";
-			l.href="/nav/css/jquery.dmenu.css";
+			l.href="/ccmstpl/nav/css/jquery.dmenu.css";
 			var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
 
 			function loadJSResources(){
-				loadFirst("/nav/js/jquery-3.4.1.min.js",function(){
-					loadFirst("/nav/js/fontawesome-all-5.0.6.min.js",function(){
-						loadFirst("/nav/js/jquery.dmenu.js",function(){
+				loadFirst("/ccmstpl/nav/js/jquery-3.4.1.min.js",function(){
+					loadFirst("/ccmstpl/nav/js/fontawesome-all-5.0.6.min.js",function(){
+						loadFirst("/ccmstpl/nav/js/jquery.dmenu.js",function(){
 
 							$('#menu').dmenu({
 								menu 	: {
