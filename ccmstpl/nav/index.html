@@ -2,19 +2,26 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="/ccmstpl/_img/ico/favicon.ico" />
+		<meta name="author" content="www.frebsite.nl" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 
 		<title>jQuery.dmenu demo</title>
 		<style>
-			.dm-menu{
-				--dm-bg:#fff;
-				--dm-logo-width:80px;
-				--dm-item-hover-bg:#f3f3f3;
-				--dm-menu-height:100px
+			.dm-menu
+			{
+				--dm-bg: #fff;
+				--dm-logo-width: 80px;
+				--dm-item-hover-bg: #f3f3f3;
+				--dm-menu-height: 100px;
 			}
-			.dm-menu>ul>li{border-right:1px solid #eee}
-			.dm-menu>ul>li:first-child{border-left:1px solid #eee}
+			.dm-menu > ul > li
+			{
+				border-right: 1px solid #eee;
+			}
+			.dm-menu > ul > li:first-child
+			{
+				border-left: 1px solid #eee;
+			}
 		</style>
 	</head>
 	<body>
@@ -295,6 +302,55 @@
 								</li>
 							</ul>
 						</nav>
+						<script>
+							$(function() {
+								$(window).resize();
+							});
+							$('#menu').dmenu({
+								menu 	: {
+									logo			: true,
+									align			: 'right'
+								},
+								item	: {
+									bg				: true,
+									border 			: false,
+									subindicator	: true,
+
+									fit			: [
+										{
+											items 		: null,
+											fitter 		: 'icon-hide',
+											order		: 'all'
+										},
+										{
+											items 		: null,
+											fitter 		: 'icon-only',
+											order		: 'all'
+										},
+										{
+											items 		: ':not(.dm-item_align-right)',
+											fitter 		: 'submenu',
+											order		: 'rtl'
+										},
+										{
+											items 		: ':not(.dm-item_align-right)',
+											fitter 		: 'hide',
+											order		: 'rtl'
+										}
+									]
+								},
+								submenu	: {
+									arrow			: false,
+									border			: false,
+									shadow			: true
+								},
+								subitem	: {
+									bg				: true,
+									border			: false
+								}
+
+							});
+						</script>
 					</div> <!-- /container -->
 				</div> <!-- /header-menu -->
 				<div class="header-slider">
@@ -322,7 +378,6 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
-
 		</div> <!-- /page -->
 
 		<script>
