@@ -350,8 +350,13 @@
 			var h=document.getElementsByTagName("head")[0];h.parentNode.insertBefore(l,h);
 
 			function loadJSResources(){
-				loadFirst("/ccmstpl/nav/js/jquery-3.4.1.min.js",function(){
+				//loadFirst("https://code.jquery.com/jquery-3.4.1.min.js",function(){
+				//loadFirst("https://code.jquery.com/jquery-3.4.0.min.js",function(){
+				loadFirst("https://code.jquery.com/jquery-3.3.1.min.js",function(){
+				//loadFirst("https://code.jquery.com/jquery-3.3.0.min.js",function(){
+				//loadFirst("https://code.jquery.com/jquery-3.2.1.min.js",function(){
 					loadFirst("/ccmstpl/nav/js/fontawesome-all-5.0.6.min.js",function(){
+					//loadFirst("https://use.fontawesome.com/releases/v5.0.6/js/all.js",function(){
 						loadFirst("/ccmstpl/nav/js/jquery.dmenu.js",function(){
 
 							$('#menu').dmenu({
