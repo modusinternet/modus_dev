@@ -185,6 +185,7 @@ function CCMS_cookie_SESSION() {
 	if(isset($CLEAN["ccms_session"]) && $CLEAN["ccms_session"] != "MAXLEN" && $CLEAN["ccms_session"] != "INVAL") {
 		// A value was found, so we'll try testing it against the database.
 		//break;
+		
 	} elseif($CLEAN["HTTP_COOKIE"] != "" && $CLEAN["HTTP_COOKIE"] != "MAXLEN" && $CLEAN["HTTP_COOKIE"] != "INVAL") {
 		// A value was found in $CLEAN["HTTP_COOKIE"] variable.  We'll try extracting the session value and validate it
 		// here first.  If it passes then we'll try testing it against the database.
