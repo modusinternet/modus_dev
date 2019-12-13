@@ -13,15 +13,15 @@ https://regex101.com/
 A list of predefined PHP constants for use with the filter_var() function can be found here: http://ca2.php.net/manual/en/filter.constants.php
 **************************************************************/
 
-define('CRYPT', '/^[a-z-_/#=&:\pN\?\.\";\'\`\*\s]*\z/i');
-define('HTTP_ACCEPT_LANGUAGE', '/^[a-z0-9-,;=\.]{2,}\z/i');
-define('HTTP_COOKIE', '/^[a-z\pN-_=\.; \/]{2,}\z/i');
-define('HTTP_USER_AGENT', '/^[a-z\pN-_;:,.()#\/\+ ]{2,}\z/i');
+define('CRYPT', '/^[a-z\-_\/#=&:\pN\?\.\";\'\`\*\s]*\z/i');
+define('HTTP_ACCEPT_LANGUAGE', '/^[a-z0-9\-,;=\.]{2,}\z/i');
+define('HTTP_COOKIE', '/^[a-z\pN\-_=\.; \/]{2,}\z/i');
+define('HTTP_USER_AGENT', '/^[a-z\pN\-_;:,.()#\/\+ ]{2,}\z/i');
 define('LNG', '/^[a-z]{2}(-[a-z]{2})?\z/i');
-define('PARMS', '/^[a-z-_\pN/]+\z/i');
-define('QUERY_STRING', '/^[a-z\pN-_=&\?\.\/]{1,}\z/i');
+define('PARMS', '/^[a-z\-_\pN\/]+\z/i');
+define('QUERY_STRING', '/^[a-z\pN\-_=&\?\.\/]{1,}\z/i');
 define('SESSION_ID', '/^[a-z\pN]{1,}\z/i');
-define('TPL', '/^[a-z-_\pN\.\/]*\z/i');
+define('TPL', '/^[a-z\-_\pN\.\/]*\z/i');
 
 define('UTF8_STRING_WHITE', '/^[\pL\pM*+\s]*\z/u');
 // ^ Start of line
@@ -60,17 +60,17 @@ define('UTF8_STRING_DIGIT_PUNC_WHITE', '/^[\pL\pM*+\pN\pP\s]*\z/u');
 // /u Pattern strings are treated as UTF-8
 
 $ccms_whitelist = array(
-	"ccms_lngSelect"			=> array("type" => "LNG",								"maxlength"	 => 5),
-	"ccms_parms"				=> array("type" => "PARMS",							"maxlength"	 => 128),
-	"ccms_tpl"					=> array("type" => "TPL",								"maxlength"	 => 256),
-	"ccms_session"				=> array("type" => "SESSION_ID",						"maxlength"	 => 64),
-	"ccms_cid"					=> array("type" => "SESSION_ID",						"maxlength"	 => 64),
-	"ccms_lng"					=> array("type" => "LNG",								"maxlength"	 => 5),
-	"ccms_token"				=> array("type" => "UTF8_STRING_DIGIT_WHITE",	"maxlength"	 => 64),
-	"HTTP_ACCEPT_LANGUAGE"	=> array("type" => "HTTP_ACCEPT_LANGUAGE",		"maxlength"	 => 256),
-	"HTTP_COOKIE"				=> array("type" => "HTTP_COOKIE",					"maxlength"	 => 512),
-	"HTTP_USER_AGENT"			=> array("type" => "HTTP_USER_AGENT",				"maxlength"	 => 512),
-	"QUERY_STRING"				=> array("type" => "QUERY_STRING",					"maxlength"	 => 1024)
+	"ccms_lngSelect"			=> array("type" => "LNG",								"maxlength"     => 5),
+	"ccms_parms"				=> array("type" => "PARMS",							"maxlength"     => 128),
+	"ccms_tpl"					=> array("type" => "TPL",								"maxlength"     => 256),
+	"ccms_session"				=> array("type" => "SESSION_ID",						"maxlength"     => 64),
+	"ccms_cid"					=> array("type" => "SESSION_ID",						"maxlength"     => 64),
+	"ccms_lng"					=> array("type" => "LNG",								"maxlength"     => 5),
+	"ccms_token"				=> array("type" => "UTF8_STRING_DIGIT_WHITE",	"maxlength"     => 64),
+	"HTTP_ACCEPT_LANGUAGE"	=> array("type" => "HTTP_ACCEPT_LANGUAGE",		"maxlength"     => 256),
+	"HTTP_COOKIE"				=> array("type" => "HTTP_COOKIE",					"maxlength"     => 512),
+	"HTTP_USER_AGENT"			=> array("type" => "HTTP_USER_AGENT",				"maxlength"     => 512),
+	"QUERY_STRING"				=> array("type" => "QUERY_STRING",					"maxlength"     => 1024)
 );
 
 function CCMS_Set_LNG() {
@@ -89,7 +89,7 @@ function CCMS_Set_LNG() {
 					//$CLEAN["ccms_lng"] = $key;
 					$CFG["CCMS_LNG_DIR"] = $value["dir"];
 					$CFG["lngCodeActiveFlag"] = true;
-					break;
+					//break;
 				} elseif($CLEAN["SESSION"]["user_id"]) {
 					// If this is a verified user trying to make changes to content in a language which is currently
 					// not set live, get the users privilages and verify their rights to make updates in the language.
@@ -102,10 +102,11 @@ function CCMS_Set_LNG() {
 							//$CLEAN["ccms_lng"] = $key;
 							$CFG["CCMS_LNG_DIR"] = $value["dir"];
 							$CFG["lngCodeActiveFlag"] = true;
-							break;
+							//break;
 						}
 					}
 				}
+				break;
 			}
 		}
 	} elseif($CLEAN["HTTP_COOKIE"] != "" && $CLEAN["HTTP_COOKIE"] != "MAXLEN" && $CLEAN["HTTP_COOKIE"] != "INVAL") {
@@ -173,7 +174,7 @@ function CCMS_Set_LNG() {
 
 	setcookie("ccms_lng", $CLEAN["ccms_lng"], time() + ($CFG["COOKIE_SESSION_EXPIRE"] * 60), "/", "", 0, 0);
 	// 259200 = 3 days of secconds based on 60*60*24*3
-	//setcookie("ccms_lng", $CLEAN["ccms_lng"], time() + 259200, "/", "", 0, 0);
+	// setcookie("ccms_lng", $CLEAN["ccms_lng"], time() + 259200, "/", "", 0, 0);
 }
 
 
@@ -181,10 +182,9 @@ function CCMS_cookie_SESSION() {
 	global $CFG, $CLEAN;
 
 	$CLEAN["SESSION"]["user_agent"] = $CLEAN["HTTP_USER_AGENT"];
-
 	if(isset($CLEAN["ccms_session"]) && $CLEAN["ccms_session"] != "MAXLEN" && $CLEAN["ccms_session"] != "INVAL") {
 		// A value was found, so we'll try testing it against the database.
-		break;
+		//break;
 	} elseif($CLEAN["HTTP_COOKIE"] != "" && $CLEAN["HTTP_COOKIE"] != "MAXLEN" && $CLEAN["HTTP_COOKIE"] != "INVAL") {
 		// A value was found in $CLEAN["HTTP_COOKIE"] variable.  We'll try extracting the session value and validate it
 		// here first.  If it passes then we'll try testing it against the database.
@@ -197,17 +197,15 @@ function CCMS_cookie_SESSION() {
 				$length = strlen(utf8_decode($cookieSess3[1]));
 				$buf = NULL;
 				if($length > 64) {
-					$buf = "MAXLEN";
+					$CLEAN["ccms_session"] = "MAXLEN";
+				} else {
+					$CLEAN["ccms_session"] = (preg_match('/^[a-z\pN]{1,}\z/i', $cookieSess3[1])) ? $cookieSess3[1] : "INVAL";
 				}
-				if($buf != "MAXLEN") {
-					$buf = (preg_match('/^[a-z\pN]{1,}\z/i', $cookieSess3[1])) ? $cookieSess3[1] : "INVAL";
-				}
-				$CLEAN["ccms_session"] = $buf;
+				//$CLEAN["ccms_session"] = $buf;
 				break;
 			}
 		}
 	}
-
 	if(isset($CLEAN["ccms_session"]) && $CLEAN["ccms_session"] != "MAXLEN" && $CLEAN["ccms_session"] != "INVAL") {
 		// The user appears to already have a session code so now we test it.  Check the 'ccms_session' table for matches.
 		$qry = $CFG["DBH"]->prepare("SELECT * FROM `ccms_session` WHERE `code` = :ccms_session AND `ip` = :ip AND `user_agent` = :user_agent AND `prf` IS NULL LIMIT 1;");
@@ -734,11 +732,11 @@ function CCMS_Main() {
 	// fruit/orange/vitamin
 	// fruit/orange/vitamin/c
 	/*$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.html?)?\z/i', '$2', $CLEAN["ccms_tpl"]);*/
-	//$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
-	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)\.(.*)?\z/i', '$2', $CLEAN["ccms_tpl"]);
+	$CLEAN["ccms_tpl"] = preg_replace('/^(\/)(.*?)(\.css?)?(\.html?)?(\.js?)?\z/i', '$2', $CLEAN["ccms_tpl"]);
 
 	// Copys the end of the string found inside $CLEAN["ccms_tpl"] after the last /.
 	preg_match('/([^\/]*)\z/', $CLEAN["ccms_tpl"], $ccms_file);
+
 	// Copys the first part of the string inside $CLEAN["ccms_tpl"] before the last /.
 	$ccms_dir = @strstr($CLEAN["ccms_tpl"], $ccms_file[0], true);
 
@@ -877,7 +875,9 @@ function CCMS_Main() {
 
 		// Rest the tpl variable to the error page.
 		$CLEAN["ccms_tpl"] = "error";
-		header("HTTP/1.0 404 not found");
+		if ($CLEAN["ccms_tpl"] == "error") {
+			header("HTTP/1.0 404 not found");
+		}
 
 		ob_start();
 		include $_SERVER["DOCUMENT_ROOT"] . "/" . $CFG["TPLDIR"] . "/" . $CLEAN["ccms_tpl"] . ".php";

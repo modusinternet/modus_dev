@@ -96,11 +96,6 @@ AddOutputFilterByType DEFLATE application/x-javascript
 	#------------------------------
 	BrowserMatch MSIE ie
 	Header set X-UA-Compatible "IE=edge"
-
-	# According to Yahoo! Performance Rules, disable ETags can make the page loads faster,
-	# decrease server load and reduce bandwidth if your website is hosted on multiple servers.
-	Header unset ETag
-	FileETag None
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -201,18 +196,16 @@ AddOutputFilterByType DEFLATE application/x-javascript
 	#------------------------------
 	ExpiresActive On
 
-	# Default expiration
-	ExpiresDefault "access plus 1 month"
+	# Default expiration: 1 day after request	ExpiresDefault "access plus 1 month"
 
-	# CSS, HTML and JS expiration
+	# CSS and JS expiration: 2 weeks after request
 	ExpiresByType text/css "access plus 2 weeks"
-	ExpiresByType text/html "access plus 1 day"
 	ExpiresByType text/javascript "access plus 2 weeks"
 	ExpiresByType text/x-javascript "access plus 2 weeks"
 	ExpiresByType application/javascript "access plus 2 weeks"
 	ExpiresByType application/x-javascript "access plus 2 weeks"
 
-	# Image files expiration
+	# Image files expiration: 1 month after request
 	ExpiresByType image/bmp "access plus 1 month"
 	ExpiresByType image/gif "access plus 1 month"
 	ExpiresByType image/jpeg "access plus 1 month"

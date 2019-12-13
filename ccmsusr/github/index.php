@@ -81,7 +81,6 @@ if(!is_callable('shell_exec') && true === stripos(ini_get('disable_functions'), 
 <? endif ?>
 					<li role="presentation"><a href="#setup" aria-controls="setup" role="tab" data-toggle="tab">Setup</a></li>
 				</ul>
-
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="status">
@@ -157,21 +156,29 @@ if(!is_callable('shell_exec') && true === stripos(ini_get('disable_functions'), 
 							<li>Add a webhook on GitHub under "Settings/Webhooks": https://<?=$CFG["DOMAIN"];?>/ccmsusr/github/webhook.php</li>
 							<li>Create a new website folder on your server. (You must have access to shell, ssh and git services.)</li>
 						</ol>
-						<h2>Copy Custondian CMS Templates to Webserver</h2>
+						<h2>Copy Custodian CMS Templates to Webserver</h2>
 						<p style="margin: 15px 0px;">You can download the latest master version of the Custodian CMS templates from <a href="https://github.com/modusinternet/Custodian-CMS/archive/master.zip" target="_blank">GitHub</a> directly or use the <a href="https://github.com/modusinternet/Custodian-CMS-Installer" target="_blank">Custodian CMS Installer</a>.  If you prefer SSH, log into your server and type the following on the command-line.</p>
 						<ol class="boxed">
-							<li>git clone --depth=1 https://github.com/modusinternet/Custodian-CMS.git /tmp/Custodian-CMS</li>
+							<li>git clone --depth=1 git@github.com/modusinternet/Custodian-CMS.git /tmp/Custodian-CMS</li>
 							<li>rm -rf /tmp/Custodian-CMS/.git</li>
-							<li>shopt -s dotglob</li>
+							<li>shopt -s dotglob (Ensure that dotglob is on.)</li>
 							<li>cp -r /tmp/Custodian-CMS/* /THE_PATH_TO_YOUR_WEBSITES_DOCUMMENT_ROOT</li>
 							<li>rm -rf /tmp/Custodian-CMS</li>
+						</ol>
+						You can also copy the Custodian repo directly to the documentroot of your website but you still need to remove the .git folder after it comes over so you can setup a new one and push it up to your own repo.
+						<ol class="boxed">
+							<li>git init</li>
+							<li>git remote add origin git@github.com/modusinternet/Custodian-CMS.git</li>
+							<li>git fetch</li>
+							<li>git checkout origin/master -ft</li>
+							<li>rm -rf ./.git</li>
 						</ol>
 						<h2>Initialize git on the Webserver</h2>
 						<p style="margin: 15px 0px;">Once you've finished moving a copy of the Custodian CMS templates into place initialize git at the document root of the website and connect it to your GitHub repository.</p>
 						<ol class="boxed">
 							<li>Test your connection to the GitHub servers via ssh:<br>
 								ssh -T git@github.com<br>
-								If successful, type the following commands:</li>
+								If successful, move to the document root folder of your new website and type the following commands:</li>
 							<li>git init</li>
 							<li>git add .</li>
 							<li>git config --global user.email "noreply@<?=$CFG["DOMAIN"];?>"</li>

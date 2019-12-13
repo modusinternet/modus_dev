@@ -67,7 +67,7 @@ $CFG["EMAIL_FROM"] = "";
 $CFG["EMAIL_BOUNCES_RETURNED_TO"] = "";
 
 // To enable Google Custom Search Engine in your error pages enter your CustomSearchControl code here.
-// To get one for your site visit http://www.google.com/cse/
+// To get one for your site visit https://cse.google.com/cse/all
 $CFG["GOOGLE_CUSTOM_SEARCH_ENGINE_CODE"] = "";
 
 // To add Google reCaptcha to your web forms enter your recaptcha keys here.
@@ -75,6 +75,6 @@ $CFG["GOOGLE_CUSTOM_SEARCH_ENGINE_CODE"] = "";
 $CFG["GOOGLE_RECAPTCHA_PUBLICKEY"] = ""; // Site key
 $CFG["GOOGLE_RECAPTCHA_PRIVATEKEY"] = ""; // Secret key
 
-// To add Google Credentials so that you can embed things like maps to your site add your key here.
-// https://console.cloud.google.com
+// To add Google Credentials so that you can embed things like Google Maps to your site add your key here.
+// https://console.cloud.google.com/apis/credentials?project=cloud-apis
 $CFG["GOOGLE_CREDENTIALS_KEY"] = "";
