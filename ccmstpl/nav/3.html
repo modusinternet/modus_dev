@@ -366,7 +366,7 @@
 							$('#menu').dmenu({
 								menu: {
 									border: false,
-									logo: false,
+									logo: true,
 									align: 'center'
 								},item: {
 									bg: false,
@@ -398,6 +398,31 @@
 							});
 
 							$(window).resize();
+
+
+							/* Shrink the Nav bar once we've scrolled 50px or more down the screen. */
+							/*
+							$(window).scroll(function() {
+								var scroll = $(window).scrollTop();
+								if(scroll >= 80) {
+									$("#logo1").attr("style","opacity:0");
+									$("#logo2").attr("style","opacity:1");
+									$("#headerTop").removeClass("active");
+									$(".cd-nav").addClass("scrolled");
+									$(".cd-header-buttons").addClass("scrolled");
+									$(".cd-search").addClass("scrolled");
+									$(".scrollToTopButton").addClass("scrollToTopButton-active");
+								} else {
+									$("#logo1").attr("style","opacity:1");
+									$("#logo2").attr("style","opacity:0");
+									$("#headerTop").addClass("active");
+									$(".cd-nav").removeClass("scrolled");
+									$(".cd-header-buttons").removeClass("scrolled");
+									$(".cd-search").removeClass("scrolled");
+									$(".scrollToTopButton").removeClass("scrollToTopButton-active");
+								}
+							});
+							*/
 
 						});
 					});
