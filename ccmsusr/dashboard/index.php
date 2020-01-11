@@ -22,7 +22,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		</script>
 	</head>
 	<body>
-		<nav id="menu">
+		<nav id="mm-menu">
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/work">Our work</a></li>
@@ -88,7 +88,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 						document.addEventListener(
 							"DOMContentLoaded", () => {
-								new Mmenu( "#menu", {
+								new Mmenu( "#mm-menu", {
 									"extensions": [
 										"pagedim-black",
 										"position-right"
