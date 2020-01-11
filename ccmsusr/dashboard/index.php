@@ -79,7 +79,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 			else window.addEventListener('load', cb);
 
 			function loadJSResources() {
-				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
+				loadFirst("/ccmsusr/_js/jquery-3.4.1.min.js", function() { /* JQuery is loaded */
 					loadFirst("/ccmsusr/_js/mmenu.js", function() { /* mmenu is loaded */
 						//loadFirst("/ccmsusr/_js/bootstrap-3.3.7.min.js", function() { /* Bootstrap is loaded */
 						//loadFirst("/ccmsusr/_js/metisMenu-2.4.0.min.js", function() { /* MetisMenu JavaScript */
