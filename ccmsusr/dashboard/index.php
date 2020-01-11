@@ -22,7 +22,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		</script>
 	</head>
 	<body>
-		<div id="wrapper">
+		<!-- div id="wrapper">
 			{CCMS_TPL:header-body.php}
 
 
@@ -44,7 +44,35 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div -->
+
+		<nav id="menu">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/work">Our work</a></li>
+				<li><span>About us</span>
+					<ul>
+						<li><a href="/about/history">History</a></li>
+						<li><span>The team</span>
+							<ul>
+								<li><a href="/about/team/management">Management</a></li>
+								<li><a href="/about/team/sales">Sales</a></li>
+								<li><a href="/about/team/development">Development</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><span>Services</span>
+					<ul>
+						<li><a href="/services/design">Design</a></li>
+						<li><a href="/services/development">Development</a></li>
+						<li><a href="/services/marketing">Marketing</a></li>
+					</ul>
+				</li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</nav>
+
 
 		<script>
 			function loadFirst(e,t){var a=document.createElement("script");a.async = true;a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
