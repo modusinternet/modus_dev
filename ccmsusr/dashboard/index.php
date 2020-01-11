@@ -50,53 +50,88 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 			function loadFirst(e,t){var a=document.createElement("script");a.async = true;a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			var cb = function() {
-				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/bootstrap-3.3.7.min.css";
-				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+				//var l = document.createElement('link'); l.rel = 'stylesheet';
+				//l.href = "/ccmsusr/_css/bootstrap-3.3.7.min.css";
+				//var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
-				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/metisMenu-2.4.0.min.css";
-				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+				//var l = document.createElement('link'); l.rel = 'stylesheet';
+				//l.href = "/ccmsusr/_css/metisMenu-2.4.0.min.css";
+				//var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
-				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/custodiancms.css";
+				//var l = document.createElement('link'); l.rel = 'stylesheet';
+				//l.href = "/ccmsusr/_css/custodiancms.css";
 				/*l.href = "/ccmsusr/_css/custodiancms.min.css";*/
-				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+				//var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+
+				//var l = document.createElement('link'); l.rel = 'stylesheet';
+				//l.href = "/ccmsusr/_css/font-awesome-4.7.0.min.css";
+				//var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 
 				var l = document.createElement('link'); l.rel = 'stylesheet';
-				l.href = "/ccmsusr/_css/font-awesome-4.7.0.min.css";
+				l.href = "/ccmsusr/_css/mmenu.css";
 				var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+
+				//path/to/js/mmenu.js
 			};
-			
+
 			var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
 			if (raf) raf(cb);
 			else window.addEventListener('load', cb);
 
 			function loadJSResources() {
 				loadFirst("/ccmsusr/_js/jquery-2.2.4.min.js", function() { /* JQuery is loaded */
-					loadFirst("/ccmsusr/_js/bootstrap-3.3.7.min.js", function() { /* Bootstrap is loaded */
-						loadFirst("/ccmsusr/_js/metisMenu-2.4.0.min.js", function() { /* MetisMenu JavaScript */
+					loadFirst("/ccmsusr/_js/mmenu.js", function() { /* mmenu is loaded */
+						//loadFirst("/ccmsusr/_js/bootstrap-3.3.7.min.js", function() { /* Bootstrap is loaded */
+						//loadFirst("/ccmsusr/_js/metisMenu-2.4.0.min.js", function() { /* MetisMenu JavaScript */
 							/*loadFirst("/ccmsusr/_js/custodiancms.js", function() { /* CustodianCMS JavaScript */
-							loadFirst("/ccmsusr/_js/custodiancms.min.js", function() { /* CustodianCMS JavaScript */
+							//loadFirst("/ccmsusr/_js/custodiancms.min.js", function() { /* CustodianCMS JavaScript */
 
-								navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
+								//navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
 
 								// Load MetisMenu
-								$('#side-menu').metisMenu();
+								//$('#side-menu').metisMenu();
 
 								// Fade in web page.
-								$("#no-fouc").delay(200).animate({"opacity": "1"}, 500);
+								//$("#no-fouc").delay(200).animate({"opacity": "1"}, 500);
 
-								$("#menu-toggle").click(function(e) {
-									e.preventDefault();
-									$("#wrapper").toggleClass("toggled");
-									$("#wrapper.toggled").find("#sidebar-wrapper").find(".collapse").collapse("hide");
-									$("#sidebar-wrapper").toggle();
+								//$("#menu-toggle").click(function(e) {
+									//e.preventDefault();
+									//$("#wrapper").toggleClass("toggled");
+									//$("#wrapper.toggled").find("#sidebar-wrapper").find(".collapse").collapse("hide");
+									//$("#sidebar-wrapper").toggle();
+								//});
+
+
+							//});
+						//});
+					//});
+
+
+						document.addEventListener(
+							"DOMContentLoaded", () => {
+								new Mmenu( "#my-menu", {
+									"extensions": [
+										"pagedim-black",
+										"position-right"
+									],
+									"iconbar": {
+										"use": true,
+										"top": [
+											"<a href='#/'><i class='fa fa-home'></i></a>",
+											"<a href='#/'><i class='fa fa-user'></i></a>"
+										],
+										"bottom": [
+											"<a href='#/'><i class='fa fa-twitter'></i></a>",
+											"<a href='#/'><i class='fa fa-facebook'></i></a>",
+											"<a href='#/'><i class='fa fa-linkedin'></i></a>"
+										]
+									}
 								});
+							}
+						);
 
 
-							});
-						});
+
 					});
 				});
 			}
