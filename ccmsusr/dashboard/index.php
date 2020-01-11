@@ -111,24 +111,38 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 						);
 						*/
 
-						new Mmenu(document.querySelector('#mm-menu'), {
-							extensions: [ "pagedim-black", "position-right" ],
-							iconbar: {
-							use: true,
-							top: [
-								"<a href='#/'><i class='fa fa-home'></i></a>",
-								"<a href='#/'><i class='fa fa-user'></i></a>"
-							]},
-							sidebar: {
-								collapsed: {
-									use: '(min-width: 450px)',
-									hideNavbar: false
-								},
-								expanded: {
-									use: '(min-width: 992px)'
-								}
+
+						document.addEventListener(
+							"DOMContentLoaded", () => {
+								// Fire the plugin
+								const menu = new Mmenu( "#my-menu", {
+									extensions: [ "pagedim-black", "position-right" ],
+									iconbar: {
+									use: true,
+									top: [
+										"<a href='#/'><i class='fa fa-home'></i></a>",
+										"<a href='#/'><i class='fa fa-user'></i></a>"
+									]},
+									sidebar: {
+										collapsed: {
+											use: '(min-width: 450px)',
+											hideNavbar: false
+										},
+										expanded: {
+											use: '(min-width: 992px)'
+										}
+									}
+								);
+
+								// Get the API
+								const api = menu.API;
+
+								// Invoke a method
+								const panel = document.querySelector( "#my-panel" );
+								api.openPanel( panel );
 							}
 						);
+
 
 
 
