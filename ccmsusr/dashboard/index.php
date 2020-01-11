@@ -11,7 +11,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 	die();
 }
 ?><!DOCTYPE html>
-<html id="no-fouc" lang="en" style="opacity: 0;">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Dashboard</title>
