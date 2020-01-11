@@ -1,31 +1,3 @@
-<nav id="menu">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/work">Our work</a></li>
-		<li><span>About us</span>
-			<ul>
-				<li><a href="/about/history">History</a></li>
-				<li><span>The team</span>
-					<ul>
-						<li><a href="/about/team/management">Management</a></li>
-						<li><a href="/about/team/sales">Sales</a></li>
-						<li><a href="/about/team/development">Development</a></li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<li><span>Services</span>
-			<ul>
-				<li><a href="/services/design">Design</a></li>
-				<li><a href="/services/development">Development</a></li>
-				<li><a href="/services/marketing">Marketing</a></li>
-			</ul>
-		</li>
-		<li><a href="/contact">Contact</a></li>
-	</ul>
-</nav>
-
-
 <!-- nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
 	<div class="navbar-header" style="width: 100%;">
 		<button class="btn btn-default btn-xs" data-toggle="button" id="menu-toggle" style="padding: 8px 10px; position: absolute; left: 250px; top: 7px;" title="Navigation Toggle" type="button">
