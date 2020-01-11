@@ -11,244 +11,42 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 	die();
 }
 ?><!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8">
-		<title>Dashboard</title>
-		<meta name="description" content="" />
-		{CCMS_TPL:header-head.html}
-		<script>
-			var navActiveArray = ["dashboard"];
-		</script>
-		<style>
-		html,
-body {
-	padding: 0;
-	margin: 0;
-}
-body {
-	background-color: #fff;
-	font-family: Arial, Helvetica, Verdana;
-	font-size: 14px;
-	line-height: 22px;
-	color: #666;
-	position: relative;
-	-webkit-text-size-adjust: none;
-}
-h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
-	font-weight: bold;
-	margin: 20px 0 10px 0;
-}
-h1, h2, h3 {
-	font-size: 18px;
-}
-h4, h5, h6 {
-	font-size: 16px;
-}
-p {
-	margin: 0 0 10px 0;
-}
-a, a:link, a:active, a:visited, a:hover {
-	color: inherit;
-	text-decoration: underline;
-}
-
-nav:not(.mm-menu) {
-	display: none;
-}
-
-.header,
-.content,
-.footer {
-	text-align: center;
-}
-.header,
-.footer {
-	background: #4bb5ef;
-	font-size: 16px;
-	font-weight: bold;
-	color: #fff;
-	line-height: 44px;
-
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	height: 44px;
-	padding: 0 50px;
-}
-.header.fixed {
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-.footer.fixed {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-}
-.header a {
-	display: block;
-	width: 28px;
-	height: 18px;
-	padding: 11px;
-	margin: 2px;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.header a:before,
-.header a:after {
-	content: '';
-	display: block;
-	background: #fff;
-	height: 2px;
-}
-.header a span {
-	background: #fff;
-	display: block;
-	height: 2px;
-	margin: 6px 0;
-}
-.content {
-	padding: 150px 50px 50px 50px;
-}
-</style>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<title>My webpage</title>
+		<link href="/ccmsusr/_css/custodiancms.css" rel="stylesheet" />
+		<link href="/ccmsusr/_css/mmenu.css" rel="stylesheet" />
 	</head>
 	<body>
-		<nav id="mm-menu">
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/work">Our work</a></li>
-				<li><span>About us</span>
+		<div id="my-page">
+			<div id="my-header">
+				<nav id="my-menu">
 					<ul>
-						<li><a href="/about/history">History</a></li>
-						<li><span>The team</span>
+						<li class="Selected"><a href="/">Home</a></li>
+						<li><span>About us</span>
 							<ul>
-								<li><a href="/about/team/management">Management</a></li>
-								<li><a href="/about/team/sales">Sales</a></li>
-								<li><a href="/about/team/development">Development</a></li>
+								<li><a href="/about/history/">History</a></li>
+								<li><a href="/about/team/">The team</a></li>
+								<li><a href="/about/address/">Our address</a></li>
 							</ul>
 						</li>
+						<li><a href="/contact/">Contact</a></li>
 					</ul>
-				</li>
-				<li><span>Services</span>
-					<ul>
-						<li><a href="/services/design">Design</a></li>
-						<li><a href="/services/development">Development</a></li>
-						<li><a href="/services/marketing">Marketing</a></li>
-					</ul>
-				</li>
-				<li><a href="/contact">Contact</a></li>
-			</ul>
-		</nav>
-
-
+				</nav>
+			</div>
+			<div id="my-content">
+				...
+			</div>
+		</div>
+		<script src="/ccmsusr/_js/mmenu.js"></script>
 		<script>
-			function loadFirst(e,t){var a=document.createElement("script");a.async = true;a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
-
-			var l = document.createElement('link'); l.rel = 'stylesheet';
-			l.href = "/ccmsusr/_css/mmenu.css";
-			var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-
-			function loadJSResources() {
-				loadFirst("/ccmsusr/_js/jquery-3.4.1.min.js", function() { /* JQuery is loaded */
-					loadFirst("/ccmsusr/_js/mmenu.js", function() { /* mmenu is loaded */
-						//loadFirst("/ccmsusr/_js/bootstrap-3.3.7.min.js", function() { /* Bootstrap is loaded */
-						//loadFirst("/ccmsusr/_js/metisMenu-2.4.0.min.js", function() { /* MetisMenu JavaScript */
-							/*loadFirst("/ccmsusr/_js/custodiancms.js", function() { /* CustodianCMS JavaScript */
-							//loadFirst("/ccmsusr/_js/custodiancms.min.js", function() { /* CustodianCMS JavaScript */
-
-								//navActiveArray.forEach(function(s) {$("#"+s).addClass("active");});
-
-								// Load MetisMenu
-								//$('#side-menu').metisMenu();
-
-								// Fade in web page.
-								//$("#no-fouc").delay(200).animate({"opacity": "1"}, 500);
-
-								//$("#menu-toggle").click(function(e) {
-									//e.preventDefault();
-									//$("#wrapper").toggleClass("toggled");
-									//$("#wrapper.toggled").find("#sidebar-wrapper").find(".collapse").collapse("hide");
-									//$("#sidebar-wrapper").toggle();
-								//});
-
-
-							//});
-						//});
-					//});
-
-
-						/*
-						document.addEventListener(
-							"DOMContentLoaded", () => {
-								new Mmenu( "#mm-menu", {
-									"extensions": [
-										"pagedim-black",
-										"position-right"
-									],
-									"iconbar": {
-										"use": true,
-										"top": [
-											"<a href='#/'><i class='fa fa-home'></i></a>",
-											"<a href='#/'><i class='fa fa-user'></i></a>"
-										],
-										"bottom": [
-											"<a href='#/'><i class='fa fa-twitter'></i></a>",
-											"<a href='#/'><i class='fa fa-facebook'></i></a>",
-											"<a href='#/'><i class='fa fa-linkedin'></i></a>"
-										]
-									}
-								});
-							}
-						);
-						*/
-
-
-						document.addEventListener(
-							"DOMContentLoaded", () => {
-								// Fire the plugin
-								const menu = new Mmenu( "#my-menu", {
-									extensions: [ "pagedim-black", "position-right" ],
-									iconbar: {
-									use: true,
-									top: [
-										"<a href='#/'><i class='fa fa-home'></i></a>",
-										"<a href='#/'><i class='fa fa-user'></i></a>"
-									]},
-									sidebar: {
-										collapsed: {
-											use: '(min-width: 450px)',
-											hideNavbar: false
-										},
-										expanded: {
-											use: '(min-width: 992px)'
-										}
-									}
-								);
-
-								// Get the API
-								const api = menu.API;
-
-								// Invoke a method
-								const panel = document.querySelector( "#my-panel" );
-								api.openPanel( panel );
-							}
-						);
-
-
-
-
-					});
-				});
-			}
-
-			if (window.addEventListener)
-				window.addEventListener("load", loadJSResources, false);
-			else if (window.attachEvent)
-				window.attachEvent("onload", loadJSResources);
-			else window.onload = loadJSResources;
+			document.addEventListener(
+				"DOMContentLoaded", () => {
+					new Mmenu( "#my-menu" );
+				}
+			);
 		</script>
 	</body>
 </html>
