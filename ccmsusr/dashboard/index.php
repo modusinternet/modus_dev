@@ -86,6 +86,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 					//});
 
 
+						/*
 						document.addEventListener(
 							"DOMContentLoaded", () => {
 								new Mmenu( "#mm-menu", {
@@ -106,6 +107,26 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 										]
 									}
 								});
+							}
+						);
+						*/
+
+						new Mmenu(document.querySelector('#mm-menu'), {
+							extensions: [ "pagedim-black", "position-right" ],
+							iconbar: {
+							use: true,
+							top: [
+								"<a href='#/'><i class='fa fa-home'></i></a>",
+								"<a href='#/'><i class='fa fa-user'></i></a>"
+							]},
+							sidebar: {
+								collapsed: {
+									use: '(min-width: 450px)',
+									hideNavbar: false
+								},
+								expanded: {
+									use: '(min-width: 992px)'
+								}
 							}
 						);
 
