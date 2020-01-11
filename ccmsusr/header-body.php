@@ -1,4 +1,4 @@
-<!-- nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
 	<div class="navbar-header" style="width: 100%;">
 		<button class="btn btn-default btn-xs" data-toggle="button" id="menu-toggle" style="padding: 8px 10px; position: absolute; left: 250px; top: 7px;" title="Navigation Toggle" type="button">
 			<i class="fa fa-exchange fa-fw" style="font-size: 1.6em;"></i>
@@ -83,4 +83,4 @@
 			</div>
 		</div>
 	</div>
-</nav -->
+</nav>
