@@ -23,7 +23,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 	</head>
 	<body>
 		<!-- div id="wrapper">
-			{CCMS_TPL:header-body.php}
+			{  CCMS_TPL:header-body.php}
 
 
 			<div id="page-wrapper">
@@ -137,7 +137,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 						document.addEventListener(
 							"DOMContentLoaded", () => {
-								new Mmenu( "#my-menu", {
+								new Mmenu( "#menu", {
 									"extensions": [
 										"pagedim-black",
 										"position-right"
