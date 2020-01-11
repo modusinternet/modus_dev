@@ -22,6 +22,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 	<body>
 		<div id="my-page">
 			<div id="my-header">
+				<a href="#my-menu">Open the menu</a>
 				<nav id="my-menu">
 					<ul>
 						<li class="Selected"><a href="/">Home</a></li>
