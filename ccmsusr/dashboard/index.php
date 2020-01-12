@@ -30,31 +30,21 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 				<a href="#my-menu"><svg aria-label="title desc" class="svg-nav-icon" role="img" viewBox="0 -53 384 384" xmlns="https://www.w3.org/2000/svg"><title>Open Menu</title><desc>An icon used to open the navigation menu.</desc><a xlink:href="#"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></a></svg></a>
 				<nav id="my-menu">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/work">Our work</a></li>
-						<li><span>About us</span>
+						<li><a href="/en/user/dashboard/">Home</a></li>
+						<li><span>Admin</span>
 							<ul>
-								<li><a href="/about/history">History</a></li>
-								<li><span>The team</span>
-									<ul>
-										<li><a href="/about/team/management">Management</a></li>
-										<li><a href="/about/team/sales">Sales</a></li>
-										<li><a href="/about/team/development">Development</a></li>
-									</ul>
-								</li>
+								<li><a href="/en/user/admin/user_privileges/">User Privileges</a></li>
+								<li><a href="/en/user/admin/language_support/">Language Support</a></li>
+								<li><a href="/en/user/admin/blacklist_settings/">Blacklist Settings</a></li>
 							</ul>
 						</li>
-						<li><span>Services</span>
-							<ul>
-								<li><a href="/services/design">Design</a></li>
-								<li><a href="/services/development">Development</a></li>
-								<li><a href="/services/marketing">Marketing</a></li>
-							</ul>
-						</li>
-						<li><a href="/contact">Contact</a></li>
+						<li><a href="/en/user/content_manager/">Content Manager</a></li>
+						<li><a href="/en/user/content_groups/">Content Groups</a></li>
+						<li><a href="/en/user/github/">GitHub</a></li>
 					</ul>
 				</nav>
 			</div>
+
 			<div id="my-content">
 				...
 			</div>
