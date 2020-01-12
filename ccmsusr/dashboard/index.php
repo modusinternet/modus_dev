@@ -21,7 +21,9 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		<style>
 			:root{--mb-button-size:60px;--mb-bar-width:0.6;--mb-bar-height:4px;--mb-bar-spacing:10px;--mb-animate-timeout:0.4s}
 
-			a{color:#337ab7}
+			svg{max-width:100px}
+
+			svg>path,svg>g>path{fill:#337ab7}
 
 			/*
 			.mburger{background:0 0;border:none;border-radius:0;color:inherit;display:inline-block;position:relative;box-sizing:border-box;height:var(--mb-button-size);padding:0 0 0 var(--mb-button-size);margin:0;line-height:var(--mb-button-size);vertical-align:middle;appearance:none;outline:0;cursor:pointer}
