@@ -57,7 +57,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		<script src="/ccmsusr/_js/mmenu.js"></script>
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {
-				new Mmenu( "#my-menu"", {
+				new Mmenu( "#my-menu", {
 					"extensions": [
 						"pagedim-black",
 						"position-right"
