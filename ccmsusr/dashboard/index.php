@@ -60,7 +60,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 				new Mmenu( "#my-menu", {
 					"extensions": [
 						"pagedim-black",
-						"position-right"
+						"position-left"
 					], "iconbar": {
 						"use": true,
 						"top": [
