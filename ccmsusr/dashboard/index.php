@@ -25,16 +25,29 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 				<a href="#my-menu">Open the menu</a>
 				<nav id="my-menu">
 					<ul>
-						<li class="Selected"><a href="/">Home</a></li>
-						<li><span>About us</span>
-							<ul>
-								<li><a href="/about/history/">History</a></li>
-								<li><a href="/about/team/">The team</a></li>
-								<li><a href="/about/address/">Our address</a></li>
-							</ul>
-						</li>
-						<li><a href="/contact/">Contact</a></li>
-					</ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/work">Our work</a></li>
+                <li><span>About us</span>
+                    <ul>
+                        <li><a href="/about/history">History</a></li>
+                        <li><span>The team</span>
+                            <ul>
+                                <li><a href="/about/team/management">Management</a></li>
+                                <li><a href="/about/team/sales">Sales</a></li>
+                                <li><a href="/about/team/development">Development</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>Services</span>
+                    <ul>
+                        <li><a href="/services/design">Design</a></li>
+                        <li><a href="/services/development">Development</a></li>
+                        <li><a href="/services/marketing">Marketing</a></li>
+                    </ul>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
 				</nav>
 			</div>
 			<div id="my-content">
@@ -43,26 +56,24 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		</div>
 		<script src="/ccmsusr/_js/mmenu.js"></script>
 		<script>
-			document.addEventListener(
-				"DOMContentLoaded", () => {
-					new Mmenu( "#my-menu"", {
-						"extensions": [
-							"pagedim-black",
-							"position-right"
-						], "iconbar": {
-							"use": true,
-							"top": [
-								"<a href='#/'><i class='fa fa-home'></i></a>",
-								"<a href='#/'><i class='fa fa-user'></i></a>"
-							], "bottom": [
-								"<a href='#/'><i class='fa fa-twitter'></i></a>",
-								"<a href='#/'><i class='fa fa-facebook'></i></a>",
-								"<a href='#/'><i class='fa fa-linkedin'></i></a>"
-							]
-						}
-					});
-				}
-			);
+			document.addEventListener("DOMContentLoaded", () => {
+				new Mmenu( "#my-menu"", {
+					"extensions": [
+						"pagedim-black",
+						"position-right"
+					], "iconbar": {
+						"use": true,
+						"top": [
+							"<a href='#/'><i class='fa fa-home'></i></a>",
+							"<a href='#/'><i class='fa fa-user'></i></a>"
+						], "bottom": [
+							"<a href='#/'><i class='fa fa-twitter'></i></a>",
+							"<a href='#/'><i class='fa fa-facebook'></i></a>",
+							"<a href='#/'><i class='fa fa-linkedin'></i></a>"
+						]
+					}
+				});
+			});
 		</script>
 	</body>
 </html>
