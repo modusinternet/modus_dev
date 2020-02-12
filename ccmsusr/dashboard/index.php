@@ -174,7 +174,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			svg{max-width:30px}
 
-			svg>path,svg>g>path{fill:var(--cl2)}
+			svg>path,svg>a>path,svg>g>path{fill:var(--cl2)}
 
 			/* 1024px or larger. */
 			@media only screen and (min-width:1024px){}
