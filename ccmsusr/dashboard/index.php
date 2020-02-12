@@ -262,7 +262,7 @@ border-color:
 
 
 
-				<h1>Content Manager</h1>
+				<h1>Dashboard</h1>
 				<div class="panel panel-danger">
 					<div class="panel-heading">
 						Notice
