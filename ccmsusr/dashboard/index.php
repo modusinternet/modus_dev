@@ -206,27 +206,23 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			.panel-danger{border-color:#ebccd1}
 
-			.panel-heading {
-			    padding: 10px 15px;
-			    border-bottom: 1px solid
-			    transparent;
-			        border-bottom-color: transparent;
-			    border-top-left-radius: 3px;
-			    border-top-right-radius: 3px;
+			.panel-heading{
+				padding:10px 15px;
+				border-bottom:1px solid transparent;
+				border-bottom-color:transparent;
+				border-top-left-radius:3px;
+				border-top-right-radius:3px
 			}
 
-			.panel-danger > .panel-heading {
-    color:
-#a94442;
-background-color:
-#f2dede;
-border-color:
-    #ebccd1;
-}
+			.panel-danger>.panel-heading{
+				color:#a94442;
+				background-color:#f2dede;
+				border-color:#ebccd1
+			}
 
-.panel-body {
-    padding: 15px;
- }
+			.panel-body{padding:15px}
+
+			#my-page{margin:20px}
 
 		</style>
 	</head>
