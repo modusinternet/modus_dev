@@ -107,7 +107,8 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			h1{
 				font-size:4.4rem;
-				line-height:5rem
+				line-height:5rem;
+				margin-bottom:20px
 			}
 
 			h2{
