@@ -219,11 +219,11 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			.panel-body{padding:15px}
 
+			#my-content{padding-top:20px}
+
 			#my-menu:focus{outline:0}
 
 			#my-page{margin:20px}
-
-			#my-content{padding-top:20px}
 
 		</style>
 	</head>
