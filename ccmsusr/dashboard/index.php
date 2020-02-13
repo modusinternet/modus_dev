@@ -80,14 +80,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 				--cl2-tran:rgba(0,96,88,.75);
 				--cl3:rgb(0,150,136);
 				--cl4:rgb(105,170,111);
-				--cl5:rgb(201,203,196);
-				--z-index-loading_svg:15;
-				--z-index-A2HS-box:14;
-				--z-index-msg-svg-fill:2;
-				--z-index-msg:4;
-				--z-index-msg-svg-fill_hide:-1;
-				--z-index-hatchPattern:-1;
-				--z-index-msg_hide:-1
+				--cl5:rgb(201,203,196)
 			}
 
 			*,*::before,*::after{
@@ -109,8 +102,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 			h1,h2,h3,h4,h5,h6{
 				color:var(--cl2);
 				font-family:"Roboto",sans-serif;
-				font-weight:100;
-				text-align:center
+				font-weight:100
 			}
 
 			h1{
@@ -167,7 +159,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 			ol,ul{
 				margin-bottom:1.5rem;
 				margin-left:40px;
-				margin-top:0;
+				margin-top:0
 			}
 
 			ul{list-style:circle}
