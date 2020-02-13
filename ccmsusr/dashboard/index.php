@@ -216,6 +216,8 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			#my-page{margin:20px}
 
+			#my-content{padding-top:20px}
+
 		</style>
 	</head>
 	<body>
