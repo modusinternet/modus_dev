@@ -240,6 +240,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 						<li><a href="/en/user/github/">GitHub</a></li>
 					</ul>
 				</nav>
+				<img src="/ccmsusr/_img/ccms-535x107.png">
 			</div>
 
 			<div id="my-content">
