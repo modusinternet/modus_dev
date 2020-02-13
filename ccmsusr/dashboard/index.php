@@ -76,7 +76,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 			:root{
 				--cl0:rgb(255,255,255);
 				--cl1:rgb(67,67,67);
-				--cl2:rgb(0,96,88);
+				--cl2:rgb(134,177,53);
 				--cl2-tran:rgba(0,96,88,.75);
 				--cl3:rgb(0,150,136);
 				--cl4:rgb(105,170,111);
@@ -180,7 +180,11 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 
 
-
+			.logo{
+				height:50px;
+				position:relative;
+				float:right
+			}
 
 			.panel {
 				margin-bottom: 20px;
@@ -240,7 +244,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 						<li><a href="/en/user/github/">GitHub</a></li>
 					</ul>
 				</nav>
-				<img src="/ccmsusr/_img/ccms-535x107.png">
+				<img class="logo" src="/ccmsusr/_img/ccms-535x107.png">
 			</div>
 
 			<div id="my-content">
