@@ -221,7 +221,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 			#my-content{padding-top:20px}
 
-			#my-menu:focus{outline:0}
+			#my-menu:active,#my-menu:focus,#my-menu:hover{outline:0}
 
 			#my-page{margin:20px}
 
