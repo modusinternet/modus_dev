@@ -296,7 +296,6 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 
 
 							/*document.addEventListener("DOMContentLoaded", () => {*/
-							window.addEventListener("DOMContentLoaded", () => {
 								new Mmenu("#my-menu", {
 									"extensions": [
 										"pagedim-black",
@@ -311,7 +310,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 										]
 									}
 								});
-							});
+							/*});*/
 
 
 
