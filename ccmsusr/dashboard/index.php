@@ -226,7 +226,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		<div id="my-page">
 			<div id="my-header">
 				<a href="#my-menu"><svg aria-label="title desc" class="svg-nav-icon" role="img" viewBox="0 -53 384 384" xmlns="https://www.w3.org/2000/svg"><title>Open Menu</title><desc>An icon used to open the navigation menu.</desc><a xlink:href="#"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></a></svg></a>
-				<nav id="my-menu">
+				<nav id="my-menu" style="display:none">
 					<ul>
 						<li><a href="/en/user/dashboard/">Dashboard</a></li>
 						<li><span>Admin</span>
