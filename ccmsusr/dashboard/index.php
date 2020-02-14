@@ -224,27 +224,6 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 	</head>
 	<body>
 		<div id="my-page">
-			<div id="my-content">
-				<h1>Dashboard</h1>
-				<div class="panel panel-danger">
-					<div class="panel-heading">
-						Notice
-					</div>
-					<div class="panel-body">
-						<p>This section of the Custodian CMS admin is currently under development.</p>
-					</div>
-				</div>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec ligula id nisl fringilla finibus. Vestibulum rhoncus, felis at fringilla ullamcorper, ante mi tincidunt nunc, ac ultrices odio odio vitae lorem. Morbi quis elit id urna efficitur aliquam ut et sapien. Fusce porttitor vel ligula faucibus tempor. Pellentesque tincidunt imperdiet enim, id lobortis ipsum tempus id. In facilisis elementum dictum. Donec suscipit ornare tortor, sed volutpat mauris volutpat at. Pellentesque porttitor ut augue at ultrices. Proin egestas semper lorem quis suscipit. Vivamus eget magna tincidunt, semper sem eu, molestie quam. Praesent nisl velit, ultricies ac malesuada id, dapibus in dui. Mauris luctus velit non mi condimentum rhoncus. Nullam sit amet aliquet turpis, id malesuada nulla. Ut sit amet nisl nec ante commodo eleifend.
-
-
-
-
-
-
-			</div>
-
-
-
 			<div id="my-header">
 				<a href="#my-menu"><svg aria-label="title desc" class="svg-nav-icon" role="img" viewBox="0 -53 384 384" xmlns="https://www.w3.org/2000/svg"><title>Open Menu</title><desc>An icon used to open the navigation menu.</desc><a xlink:href="#"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></a></svg></a>
 				<nav id="my-menu">
@@ -265,18 +244,25 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 				<img class="logo" src="/ccmsusr/_img/ccms-535x107.png">
 			</div>
 
+			<div id="my-content">
+				<h1>Dashboard</h1>
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						Notice
+					</div>
+					<div class="panel-body">
+						<p>This section of the Custodian CMS admin is currently under development.</p>
+					</div>
+				</div>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec ligula id nisl fringilla finibus. Vestibulum rhoncus, felis at fringilla ullamcorper, ante mi tincidunt nunc, ac ultrices odio odio vitae lorem. Morbi quis elit id urna efficitur aliquam ut et sapien. Fusce porttitor vel ligula faucibus tempor. Pellentesque tincidunt imperdiet enim, id lobortis ipsum tempus id. In facilisis elementum dictum. Donec suscipit ornare tortor, sed volutpat mauris volutpat at. Pellentesque porttitor ut augue at ultrices. Proin egestas semper lorem quis suscipit. Vivamus eget magna tincidunt, semper sem eu, molestie quam. Praesent nisl velit, ultricies ac malesuada id, dapibus in dui. Mauris luctus velit non mi condimentum rhoncus. Nullam sit amet aliquet turpis, id malesuada nulla. Ut sit amet nisl nec ante commodo eleifend.
 
+
+
+
+
+
+			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
 
 		<script>
 
