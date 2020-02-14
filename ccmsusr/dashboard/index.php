@@ -301,7 +301,7 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 									}
 								});
 
-								document.getElementById("my-menu").style.display="unset"
+								document.getElementById("my-menu").removeAttribute("style")
 							/*});*/
 
 
