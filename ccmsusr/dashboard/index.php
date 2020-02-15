@@ -68,7 +68,6 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		</div>
 
 		<script>
-
 			function loadFirst(e,t){var a=document.createElement("script");a.async="true";a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.body.appendChild(a)}
 
 			var l=document.createElement('link');l.rel="stylesheet";
