@@ -17,12 +17,12 @@ if($_SERVER["SCRIPT_NAME"] != "/ccmsusr/index.php") {
 		<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no" />
 		<title>Dashboard</title>
 		<style>
-			{CCMS_TPL:/ccmsusr/_css/header.html}
+			{CCMS_TPL:/_css/header.html}
 
 
 
 
-			
+
 		</style>
 	</head>
 	<body>
